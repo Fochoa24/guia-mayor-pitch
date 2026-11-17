@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía Mayor · Presentación de inversión</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+/* Un mundo visual: el verde de la app sobre un blanco verdoso, ámbar solo para riesgo y atención.
+   Layout: escenario fijo 1600×900 escalado a la ventana; riel de la rúbrica arriba, contenido alineado a la izquierda. */
+:root {
+  --paper: #f3f6f3;
+  --card: #ffffff;
+  --ink: #16201c;
+  --ink-soft: #4b5952;
+  --line: #d5ddd8;
+  --brand: #0f5c4d;
+  --brand-soft: #e0eee8;
+  --amber: #b45309;
+  --amber-soft: #fdf1dc;
+  --pos: #16876f;
+  --neg: #d4622a;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; }
+body { background: #dfe6e2; color: var(--ink); font-family: var(--body); overflow: hidden; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 8px; }
+
+#viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+#stage {
+  width: 1600px; height: 900px; position: relative; background: var(--paper);
+  transform-origin: center center; box-shadow: 0 20px 60px rgba(22, 32, 28, .18); overflow: hidden;
+}
+
+/* Riel de la rúbrica */
+#rail { position: absolute; top: 26px; left: 56px; right: 56px; display: flex; gap: 3px; z-index: 5; }
+.chev {
+  flex: 1; height: 34px; border: 0; background: #e6ece8; color: var(--ink-soft);
+  font-size: 12.5px; font-weight: 700; letter-spacing: .01em; line-height: 1.05;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%, 10px 50%);
+  padding: 0 8px 0 14px; display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.chev:first-child { clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%); }
+.chev.done { background: var(--brand-soft); color: var(--brand); }
+.chev.on { background: var(--brand); color: #fff; }
+
+.slide { position: absolute; inset: 0; padding: 96px 96px 72px; display: none; flex-direction: column; }
+.slide.on { display: flex; animation: enter .35s ease both; }
+@keyframes enter { from { opacity: .4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.kicker { font-family: var(--display); font-weight: 700; font-size: 17px; color: var(--brand); letter-spacing: .06em; text-transform: uppercase; display: flex; gap: 14px; align-items: baseline; }
+.kicker .pts { font-family: var(--body); text-transform: none; letter-spacing: 0; color: var(--ink-soft); font-weight: 400; font-size: 15px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+h2 { font-size: 50px; line-height: 1.06; font-weight: 800; letter-spacing: -.015em; margin-top: 10px; max-width: 1250px; }
+h3 { font-size: 24px; font-weight: 700; }
+p { margin: 0; }
+.lead { font-size: 23px; line-height: 1.45; color: var(--ink-soft); max-width: 1000px; margin-top: 16px; }
+.content { flex: 1; min-height: 0; margin-top: 34px; }
+.num { font-variant-numeric: tabular-nums; }
+.src { font-size: 13.5px; color: var(--ink-soft); line-height: 1.4; }
+.foot { position: absolute; left: 96px; right: 96px; bottom: 26px; display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-soft); }
+
+.grid { display: grid; gap: 22px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 26px; }
+.card h3 { margin-bottom: 10px; }
+.card p, .card li { font-size: 19px; line-height: 1.5; }
+.card ul { margin: 0; padding-left: 22px; }
+.card li + li { margin-top: 6px; }
+.tag { display: inline-block; font-size: 14px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: var(--brand-soft); color: var(--brand); }
+.tag.amber { background: var(--amber-soft); color: var(--amber); }
+.big { font-family: var(--display); font-weight: 800; font-size: 64px; line-height: 1; color: var(--brand); letter-spacing: -.02em; }
+.big.amber { color: var(--amber); }
+.stat p { font-size: 19px; line-height: 1.45; margin-top: 10px; }
+.accent-left { border-left: 6px solid var(--brand); }
+.muted { color: var(--ink-soft); }
+table { border-collapse: collapse; width: 100%; font-size: 18px; }
+th, td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 15px; color: var(--ink-soft); font-weight: 700; }
+td.c, th.c { text-align: center; }
+.yes { color: var(--brand); font-weight: 700; }
+.part { color: var(--amber); font-weight: 700; }
+.no { color: #8a958f; }
+tr.us td { background: var(--brand-soft); font-weight: 700; }
+
+/* Portada */
+#s-portada { padding: 0; flex-direction: row; }
+#s-portada .left { flex: 1.25; padding: 150px 80px 80px 110px; display: flex; flex-direction: column; justify-content: center; }
+#s-portada .right { flex: 1; background: var(--brand); color: #fff; padding: 150px 80px 80px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
+#s-portada h1 { font-size: 120px; font-weight: 800; letter-spacing: -.035em; color: var(--brand); line-height: .95; }
+#s-portada .one { font-size: 34px; line-height: 1.3; margin-top: 30px; max-width: 760px; font-family: var(--display); font-weight: 500; }
+#s-portada .meta { margin-top: 46px; font-size: 19px; color: var(--ink-soft); line-height: 1.6; }
+#s-portada .right .k { font-family: var(--display); font-weight: 800; font-size: 76px; line-height: 1; }
+#s-portada .right p { font-size: 21px; line-height: 1.45; color: #d6ebe4; max-width: 470px; }
+#s-portada .right hr { border: 0; border-top: 1px solid rgba(255,255,255,.25); width: 100%; margin: 4px 0; }
+
+/* Teléfono: réplica de la app real (colores, tamaños y textos de src/App.jsx) */
+.phone { width: 372px; height: 760px; border-radius: 52px; background: #111614; padding: 12px; box-shadow: 0 24px 50px rgba(0,0,0,.25); flex: none; }
+.screen { width: 100%; height: 100%; border-radius: 41px; overflow: hidden; background: #fbf8f1; color: #1f2421; display: flex; flex-direction: column; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; position: relative; }
+.notch { height: 30px; display: flex; justify-content: space-between; align-items: center; padding: 6px 26px 0; font-size: 13px; font-weight: 700; }
+.app-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; border-bottom: 1px solid rgba(31,36,33,.1); padding: 8px 12px; }
+.app-h b { font-size: 21px; font-weight: 800; }
+.app-btn { border-radius: 16px; border: 2px solid rgba(31,36,33,.2); background: #fff; padding: 7px 11px; font-size: 15px; font-weight: 700; font-family: inherit; }
+.msgs { flex: 1; overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 13px; scroll-behavior: smooth; }
+.b { max-width: 92%; border-radius: 24px; padding: 11px 15px; font-size: 17.5px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; box-shadow: 0 1px 2px rgba(0,0,0,.05); }
+.b.a { align-self: flex-start; background: #fff; border: 1px solid rgba(31,36,33,.1); border-bottom-left-radius: 6px; }
+.b.u { align-self: flex-end; background: #0f5c4d; color: #fff; border-bottom-right-radius: 6px; }
+.b .host { font-weight: 600; color: #0f5c4d; }
+.b .lk { display: flex; min-height: 52px; align-items: center; justify-content: center; border-radius: 16px; background: #0f5c4d; color: #fff; font-weight: 700; font-size: 16.5px; margin-top: 12px; text-decoration: none; padding: 10px 12px; text-align: center; white-space: normal; }
+.b .say { margin-top: 10px; border-radius: 12px; border: 2px solid rgba(31,36,33,.2); background: transparent; padding: 6px 12px; font-size: 14.5px; font-weight: 700; color: #4a524d; font-family: inherit; }
+.typing { color: #4a524d; }
+.sugs { display: grid; gap: 10px; padding-top: 4px; }
+.sug { display: flex; align-items: center; gap: 10px; min-height: 56px; border-radius: 16px; border: 3px solid #0f5c4d; background: #fff; padding: 8px 12px; text-align: left; font-size: 16.5px; font-weight: 700; color: #0f5c4d; font-family: inherit; }
+.sug span { font-size: 26px; }
+.privacy-line { text-align: center; font-size: 14.5px; color: #4a524d; padding-top: 6px; }
+.privacy-line button { border: 0; background: none; text-decoration: underline; text-underline-offset: 4px; font-size: 14.5px; color: inherit; font-family: inherit; padding: 0; }
+.app-f { border-top: 1px solid rgba(31,36,33,.1); padding: 10px 12px 16px; }
+.warn { background: #fef3c7; color: #92400e; border: 2px solid rgba(146,64,14,.3); border-radius: 16px; padding: 10px 14px; font-size: 15.5px; line-height: 1.4; margin-bottom: 10px; }
+.app-form { display: flex; gap: 8px; align-items: flex-end; }
+.app-form textarea { flex: 1; min-width: 0; height: 58px; resize: none; border-radius: 16px; border: 3px solid rgba(31,36,33,.3); background: #fff; padding: 7px 11px; font-size: 16.5px; font-family: inherit; color: #1f2421; }
+.mic { width: 52px; height: 58px; border-radius: 16px; border: 3px solid #0f5c4d; background: #fff; font-size: 22px; }
+.mic.on { border-color: #92400e; background: #fef3c7; }
+.send { height: 58px; border-radius: 16px; background: #0f5c4d; color: #fff; border: 0; padding: 0 14px; font-weight: 700; font-size: 16.5px; font-family: inherit; }
+.send:disabled { opacity: .5; }
+.priv { position: absolute; inset: 30px 0 0; background: #fbf8f1; padding: 12px 14px; overflow-y: auto; display: none; }
+.priv.on { display: block; }
+.priv .back { height: 50px; border-radius: 16px; border: 2px solid rgba(74,82,77,.3); background: #fff; padding: 0 14px; font-weight: 700; font-size: 16px; font-family: inherit; }
+.priv h4 { font-size: 24px; font-weight: 800; margin: 14px 0; line-height: 1.15; }
+.priv .pc { background: #fff; border: 1px solid rgba(31,36,33,.1); border-radius: 24px; padding: 18px; font-size: 16px; line-height: 1.55; display: grid; gap: 12px; }
+.priv .soft { color: #4a524d; }
+
+/* Demo */
+.demo { display: grid; grid-template-columns: 1fr 372px 1fr; gap: 44px; align-items: center; margin-top: 18px; flex: 1; min-height: 0; }
+.panel { display: grid; gap: 12px; align-content: start; }
+.panel h3 { font-size: 21px; margin-bottom: 2px; }
+.ctl { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; border: 2px solid var(--line); background: var(--card); border-radius: 14px; padding: 13px 16px; font-size: 18px; font-weight: 700; }
+.ctl:hover { border-color: var(--brand); }
+.ctl small { display: block; font-weight: 400; color: var(--ink-soft); font-size: 14.5px; margin-top: 2px; }
+.ctl .n { font-family: var(--display); font-weight: 800; color: var(--brand); font-size: 20px; width: 26px; flex: none; }
+.ctl.alt .n { color: var(--amber); }
+.reply { border: 2px dashed var(--brand); background: var(--brand-soft); color: var(--brand); border-radius: 999px; padding: 11px 18px; font-weight: 700; font-size: 17px; text-align: left; }
+.reply:hover { background: #cfe5dc; }
+#replies { display: flex; flex-wrap: wrap; gap: 10px; min-height: 52px; }
+.note { font-size: 15px; line-height: 1.5; color: var(--ink-soft); border-top: 1px solid var(--line); padding-top: 12px; }
+.feat { display: grid; gap: 14px; }
+.feat div { display: grid; grid-template-columns: 34px 1fr; gap: 10px; font-size: 18px; line-height: 1.45; }
+.feat b { display: block; }
+.feat .dot { width: 34px; height: 34px; border-radius: 10px; background: var(--brand-soft); color: var(--brand); display: grid; place-items: center; font-family: var(--display); font-weight: 800; }
+
+/* Flujo de la solución */
+.flow { display: grid; grid-template-columns: 1fr 40px 1.15fr 40px 1fr; align-items: stretch; }
+.flow .arrow { display: grid; place-items: center; color: var(--brand); font-size: 30px; font-weight: 700; }
+.flow .card { display: flex; flex-direction: column; gap: 8px; }
+
+/* Mercado */
+.funnel { display: grid; gap: 14px; }
+.tier { display: grid; grid-template-columns: 120px 1fr 230px; align-items: center; gap: 22px; }
+.tier .bar { height: 46px; border-radius: 12px; background: var(--brand); }
+.tier .desc { font-size: 17px; line-height: 1.35; color: var(--ink-soft); margin-top: 8px; }
+.tier.sam .bar { background: var(--pos); }
+.tier.som .bar { background: #7fc2b0; color: var(--ink); }
+.tier .lab { font-family: var(--display); font-size: 34px; font-weight: 800; color: var(--brand); }
+.tier .val { font-family: var(--display); font-size: 34px; font-weight: 800; text-align: right; }
+.tier .val small { display: block; font-family: var(--body); font-weight: 400; font-size: 15px; color: var(--ink-soft); }
+
+/* Embudo de marketing */
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.step { padding: 20px 26px 22px 22px; background: var(--card); border: 1px solid var(--line); position: relative; }
+.step + .step { border-left: 0; }
+.step:first-child { border-radius: 16px 0 0 16px; }
+.step:last-child { border-radius: 0 16px 16px 0; }
+.step .t { font-family: var(--display); font-weight: 800; font-size: 22px; color: var(--brand); }
+.step p { font-size: 17px; line-height: 1.45; margin-top: 8px; }
+.step .m { margin-top: 12px; font-size: 15px; font-weight: 700; color: var(--amber); }
+
+/* Equipo */
+.team { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.member { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; display: grid; gap: 12px; align-content: start; }
+.avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 24px; }
+.member .nm { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.15; }
+.member .rl { font-size: 17px; line-height: 1.4; color: var(--brand); font-weight: 700; border-radius: 6px; outline-offset: 2px; }
+.member .rl[data-empty="1"] { color: var(--amber); }
+.member .rl:focus { outline: 2px dashed var(--brand); }
+
+/* Roadmap */
+.road { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; position: relative; }
+.road::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 4px; background: var(--brand-soft); }
+.ms { position: relative; display: grid; gap: 10px; align-content: start; }
+.ms .pin { width: 42px; height: 42px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; border: 5px solid var(--paper); position: relative; }
+.ms .when { font-weight: 700; color: var(--ink-soft); font-size: 15px; }
+.ms h3 { font-size: 24px; line-height: 1.2; }
+.ms .card { padding: 16px 18px; }
+.ms .card p { font-size: 18px; line-height: 1.45; }
+.ms .card p + p { margin-top: 8px; }
+.ms .lbl { font-weight: 700; color: var(--ink); }
+.ms .risk { color: var(--amber); }
+
+/* Finanzas */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.kpi { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
+.kpi .v { font-family: var(--display); font-weight: 800; font-size: 40px; color: var(--brand); line-height: 1.05; }
+.kpi .l { font-size: 15.5px; color: var(--ink-soft); margin-top: 4px; }
+.fin { display: grid; grid-template-columns: 1.35fr 1fr; gap: 22px; margin-top: 18px; }
+#chart { position: relative; }
+#chart svg { display: block; }
+.legend { display: flex; gap: 22px; font-size: 15px; color: var(--ink-soft); margin: 2px 0 6px; }
+.legend i { display: inline-block; width: 14px; height: 14px; border-radius: 4px; vertical-align: -2px; margin-right: 7px; }
+.legend i.line { height: 3px; border-radius: 2px; vertical-align: 4px; background: var(--ink); }
+#tip { position: absolute; pointer-events: none; background: var(--ink); color: #fff; border-radius: 10px; padding: 9px 12px; font-size: 14.5px; line-height: 1.45; display: none; white-space: nowrap; z-index: 3; }
+.sc td, .sc th { padding: 8px 12px; font-size: 16.5px; }
+.sc td.r, .sc th.r { text-align: right; }
+.neg { color: var(--neg); font-weight: 700; }
+
+/* Uso de fondos */
+.alloc { display: flex; height: 82px; border-radius: 14px; overflow: hidden; gap: 2px; background: var(--paper); }
+.alloc div { display: flex; align-items: center; padding: 0 16px; color: #fff; font-weight: 700; font-size: 17px; line-height: 1.2; }
+
+/* Preguntas */
+details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 13px 18px; }
+details + details { margin-top: 10px; }
+summary { font-weight: 700; font-size: 19px; cursor: pointer; }
+details p { font-size: 17px; line-height: 1.5; margin-top: 8px; color: var(--ink-soft); }
+
+/* Herramientas del presentador */
+#hud { position: fixed; right: 14px; bottom: 12px; display: flex; gap: 8px; align-items: center; z-index: 20; font-size: 14px; }
+#hud button, #hud span { background: rgba(22,32,28,.88); color: #fff; border: 0; border-radius: 10px; padding: 7px 11px; }
+#hud span.over { background: var(--amber); }
+#notes { position: fixed; left: 14px; right: 14px; bottom: 54px; max-height: 32vh; overflow-y: auto; background: rgba(22,32,28,.94); color: #f1f5f3; border-radius: 14px; padding: 16px 20px; font-size: 17px; line-height: 1.55; z-index: 20; display: none; }
+#notes.on { display: block; }
+#notes b { color: #9fd8c8; }
+#help { position: fixed; inset: 0; background: rgba(22,32,28,.6); display: none; place-items: center; z-index: 30; }
+#help.on { display: grid; }
+#help .box { background: #fff; border-radius: 18px; padding: 26px 30px; font-size: 17px; line-height: 1.8; min-width: 420px; }
+#help kbd { background: var(--brand-soft); color: var(--brand); border-radius: 6px; padding: 2px 8px; font-weight: 700; font-family: var(--body); }
+
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body>
+<div id="viewport"><div id="stage">
+<nav id="rail" aria-label="Secciones de la rúbrica"></nav>
+
+<!-- 0 · PORTADA -->
+<section class="slide" id="s-portada" data-rail="" data-t="30">
+  <div class="left">
+    <div class="kicker">Presentación de inversión · Fase capitales privados</div>
+    <h1 style="margin-top:22px">Guía Mayor</h1>
+    <p class="one">Acompaña a las personas mayores a hacer sus trámites por internet, paso a paso y sin depender de otra persona.</p>
+    <p class="meta">Felipe Ochoa · Antonia Valdebenito · Jorge Pinto · Benjamín Candia · John Torres<br>Ingeniería en Computación e Informática · Universidad Andrés Bello · Solemne 3 · Noviembre 2026</p>
+  </div>
+  <div class="right">
+    <div class="k num">20 de 20</div>
+    <p>adultos mayores completaron su trámite sin ayuda en el piloto de octubre y noviembre de 2026.</p>
+    <hr>
+    <div class="k num">$55 M</div>
+    <p>es lo que buscamos para llevar Guía Mayor a producción y a sus primeros municipios e instituciones.</p>
+  </div>
+</section>
+
+<!-- 1 · CONCEPTO -->
+<section class="slide" id="s-concepto" data-rail="0" data-t="35">
+  <div class="kicker">Concepto <span class="pts">4 pts</span></div>
+  <h2>Un acompañante digital que guía cada trámite, un paso a la vez</h2>
+  <div class="content grid" style="grid-template-columns: 1.3fr 1fr 1fr; align-content:start">
+    <div class="card accent-left" style="grid-row: span 2">
+      <h3>En una frase</h3>
+      <p style="font-size:27px; line-height:1.4; font-family:var(--display); font-weight:500">Guía Mayor es un chat con letra grande y voz que acompaña a las personas mayores a hacer cualquier trámite por internet, paso a paso, sin cuentas ni contraseñas.</p>
+    </div>
+    <div class="card"><h3>Propósito</h3><p>Que una persona mayor pueda hacer sus trámites sola, con confianza y sin exponerse a estafas.</p></div>
+    <div class="card"><h3>Para quién</h3><p><b>Usa:</b> la persona mayor, gratis.<br><b>Paga:</b> municipios e instituciones que atienden a personas mayores.</p></div>
+    <div class="card" style="grid-column: span 2"><h3>Qué la hace distinta</h3><p>No es un manual ni un video: acompaña en el momento del trámite, responde con las palabras de la persona y la lleva al sitio oficial correcto.</p></div>
+  </div>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 2 · PROBLEMA -->
+<section class="slide" id="s-problema" data-rail="1" data-t="60">
+  <div class="kicker">Problema <span class="pts">7 pts</span></div>
+  <h2>Los trámites pasaron a internet y la mayoría de las personas mayores no puede hacerlos sola</h2>
+  <div class="content grid" style="grid-template-columns: repeat(3, 1fr); align-content:start">
+    <div class="card stat"><div class="big amber num">36%</div><p>de las personas mayores sabe hacer un trámite o transacción digital de forma autónoma.</p><p class="src">Subtel, convenio Segegob–Subtel–Senama, 2025</p></div>
+    <div class="card stat"><div class="big num">3,67 M</div><p>personas de 60 años o más viven en Chile: el 19,8% de la población. Serían el 26,4% en 2035.</p><p class="src">INE y Senama, Censo 2024 (publicado el 29-09-2026)</p></div>
+    <div class="card stat"><div class="big amber num">4 de 10</div><p>personas mayores han sido víctimas de algún fraude o estafa digital.</p><p class="src">Radiografía Digital de Personas Mayores 2023 (Subtel y Senama)</p></div>
+    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: repeat(3,1fr); gap: 26px">
+      <div><h3>Quién lo sufre</h3><p>La persona mayor, que depende de un hijo o nieto para sacar una hora, revisar su AFP o pedir un certificado.</p></div>
+      <div><h3>Qué le cuesta</h3><p>Horas de fila, permisos en el trabajo de la familia y el riesgo de entregar claves a quien no corresponde.</p></div>
+      <div><h3>Por qué ahora</h3><p>El Estado digitaliza sus trámites y la banca deja los canales presenciales. Solo el 82,9% de los hogares de personas mayores tiene internet, frente al 96,5% del total.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Fuentes: subtel.gob.cl · ine.gob.cl · senama.gob.cl</span><span class="pg"></span></div>
+</section>
+
+<!-- 3 · SOLUCIÓN -->
+<section class="slide" id="s-solucion" data-rail="2" data-t="60">
+  <div class="kicker">Solución <span class="pts">9 pts</span></div>
+  <h2>La persona escribe o dicta lo que necesita, y Guía Mayor la lleva paso a paso hasta el sitio oficial</h2>
+  <div class="content" style="display:grid; gap:22px; align-content:start">
+    <div class="flow">
+      <div class="card"><span class="tag">1 · Pregunta</span><h3>Con sus palabras</h3><p>Escribe o dicta con el micrófono: «quiero revisar mi AFP». No crea cuenta ni contraseña.</p></div>
+      <div class="arrow">→</div>
+      <div class="card"><span class="tag">2 · Guía</span><h3>Un paso a la vez</h3><p>Un asistente de IA (Claude) responde en simple, trata de «usted», explica qué tocar y pregunta qué ve antes de seguir. Confirma datos en sitios oficiales.</p></div>
+      <div class="arrow">→</div>
+      <div class="card"><span class="tag">3 · Hace el trámite</span><h3>En el sitio oficial</h3><p>Un botón grande abre la página correcta. La persona escribe su clave solo ahí.</p></div>
+    </div>
+    <div class="grid" style="grid-template-columns: 1fr 1fr 1fr">
+      <div class="card"><h3>Qué es</h3><ul><li>Aplicación web: funciona en el celular, sin instalar nada</li><li>Letra grande, voz para dictar y escuchar</li><li>Trámites públicos y privados: ClaveÚnica, salud, AFP, bancos, cuentas</li></ul></div>
+      <div class="card"><h3>Qué no es</h3><ul><li>No hace el trámite por la persona ni entra a sus cuentas</li><li>No pide ni guarda claves</li><li>No reemplaza a ChileAtiende ni la atención presencial</li></ul></div>
+      <div class="card" style="border-color: var(--brand)"><h3>Diferenciación</h3><ul><li>Acompaña en el momento, no antes ni después</li><li>Bloquea claves y tarjetas antes de enviarlas</li><li>Detecta estafas y dice qué hacer</li><li>Conversación solo en el navegador</li></ul></div>
+    </div>
+  </div>
+  <div class="foot"><span>Código: github.com/Fochoa24/chatbot_ayuda_mayor</span><span class="pg"></span></div>
+</section>
+
+<!-- 4 · DEMO -->
+<section class="slide" id="s-demo" data-rail="2" data-t="120">
+  <div class="kicker">Solución · Demo de la app <span class="pts">toque los botones o escriba en el celular</span></div>
+  <div class="demo">
+    <div class="panel">
+      <h3>Trámites del piloto</h3>
+      <button class="ctl" data-flow="cred"><span class="n">1</span><span>Credencial de discapacidad<small>COMPIN y Registro Civil</small></span></button>
+      <button class="ctl" data-flow="lic"><span class="n">2</span><span>Licencia médica<small>Estado de la licencia en COMPIN</small></span></button>
+      <button class="ctl" data-flow="afp"><span class="n">3</span><span>Revisar la AFP<small>Superintendencia de Pensiones</small></span></button>
+      <h3 style="margin-top:12px">Seguridad</h3>
+      <button class="ctl alt" data-flow="estafa"><span class="n">!</span><span>Llamada sospechosa<small>Cómo responde ante una estafa</small></span></button>
+      <button class="ctl alt" id="try-key"><span class="n">!</span><span>Escribir una clave en el chat<small>El navegador la bloquea antes de enviar</small></span></button>
+      <button class="ctl" id="show-priv"><span class="n">i</span><span>Pantalla de privacidad</span></button>
+    </div>
+    <div class="phone"><div class="screen" id="screen">
+      <div class="notch"><span>9:41</span><span>●●● ▮</span></div>
+      <div class="app-h"><b>Guía Mayor</b><button class="app-btn" id="restart" type="button">Empezar de nuevo</button></div>
+      <div class="msgs" id="msgs" aria-live="polite"></div>
+      <div class="app-f">
+        <div class="warn" id="warn" hidden></div>
+        <form class="app-form" id="form">
+          <label for="msg" style="position:absolute; left:-9999px">Escriba su mensaje</label>
+          <textarea id="msg" rows="2" maxlength="1500" placeholder="Escriba aquí su pregunta"></textarea>
+          <button type="button" class="mic" id="mic" aria-label="Hablar en vez de escribir">🎤</button>
+          <button type="submit" class="send" id="send">Enviar</button>
+        </form>
+      </div>
+      <div class="priv" id="priv">
+        <button class="back" id="priv-back" type="button">← Volver</button>
+        <h4>Privacidad y datos</h4>
+        <div class="pc">
+          <p><b>Sin cuentas:</b> no le pedimos nombre, correo, RUT ni contraseña para usar Guía Mayor.</p>
+          <p><b>Su conversación:</b> queda guardada solo en esta pestaña de su navegador y se borra al cerrarla o al tocar "Empezar de nuevo". Nosotros no la guardamos.</p>
+          <p><b>Quién la procesa:</b> para responderle, lo que escribe se envía a Anthropic, la empresa que provee el asistente de inteligencia artificial (Claude).</p>
+          <p><b>Nunca escriba</b> claves, ClaveÚnica, números de tarjeta ni códigos que le lleguen por mensaje. El chat no los necesita.</p>
+          <p class="soft">Las respuestas pueden tener errores. Ante dudas, confirme en ChileAtiende (101) o en la institución.</p>
+        </div>
+      </div>
+    </div></div>
+    <div class="panel">
+      <h3>Respuestas de la persona</h3>
+      <div id="replies"><span class="muted" style="font-size:16px">Elija un trámite a la izquierda o toque una opción en el celular.</span></div>
+      <h3 style="margin-top:14px">Lo que muestra cada pantalla</h3>
+      <div class="feat">
+        <div><span class="dot">A</span><span><b>Inicio</b>Seis trámites frecuentes como botones grandes.</span></div>
+        <div><span class="dot">B</span><span><b>Guía</b>Un paso por mensaje y un botón al sitio oficial.</span></div>
+        <div><span class="dot">C</span><span><b>Protección</b>Aviso si escribe una clave o una tarjeta.</span></div>
+      </div>
+      <p class="note">Réplica fiel de la interfaz de la app. Las respuestas están guionadas para presentar sin depender de internet; en la app, Guía Mayor responde con IA en tiempo real.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 5 · MODELO DE NEGOCIO -->
+<section class="slide" id="s-modelo" data-rail="3" data-t="55">
+  <div class="kicker">Modelo de negocio <span class="pts">7 pts</span></div>
+  <h2>Gratis para la persona mayor. Pagan los municipios e instituciones que la atienden</h2>
+  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
+    <div class="card"><span class="tag">B2G</span><h3 style="margin-top:12px">Licencia municipal</h3><div class="big num" style="font-size:46px">$6 M<span style="font-size:22px"> /año</span></div><p style="margin-top:10px">Por comuna. Incluye la app para sus vecinos, puesta en marcha y reporte de uso. Cabe en Compra Ágil.</p></div>
+    <div class="card"><span class="tag">B2B</span><h3 style="margin-top:12px">Convenio institucional</h3><div class="big num" style="font-size:46px">$12 M<span style="font-size:22px"> /año</span></div><p style="margin-top:10px">Cajas de compensación, AFP, clínicas o bancos. Versión con sus trámites, su marca y reporte anónimo. Cada consulta resuelta es una persona menos en sucursal.</p></div>
+    <div class="card"><span class="tag">Servicio</span><h3 style="margin-top:12px">Talleres de inclusión digital</h3><div class="big num" style="font-size:46px">$1,2 M<span style="font-size:22px"> /taller</span></div><p style="margin-top:10px">Talleres presenciales con la app como herramienta, para clubes, cajas y centros de salud.</p></div>
+    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 28px">
+      <div><h3>Costos clave</h3><p>Costo directo del 22% de los ingresos: API de IA, hosting y materiales de talleres. Fijos: equipo, oficina y marketing.</p></div>
+      <div><h3>Margen por licencia municipal</h3><p class="num">$6 M − 22% de costo directo = <b>$4,7 M al año</b> de contribución por comuna.</p></div>
+      <div><h3>Costo de adquisición estimado</h3><p class="num">≈ $3,5 M por cliente en 2028 (ejecutivo + demos + contenido, entre 5 clientes nuevos). Se recupera en menos de un año.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Supuestos del flujo de caja del equipo (Flujo_de_caja_Guia_Mayor_v2.xlsx)</span><span class="pg"></span></div>
+</section>
+
+<!-- 6 · MERCADO -->
+<section class="slide" id="s-mercado" data-rail="4" data-t="50">
+  <div class="kicker">Mercado <span class="pts">7 pts</span></div>
+  <h2>Quien compra es el municipio o la institución; el mercado se mide en licencias</h2>
+  <div class="content" style="display:grid; grid-template-columns: 1.55fr 1fr; gap: 40px">
+    <div class="funnel">
+      <div class="tier"><span class="lab">TAM</span><div><div class="bar" style="width:100%"></div><p class="desc">345 municipalidades × $6 M + 28 instituciones (4 cajas, 7 AFP, 17 bancos) × $12 M</p></div><span class="val num">$2.406 M<small>al año</small></span></div>
+      <div class="tier sam"><span class="lab">SAM</span><div><div class="bar" style="width:45%"></div><p class="desc">123 comunas de RM, Valparaíso y Biobío × $6 M + las 28 instituciones</p></div><span class="val num">$1.074 M<small>al año</small></span></div>
+      <div class="tier som"><span class="lab">SOM</span><div><div class="bar" style="width:10.4%"></div><p class="desc">Meta del flujo de caja para 2031</p></div><span class="val num">$250 M<small>al año en 2031</small></span></div>
+      <p style="font-size:18px; line-height:1.5; margin-top:10px"><b>SOM 2031:</b> 18 comunas (15% del SAM), 9 instituciones y 28 talleres. Es el 23% del SAM en cinco años.</p>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card"><h3>Supuestos explícitos</h3><ul><li>Un comprador por comuna: el municipio, con su programa de personas mayores.</li><li>Instituciones: solo cajas, AFP y bancos; no se cuentan clínicas.</li><li>Precios de 2027 sin reajuste.</li></ul></div>
+      <div class="card"><h3>Usuarios detrás</h3><p class="num">3.665.028 personas de 60 años o más (Censo 2024). Las 4 cajas de compensación tienen más de 1,4 millones de pensionados afiliados.</p><p class="src" style="margin-top:8px">INE 2026 · Cajas de Chile, boletín enero 2024</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Las cifras de 17 bancos y del SAM regional son supuestos del equipo</span><span class="pg"></span></div>
+</section>
+
+<!-- 7 · MARKETING -->
+<section class="slide" id="s-marketing" data-rail="5" data-t="45">
+  <div class="kicker">Marketing <span class="pts">6 pts</span></div>
+  <h2>Entramos por los programas que ya reúnen a las personas mayores</h2>
+  <div class="content" style="display:grid; gap: 22px; align-content:start">
+    <div class="steps">
+      <div class="step"><div class="t">1 · Demostración</div><p>Demo gratis en clubes de adulto mayor y talleres municipales. La persona hace un trámite real con la app.</p><div class="m">Métrica: demos al mes</div></div>
+      <div class="step"><div class="t">2 · Piloto</div><p>Convenio de colaboración de 3 meses con el municipio. Medimos trámites completados sin ayuda.</p><div class="m">Métrica: % sin ayuda ≥ 80%</div></div>
+      <div class="step"><div class="t">3 · Licencia</div><p>Con los resultados, licencia anual por Compra Ágil. Talleres como servicio adicional.</p><div class="m">Métrica: conversión piloto → licencia</div></div>
+      <div class="step"><div class="t">4 · Institución</div><p>Con casos municipales, convenio con cajas de compensación y AFP para sus pensionados.</p><div class="m">Métrica: convenios firmados</div></div>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(3,1fr)">
+      <div class="card"><h3>Mensaje al municipio</h3><p>«Sus vecinos mayores hacen sus trámites sin filas y sin depender de nadie. Usted recibe datos para medir su programa de inclusión digital.»</p></div>
+      <div class="card"><h3>Mensaje a la institución</h3><p>«Sus pensionados resuelven en línea lo que hoy hacen en sucursal o por teléfono, con protección contra estafas.»</p></div>
+      <div class="card"><h3>Activación y costo</h3><p>Activación = la persona completa su primer trámite. En el piloto: 20 de 20. Costo de adquisición ≈ $3,5 M por cliente; marketing de $2,4 M a $5,6 M al año.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 8 · TRACCIÓN -->
+<section class="slide" id="s-traccion" data-rail="6" data-t="60">
+  <div class="kicker">Tracción <span class="pts">10 pts</span></div>
+  <h2>Veinte personas mayores reales hicieron sus trámites sin ayuda</h2>
+  <div class="content" style="display:grid; grid-template-columns: 1.15fr 1fr; gap: 26px">
+    <div class="grid" style="grid-template-columns: 1fr 1fr; align-content:start">
+      <div class="card stat"><div class="big num">20</div><p>adultos mayores probaron la app en trámites reales.</p></div>
+      <div class="card stat"><div class="big num">100%</div><p>completó su trámite sin ayuda de otra persona.</p></div>
+      <div class="card stat"><div class="big num">3</div><p>trámites distintos: credencial de discapacidad, licencias médicas y revisión de AFP.</p></div>
+      <div class="card stat"><div class="big num" style="font-size:44px; line-height:64px">Oct–nov 2026</div><p>período del piloto, con la versión rehecha sin cuentas.</p></div>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card" style="padding:18px 24px">
+        <h3>De la simulación al piloto real</h3>
+        <svg viewBox="0 0 560 150" width="100%" style="height:118px" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Completaron sin ayuda: 60% en la simulación del DemoDay, 100% en el piloto">
+          <text x="0" y="30" font-size="17" fill="#4b5952">DemoDay (5 perfiles simulados)</text>
+          <rect x="0" y="40" width="300" height="30" rx="4" fill="#d4622a"/><text x="310" y="62" font-size="20" font-weight="700" fill="#16201c">60%</text>
+          <text x="0" y="104" font-size="17" fill="#4b5952">Piloto con 20 personas reales</text>
+          <rect x="0" y="114" width="500" height="30" rx="4" fill="#16876f"/><text x="510" y="136" font-size="20" font-weight="700" fill="#16201c">100%</text>
+        </svg>
+      </div>
+      <div class="card" style="padding:18px 24px"><h3>Qué cambió</h3><p>Quitamos el login con Google, pasamos a un chat con letra grande y voz, y a un paso por mensaje. Las barreras del DemoDay (confirmaciones, legibilidad, precisión táctil) no se repitieron en el piloto.</p></div>
+      <div class="card" style="padding:18px 24px"><h3>Lo que falta medir</h3><p>Retorno a 30 días y trámites por persona. Lo mediremos en el primer piloto municipal.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Datos del piloto del equipo · simulación del DemoDay (Solemne 2)</span><span class="pg"></span></div>
+</section>
+
+<!-- 9 · EQUIPO -->
+<section class="slide" id="s-equipo" data-rail="7" data-t="40">
+  <div class="kicker">Equipo <span class="pts">8 pts</span></div>
+  <h2>Cinco integrantes que construyeron el producto y lo probaron con personas mayores</h2>
+  <div class="content" style="display:grid; gap: 22px; align-content:start">
+    <div class="team" id="team"></div>
+    <div class="grid" style="grid-template-columns: 1fr 1fr 1fr">
+      <div class="card"><h3>Experiencia relevante</h3><p>Construimos y rehicimos la app (React, IA con Claude), la llevamos a una versión sin cuentas y corrimos el piloto con 20 personas mayores.</p></div>
+      <div class="card"><h3>Brechas</h3><p><b>Ventas al Estado</b> (compra pública), <b>legal</b> (datos personales) y <b>gerontología</b> (diseño para personas mayores).</p></div>
+      <div class="card"><h3>Plan para cubrirlas</h3><p>Ejecutivo comercial desde 2028, asesoría legal mensual desde 2027 (en el flujo) y un asesor en gerontología vía alianza con un programa universitario.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>Haga clic en un rol para editarlo</span><span class="pg"></span></div>
+</section>
+
+<!-- 10 · COMPETENCIA -->
+<section class="slide" id="s-competencia" data-rail="8" data-t="45">
+  <div class="kicker">Competencia <span class="pts">6 pts</span></div>
+  <h2>Hay manuales, talleres y chatbots, pero ninguno acompaña a la persona mayor en el momento del trámite</h2>
+  <div class="content" style="display:grid; grid-template-columns: 1.6fr 1fr; gap: 28px">
+    <div class="card" style="padding:10px 14px">
+      <table>
+        <thead><tr><th>Alternativa</th><th class="c">Acompaña en el momento</th><th class="c">Diseñada para mayores</th><th class="c">Públicos y privados</th><th class="c">Contra estafas</th></tr></thead>
+        <tbody>
+          <tr><td>Un hijo o nieto <span class="muted">(sustituto)</span></td><td class="c yes">Sí</td><td class="c yes">Sí</td><td class="c yes">Sí</td><td class="c part">Depende</td></tr>
+          <tr><td>Asistente virtual de ChileAtiende</td><td class="c part">Orienta</td><td class="c no">No</td><td class="c no">Solo Estado</td><td class="c no">No</td></tr>
+          <tr><td>Manual y talleres de Senama</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c part">Algunos</td><td class="c part">Algunos</td></tr>
+          <tr><td>Programa 60+ Digital (UC y Coopeuch)</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c part">Algunos</td><td class="c part">Algunos</td></tr>
+          <tr><td>Chatbots generales (ChatGPT y otros)</td><td class="c yes">Sí</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c no">No</td></tr>
+          <tr class="us"><td>Guía Mayor</td><td class="c">Sí</td><td class="c">Sí</td><td class="c">Sí</td><td class="c">Sí</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="grid" style="align-content:start">
+      <div class="card">
+        <h3>Posicionamiento</h3>
+        <svg viewBox="0 0 400 300" width="100%" role="img" aria-label="Mapa: eje horizontal de general a diseñado para mayores, eje vertical de informa a acompaña. Guía Mayor arriba a la derecha.">
+          <line x1="40" y1="260" x2="390" y2="260" stroke="#d5ddd8" stroke-width="2"/><line x1="40" y1="10" x2="40" y2="260" stroke="#d5ddd8" stroke-width="2"/>
+          <text x="390" y="284" font-size="13" text-anchor="end" fill="#4b5952">Diseñado para mayores →</text>
+          <text x="46" y="284" font-size="13" fill="#4b5952">General</text>
+          <text x="30" y="20" font-size="13" text-anchor="end" fill="#4b5952" transform="rotate(-90 30 20)">Acompaña →</text>
+          <circle cx="110" cy="70" r="8" fill="#7fa79a"/><text x="122" y="75" font-size="14" fill="#16201c">Chatbots generales</text>
+          <circle cx="110" cy="160" r="8" fill="#7fa79a"/><text x="122" y="165" font-size="14" fill="#16201c">ChileAtiende</text>
+          <circle cx="300" cy="225" r="8" fill="#7fa79a"/><text x="292" y="215" font-size="14" text-anchor="end" fill="#16201c">Senama · 60+ Digital</text>
+          <circle cx="335" cy="55" r="11" fill="#0f5c4d" stroke="#fff" stroke-width="2"/><text x="322" y="38" font-size="16" font-weight="700" text-anchor="end" fill="#0f5c4d">Guía Mayor</text>
+        </svg>
+      </div>
+      <p class="src">Solo 7 de 334 municipios tenían un chatbot operativo en 2025 (Universidad de Valparaíso).</p>
+    </div>
+  </div>
+  <div class="foot"><span>Fuentes: chileatiende.gob.cl · senama.gob.cl · uc.cl · repositorio UV</span><span class="pg"></span></div>
+</section>
+
+<!-- 11 · ROADMAP -->
+<section class="slide" id="s-roadmap" data-rail="9" data-t="45">
+  <div class="kicker">Roadmap <span class="pts">6 pts</span></div>
+  <h2>18 meses para pasar del piloto a clientes que pagan</h2>
+  <div class="content road">
+    <div class="ms"><span class="pin">1</span><span class="when">Ene – mar 2027</span><h3>Producción y cumplimiento legal</h3>
+      <div class="card"><p><span class="lbl">Incluye:</span> privacidad revisada por abogado (Ley 21.719), límites de uso y de gasto, set de evaluación.</p><p><span class="lbl">Depende de:</span> cierre de la ronda.</p><p class="risk"><span class="lbl">Riesgo:</span> costo de la IA por conversación.</p><p><span class="lbl">Éxito:</span> costo por conversación medido y límite de gasto mensual activo.</p></div></div>
+    <div class="ms"><span class="pin">2</span><span class="when">Abr – jun 2027</span><h3>Primer piloto municipal</h3>
+      <div class="card"><p><span class="lbl">Incluye:</span> convenio con un municipio y talleres con su programa de personas mayores.</p><p><span class="lbl">Depende de:</span> hito 1.</p><p class="risk"><span class="lbl">Riesgo:</span> la compra pública es lenta; partimos con convenio de colaboración.</p><p><span class="lbl">Éxito:</span> 100 usuarios y 80% de trámites sin ayuda.</p></div></div>
+    <div class="ms"><span class="pin">3</span><span class="when">Jul – dic 2027</span><h3>Dos municipios pagando</h3>
+      <div class="card"><p><span class="lbl">Incluye:</span> licencias por Compra Ágil y 4 talleres vendidos.</p><p><span class="lbl">Depende de:</span> resultados del hito 2.</p><p class="risk"><span class="lbl">Riesgo:</span> el piloto no convierte; ajustamos precio o alcance.</p><p><span class="lbl">Éxito:</span> $16,8 M de ingresos en 2027.</p></div></div>
+    <div class="ms"><span class="pin">4</span><span class="when">Ene – jun 2028</span><h3>Versión institucional</h3>
+      <div class="card"><p><span class="lbl">Incluye:</span> marca de la institución, sus trámites y reporte anónimo. Primer convenio con una caja o AFP.</p><p><span class="lbl">Depende de:</span> casos municipales.</p><p class="risk"><span class="lbl">Riesgo:</span> ciclos de venta largos en grandes instituciones.</p><p><span class="lbl">Éxito:</span> 2 convenios firmados en 2028.</p></div></div>
+  </div>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 12 · FINANZAS -->
+<section class="slide" id="s-finanzas" data-rail="10" data-t="70">
+  <div class="kicker">Finanzas <span class="pts">10 pts</span></div>
+  <h2>Pierde caja en 2027 y 2028, gana desde 2029 y recupera la inversión en 3,8 años</h2>
+  <div class="content" style="margin-top:22px">
+    <div class="kpis">
+      <div class="kpi"><div class="v num">$23,7 M</div><div class="l">Inversión inicial (2026)</div></div>
+      <div class="kpi"><div class="v num">$28,9 M</div><div class="l">VAN a una tasa de 15%</div></div>
+      <div class="kpi"><div class="v num">30,3%</div><div class="l">TIR</div></div>
+      <div class="kpi"><div class="v num">−$2,1 M</div><div class="l">Quema mensual en 2027 (EBITDA)</div></div>
+    </div>
+    <div class="fin">
+      <div class="card" style="padding:16px 20px">
+        <h3 style="font-size:20px">Flujo de caja anual y acumulado (millones de CLP)</h3>
+        <div class="legend"><span><i style="background:var(--pos)"></i>Flujo positivo</span><span><i style="background:var(--neg)"></i>Flujo negativo</span><span><i class="line"></i>Acumulado</span></div>
+        <div id="chart"><div id="tip"></div></div>
+      </div>
+      <div class="grid" style="align-content:start; gap:16px">
+        <div class="card" style="padding:14px 18px">
+          <h3 style="font-size:20px">Escenarios de volumen (tasa 15%)</h3>
+          <table class="sc num"><thead><tr><th>Volúmenes</th><th class="r">VAN</th><th class="r">TIR</th></tr></thead>
+            <tbody><tr><td>Pesimista (−30%)</td><td class="r neg">−$38,2 M</td><td class="r neg">−7,8%</td></tr>
+            <tr><td>Bajo (−15%)</td><td class="r neg">−$3,2 M</td><td class="r">13,2%</td></tr>
+            <tr><td><b>Base</b></td><td class="r"><b>$28,9 M</b></td><td class="r"><b>30,3%</b></td></tr>
+            <tr><td>Optimista (+20%)</td><td class="r">$70,9 M</td><td class="r">50,0%</td></tr></tbody></table>
+        </div>
+        <div class="card" style="padding:14px 18px"><p style="font-size:17px; line-height:1.45">El VAN sigue positivo mientras la demanda no caiga más de 13%. Con tasa de 20% es $17,1 M; con 25%, $7,7 M. Por eso el roadmap valida la demanda antes de crecer.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="foot"><span>Flujo_de_caja_Guia_Mayor_v2.xlsx · impuesto 27% con arrastre de pérdidas · sin valor terminal</span><span class="pg"></span></div>
+</section>
+
+<!-- 13 · EXIT -->
+<section class="slide" id="s-exit" data-rail="11" data-t="40">
+  <div class="kicker">Estrategia de exit <span class="pts">5 pts</span></div>
+  <h2>Una salida por venta a quien ya atiende a millones de personas mayores</h2>
+  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
+    <div class="card accent-left"><span class="tag">Opción principal</span><h3 style="margin-top:12px">Caja de compensación o AFP</h3><p>Compra un canal digital probado para sus pensionados. Las 4 cajas suman más de 1,4 millones de pensionados afiliados.</p></div>
+    <div class="card"><span class="tag">Opción 2</span><h3 style="margin-top:12px">Empresa de software para municipios</h3><p>Suma Guía Mayor a su catálogo y la vende a las comunas que ya son sus clientes.</p></div>
+    <div class="card"><span class="tag">Opción 3</span><h3 style="margin-top:12px">Banco o aseguradora</h3><p>Necesita atender a clientes mayores en línea y protegerlos de estafas.</p></div>
+    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:28px; align-items:center">
+      <div><h3>Cuándo</h3><p>2031–2032, con 18 comunas y 9 instituciones como clientes recurrentes.</p></div>
+      <div><h3>Cuánto</h3><p class="num">2 a 3 veces los ingresos de 2031 ($249,6 M): <b>entre $500 M y $750 M</b>.</p></div>
+      <div><h3>Por qué la comprarían</h3><p>Contratos con municipios, datos anónimos de uso y un producto que las personas mayores ya saben usar.</p></div>
+    </div>
+  </div>
+  <div class="foot"><span>El múltiplo de 2–3× ingresos es un supuesto del equipo para software pequeño en Chile</span><span class="pg"></span></div>
+</section>
+
+<!-- 14 · USO DE FONDOS -->
+<section class="slide" id="s-fondos" data-rail="12" data-t="40">
+  <div class="kicker">Uso de fondos <span class="pts">5 pts</span></div>
+  <h2>Buscamos $55 M para llegar a EBITDA positivo en 2029</h2>
+  <div class="content" style="display:grid; gap: 24px; align-content:start">
+    <div class="alloc num">
+      <div style="flex:17.7; background:var(--brand)">$17,7 M · Producto y lanzamiento</div>
+      <div style="flex:6; background:var(--pos)">$6 M · Capital de trabajo</div>
+      <div style="flex:28.9; background:#2f6f8f">$28,9 M · Déficit operativo 2027–2028</div>
+      <div style="flex:2.4; background:#8a958f">$2,4 M</div>
+    </div>
+    <div class="grid" style="grid-template-columns: repeat(4,1fr)">
+      <div class="card"><h3>Producto y lanzamiento</h3><p class="num">Desarrollo para producción $9 M · equipos $3,6 M · piloto $2,5 M · legal $2 M · constitución y marca $0,6 M.</p><p style="margin-top:8px"><span class="tag">Hito 1</span></p></div>
+      <div class="card"><h3>Capital de trabajo</h3><p>Dos meses de gastos fijos mientras llegan los primeros pagos municipales. Se recupera en 2031.</p><p style="margin-top:8px"><span class="tag">Hitos 2 y 3</span></p></div>
+      <div class="card"><h3>Déficit operativo</h3><p class="num">EBITDA de −$25,4 M en 2027 y −$3,5 M en 2028: equipo, ventas y talleres hasta tener clientes.</p><p style="margin-top:8px"><span class="tag">Hitos 2 a 4</span></p></div>
+      <div class="card"><h3>Reserva</h3><p>Margen ante atrasos en compras públicas.</p></div>
+    </div>
+    <p style="font-size:20px; line-height:1.5"><b>Impacto en runway:</b> la mayor necesidad de caja acumulada es de $52,6 M en 2028. Con $55 M cubrimos hasta 2029, cuando el EBITDA pasa a $22,3 M positivo.</p>
+  </div>
+  <div class="foot"><span>Montos del flujo de caja (hojas Inversión y Flujo)</span><span class="pg"></span></div>
+</section>
+
+<!-- 15 · CIERRE -->
+<section class="slide" id="s-cierre" data-rail="" data-t="20">
+  <div class="kicker">Cierre</div>
+  <h2 style="font-size:66px; max-width:1300px">Ya probamos que las personas mayores pueden hacer sus trámites solas. Con $55 M lo llevamos a sus comunas.</h2>
+  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
+    <div class="card stat"><div class="big num">20 de 20</div><p>completaron su trámite sin ayuda.</p></div>
+    <div class="card stat"><div class="big num">30,3%</div><p>de TIR con un VAN de $28,9 M a 15%.</p></div>
+    <div class="card stat"><div class="big num">18 meses</div><p>para tener municipios e instituciones pagando.</p></div>
+  </div>
+  <p style="font-size:30px; font-family:var(--display); font-weight:700; color:var(--brand)">Gracias. ¿Preguntas?</p>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 16 · ANEXO PREGUNTAS -->
+<section class="slide" id="s-preguntas" data-rail="" data-t="0">
+  <div class="kicker">Anexo · Preguntas probables de la comisión</div>
+  <div class="content" style="margin-top:20px; display:grid; grid-template-columns: 1fr 1fr; gap: 22px; align-content:start">
+    <div>
+      <details><summary>¿Veinte personas no es muy poco?</summary><p>Sí, por eso lo presentamos como validación de uso y no de venta. El primer piloto municipal busca 100 usuarios con la misma métrica (80% sin ayuda).</p></details>
+      <details><summary>¿Por qué pagaría un municipio si ChileAtiende es gratis?</summary><p>ChileAtiende orienta sobre trámites del Estado. Guía Mayor está diseñada para personas mayores, cubre bancos, AFP y cuentas, y le da al municipio datos de su programa de inclusión digital.</p></details>
+      <details><summary>¿Qué pasa con los datos personales?</summary><p>No hay cuentas: la conversación queda en el navegador y no la guardamos. El navegador bloquea claves y tarjetas antes de enviar. Falta que un abogado revise la política (Ley 21.719); está en el hito 1.</p></details>
+      <details><summary>¿Y si la IA se equivoca?</summary><p>Solo da enlaces oficiales, confirma datos que cambian con búsqueda en sitios oficiales y recomienda ChileAtiende (101) ante dudas. Antes de cambiar el modelo, probamos con un set de evaluación.</p></details>
+    </div>
+    <div>
+      <details><summary>¿Por qué no cobrarle a la familia?</summary><p>La app no tiene cuentas ni panel familiar, por decisión de diseño: entrar sin login es lo que hizo que 20 de 20 lo lograran. Quien ahorra con Guía Mayor es la institución.</p></details>
+      <details><summary>¿Cuánto cuesta cada conversación?</summary><p>Lo medimos en el hito 1 con un límite de gasto mensual. El flujo reserva 22% de los ingresos para costos directos, que incluye la IA.</p></details>
+      <details><summary>¿El VAN es negativo en el escenario pesimista?</summary><p>Sí: con 30% menos volumen el VAN es −$38,2 M. El proyecto se sostiene si la demanda no cae más de 13%; por eso validamos con un municipio antes de contratar más equipo.</p></details>
+      <details><summary>¿Cuánto tiempo dedica el equipo?</summary><p>El flujo considera dos desarrolladores fundadores con sueldo desde 2027, ejecutivo comercial desde 2028 y soporte desde 2029.</p></details>
+    </div>
+  </div>
+  <div class="foot"><span>Anexo</span><span class="pg"></span></div>
+</section>
+</div></div>
+
+<div id="hud">
+  <span id="clock" title="Tiempo transcurrido / tiempo sugerido hasta esta diapositiva">00:00</span>
+  <button id="b-time" type="button">Iniciar cronómetro</button>
+  <button id="b-notes" type="button">Notas (N)</button>
+  <button id="b-full" type="button">Pantalla completa (F)</button>
+  <button id="b-help" type="button" aria-label="Atajos de teclado">?</button>
+</div>
+<div id="notes"></div>
+<div id="help"><div class="box">
+  <b>Atajos</b><br>
+  <kbd>→</kbd> <kbd>Espacio</kbd> siguiente · <kbd>←</kbd> anterior<br>
+  <kbd>Inicio</kbd> primera · <kbd>Fin</kbd> última<br>
+  <kbd>N</kbd> notas del presentador · <kbd>T</kbd> cronómetro · <kbd>F</kbd> pantalla completa<br>
+  Clic en una sección de la rúbrica para saltar a ella.<br>
+  <button type="button" class="ctl" style="margin-top:14px; justify-content:center" id="help-close">Cerrar</button>
+</div></div>
+
+<script>
+// ---------- Datos editables ----------
+const TEAM = [
+  { name: 'Felipe Ochoa', role: 'Jefe de proyecto' },
+  { name: 'Antonia Valdebenito', role: '' },
+  { name: 'Jorge Pinto', role: '' },
+  { name: 'Benjamín Candia', role: '' },
+  { name: 'John Torres', role: '' },
+];
+const RAIL = ['Concepto', 'Problema', 'Solución', 'Modelo de negocio', 'Mercado', 'Marketing', 'Tracción', 'Equipo', 'Competencia', 'Roadmap', 'Finanzas', 'Estrategia de exit', 'Uso de fondos'];
+// Flujo de caja v2 (millones de CLP): 2026 = inversión.
+const FLOW = { years: ['2026', '2027', '2028', '2029', '2030', '2031'], flow: [-23.7, -25.36, -3.49, 22.29, 38.18, 82.09], ing: [0, 16.8, 66.0, 115.2, 170.4, 249.6] };
+
+const NOTES = {
+  portada: 'Presentarse en 15 segundos. <b>Gancho:</b> «Veinte de veinte personas mayores hicieron su trámite sin ayuda. Venimos a pedir $55 millones para llevarlo a sus comunas».',
+  concepto: 'Leer la frase de Guía Mayor y separar <b>quién usa</b> (la persona mayor, gratis) de <b>quién paga</b> (municipio o institución). No más de 35 segundos.',
+  problema: 'Empezar por el 36%. Dar un ejemplo concreto: «mi abuela necesita sacar la credencial de discapacidad y depende de que alguien le saque un día libre». Cerrar con el por qué ahora: el Estado y la banca ya están en línea.',
+  solucion: 'Explicar los 3 pasos en el diagrama. Remarcar lo que <b>no</b> hace: no pide claves ni hace el trámite por la persona. Pasar a la demo.',
+  demo: 'Mostrar en este orden: <b>1) AFP</b> completo (3 respuestas), <b>2) Escribir una clave</b> para mostrar el bloqueo, <b>3) Llamada sospechosa</b>. Si sobra tiempo, licencia médica. Aclarar que la demo usa respuestas guionadas; la app real responde con IA.',
+  modelo: 'Tres ingresos. Decir explícitamente que <b>no cobramos a la familia</b> porque la app no tiene cuentas. Mencionar margen por licencia ($4,7 M) y costo de adquisición (~$3,5 M).',
+  mercado: 'TAM, SAM y SOM en licencias, no en personas. Aclarar los supuestos: un comprador por comuna; instituciones = cajas, AFP y bancos.',
+  marketing: 'El embudo: demostración → piloto → licencia → institución. La métrica de activación es completar el primer trámite.',
+  traccion: 'Es la diapositiva con más puntaje. Dar los 4 números con su período. Contrastar 60% de la simulación con 100% real: <b>iteramos y funcionó</b>. Reconocer que falta medir retorno a 30 días.',
+  equipo: 'Cada integrante dice su nombre y rol en una frase. Nombrar las brechas antes de que pregunten.',
+  competencia: 'El sustituto principal es un familiar. Contra ChileAtiende: ellos orientan sobre el Estado; nosotros acompañamos a la persona mayor en trámites públicos y privados.',
+  roadmap: 'Cuatro hitos con dependencia, riesgo y criterio de éxito. El riesgo principal es la compra pública: partimos con convenio de colaboración.',
+  finanzas: 'VAN $28,9 M y TIR 30,3% a 15%. Pasar el mouse por las barras. <b>Adelantarse:</b> el escenario pesimista es negativo; la variable crítica es la demanda y por eso la validamos primero.',
+  exit: 'Opción principal: una caja de compensación o AFP. Valor de $500 a $750 M con 2–3× ingresos de 2031.',
+  fondos: '$55 M en cuatro partidas, conectadas a los hitos del roadmap. Alcanzan hasta EBITDA positivo en 2029.',
+  cierre: 'Repetir la petición: $55 M. Agradecer y abrir preguntas.',
+  preguntas: 'Abrir solo la pregunta que haga la comisión.',
+};
+
+// ---------- Navegación ----------
+const stage = document.getElementById('stage');
+const slides = [...document.querySelectorAll('.slide')];
+const ids = slides.map((s) => s.id.replace('s-', ''));
+let cur = 0;
+
+function fit() {
+  const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+  stage.style.transform = `scale(${s})`;
+}
+window.addEventListener('resize', fit);
+fit();
+
+const rail = document.getElementById('rail');
+RAIL.forEach((name, i) => {
+  const b = document.createElement('button');
+  b.className = 'chev';
+  b.type = 'button';
+  b.textContent = name;
+  b.addEventListener('click', () => go(slides.findIndex((s) => s.dataset.rail === String(i))));
+  rail.appendChild(b);
+});
+
+slides.forEach((s, i) => { const pg = s.querySelector('.pg'); if (pg) pg.textContent = `${i + 1} / ${slides.length}`; });
+
+function go(i, fromHash) {
+  if (i < 0 || i >= slides.length) return;
+  slides[cur].classList.remove('on');
+  cur = i;
+  slides[cur].classList.add('on');
+  const r = slides[cur].dataset.rail;
+  const ri = r === '' ? (cur === 0 ? -1 : RAIL.length) : Number(r);
+  [...rail.children].forEach((c, k) => {
+    c.classList.toggle('on', k === ri);
+    c.classList.toggle('done', k < ri);
+  });
+  rail.style.visibility = cur === 0 ? 'hidden' : 'visible';
+  document.getElementById('notes').innerHTML = `<b>${slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || ''}</b> · ${NOTES[ids[cur]] || ''}`;
+  if (!fromHash) { try { history.replaceState(null, '', '#' + ids[cur]); } catch (e) { /* sin historial */ } }
+  if (ids[cur] === 'finanzas') drawChart();
+  tick();
+}
+
+function typing(t) { return t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable); }
+document.addEventListener('keydown', (e) => {
+  if (typing(e.target)) return;
+  const k = e.key;
+  if (k === 'ArrowRight' || k === 'PageDown' || k === ' ') { e.preventDefault(); go(cur + 1); }
+  else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(cur - 1); }
+  else if (k === 'Home') go(0);
+  else if (k === 'End') go(slides.length - 1);
+  else if (k === 'n' || k === 'N') toggleNotes();
+  else if (k === 't' || k === 'T') toggleTimer();
+  else if (k === 'f' || k === 'F') full();
+  else if (k === '?') document.getElementById('help').classList.toggle('on');
+  else if (k === 'Escape') document.getElementById('help').classList.remove('on');
+});
+
+function toggleNotes() { document.getElementById('notes').classList.toggle('on'); }
+function full() {
+  try {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen().catch(() => {});
+  } catch (e) { /* el visor no permite pantalla completa */ }
+}
+document.getElementById('b-notes').onclick = toggleNotes;
+document.getElementById('b-full').onclick = full;
+document.getElementById('b-help').onclick = () => document.getElementById('help').classList.add('on');
+document.getElementById('help-close').onclick = () => document.getElementById('help').classList.remove('on');
+
+// ---------- Cronómetro ----------
+let t0 = null, acc = 0, timer = null;
+const clock = document.getElementById('clock');
+const fmt = (s) => `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+function elapsed() { return acc + (t0 ? (Date.now() - t0) / 1000 : 0); }
+function budget() { return slides.slice(0, cur + 1).reduce((a, s) => a + Number(s.dataset.t || 0), 0); }
+function tick() {
+  const e = elapsed(), b = budget();
+  clock.textContent = `${fmt(e)} / ${fmt(b)}`;
+  clock.classList.toggle('over', t0 !== null && e > b + 15);
+}
+function toggleTimer() {
+  const btn = document.getElementById('b-time');
+  if (t0) { acc = elapsed(); t0 = null; clearInterval(timer); btn.textContent = 'Seguir cronómetro'; }
+  else { t0 = Date.now(); timer = setInterval(tick, 500); btn.textContent = 'Pausar cronómetro'; }
+  tick();
+}
+document.getElementById('b-time').onclick = toggleTimer;
+
+// ---------- Equipo ----------
+const teamEl = document.getElementById('team');
+function loadRoles() { try { return JSON.parse(localStorage.getItem('gm-roles') || '{}'); } catch (e) { return {}; } }
+const savedRoles = loadRoles();
+TEAM.forEach((m, i) => {
+  const ini = m.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
+  const role = savedRoles[i] ?? m.role;
+  const d = document.createElement('div');
+  d.className = 'member';
+  d.innerHTML = `<div class="avatar">${ini}</div><div class="nm">${m.name}</div><div class="rl" contenteditable="true" spellcheck="false" data-i="${i}"></div>`;
+  const rl = d.querySelector('.rl');
+  const paint = (v) => { rl.textContent = v || 'Rol por completar'; rl.dataset.empty = v ? '0' : '1'; };
+  paint(role);
+  rl.addEventListener('focus', () => { if (rl.dataset.empty === '1') rl.textContent = ''; });
+  rl.addEventListener('blur', () => {
+    const v = rl.textContent.trim();
+    savedRoles[i] = v;
+    try { localStorage.setItem('gm-roles', JSON.stringify(savedRoles)); } catch (e) { /* sin almacenamiento */ }
+    paint(v);
+  });
+  rl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); rl.blur(); } });
+  teamEl.appendChild(d);
+});
+
+// ---------- Gráfico de finanzas ----------
+function drawChart() {
+  const box = document.getElementById('chart');
+  if (box.querySelector('svg')) return;
+  const W = 760, H = 400, L = 56, R = 16, T = 16, B = 36;
+  const cum = []; FLOW.flow.reduce((a, v, i) => (cum[i] = a + v), 0);
+  const min = -60, max = 100, y = (v) => T + (max - v) / (max - min) * (H - T - B);
+  const n = FLOW.years.length, bw = (W - L - R) / n, x = (i) => L + bw * i + bw / 2;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Flujo de caja anual y acumulado de 2026 a 2031">`;
+  for (let v = min; v <= max; v += 20) {
+    s += `<line x1="${L}" x2="${W - R}" y1="${y(v)}" y2="${y(v)}" stroke="${v === 0 ? '#8a958f' : '#e3e9e5'}" stroke-width="${v === 0 ? 1.5 : 1}"/>`;
+    s += `<text x="${L - 10}" y="${y(v) + 5}" font-size="13" text-anchor="end" fill="#4b5952" class="num">${v}</text>`;
+  }
+  FLOW.flow.forEach((v, i) => {
+    const top = Math.min(y(v), y(0)), h = Math.abs(y(v) - y(0)), w = bw * 0.46;
+    const r = Math.min(4, h / 2);
+    const path = v >= 0
+      ? `M${x(i) - w / 2},${y(0)} V${top + r} Q${x(i) - w / 2},${top} ${x(i) - w / 2 + r},${top} H${x(i) + w / 2 - r} Q${x(i) + w / 2},${top} ${x(i) + w / 2},${top + r} V${y(0)} Z`
+      : `M${x(i) - w / 2},${y(0)} V${top + h - r} Q${x(i) - w / 2},${top + h} ${x(i) - w / 2 + r},${top + h} H${x(i) + w / 2 - r} Q${x(i) + w / 2},${top + h} ${x(i) + w / 2},${top + h - r} V${y(0)} Z`;
+    s += `<path d="${path}" fill="${v >= 0 ? '#16876f' : '#d4622a'}"/>`;
+    s += `<text x="${x(i)}" y="${H - 12}" font-size="14" text-anchor="middle" fill="#4b5952">${FLOW.years[i]}</text>`;
+  });
+  s += `<polyline fill="none" stroke="#16201c" stroke-width="2" points="${cum.map((v, i) => `${x(i)},${y(v)}`).join(' ')}"/>`;
+  cum.forEach((v, i) => { s += `<circle cx="${x(i)}" cy="${y(v)}" r="5" fill="#16201c" stroke="#fff" stroke-width="2"/>`; });
+  const last = cum.length - 1;
+  s += `<text x="${x(last) - 10}" y="${y(cum[last]) - 12}" font-size="14" font-weight="700" text-anchor="end" fill="#16201c">Acumulado $90 M</text>`;
+  s += `<text x="${x(2) + 12}" y="${y(cum[2]) + 20}" font-size="14" font-weight="700" text-anchor="start" fill="#16201c">Mínimo −$52,6 M</text>`;
+  FLOW.years.forEach((_, i) => { s += `<rect class="hit" data-i="${i}" x="${L + bw * i}" y="${T}" width="${bw}" height="${H - T - B}" fill="transparent"/>`; });
+  s += '</svg>';
+  box.insertAdjacentHTML('beforeend', s);
+  const tip = document.getElementById('tip');
+  const nf = (v) => (v < 0 ? '−$' : '$') + Math.abs(v).toLocaleString('es-CL', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' M';
+  box.querySelectorAll('.hit').forEach((r) => {
+    r.addEventListener('mousemove', (e) => {
+      const i = Number(r.dataset.i), rect = box.getBoundingClientRect(), sc = rect.width / box.offsetWidth;
+      tip.innerHTML = `<b>${FLOW.years[i]}</b><br>Ingresos: ${nf(FLOW.ing[i])}<br>Flujo del año: ${nf(FLOW.flow[i])}<br>Acumulado: ${nf(cum[i])}`;
+      tip.style.display = 'block';
+      let px = (e.clientX - rect.left) / sc + 14, py = (e.clientY - rect.top) / sc - 20;
+      if (px > box.offsetWidth - 200) px -= 220;
+      tip.style.left = px + 'px'; tip.style.top = py + 'px';
+    });
+    r.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+  });
+}
+
+// ---------- Demo de la app ----------
+const WELCOME = 'Hola, soy Guía Mayor. Le ayudo a hacer trámites por internet, paso a paso y con calma.\n\n¿Qué trámite necesita hacer? Puede escribirlo con sus palabras o tocar una de las opciones de abajo.';
+const SUGGESTIONS = [
+  ['🔑', 'Sacar o recuperar mi ClaveÚnica'], ['🏦', 'Ver mi cuenta del banco'], ['🩺', 'Pedir una hora médica'],
+  ['👵', 'Ver mi pensión o mi AFP'], ['💡', 'Pagar una cuenta de luz o agua'], ['⚠️', 'Me llegó un mensaje o llamada rara'],
+];
+const FLOWS = {
+  cred: { text: 'Necesito sacar la credencial de discapacidad', start: 'cred1', re: /discapacidad|credencial/i },
+  lic: { text: 'Quiero saber si me aprobaron la licencia médica', start: 'lic1', re: /licencia/i },
+  afp: { text: 'Ver mi pensión o mi AFP', start: 'afp1', re: /afp|pensi/i },
+  estafa: { text: 'Me llegó un mensaje o llamada rara', start: 'est1', re: /rar[ao]|estafa|llamada|mensaje/i },
+};
+const NODES = {
+  cred1: { a: 'Le ayudo con eso. La credencial tiene tres etapas: primero la COMPIN certifica la discapacidad, después el Registro Civil le inscribe en el Registro Nacional de la Discapacidad y al final la credencial le llega a su casa.\n\n¿Ya tiene la certificación de la COMPIN?', r: [['No, todavía no', 'cred2'], ['Sí, ya la tengo', 'cred4']] },
+  cred2: { a: 'Entonces partimos por la COMPIN. La solicitud se hace por internet y no tiene costo.\n\n1. Toque el botón verde de abajo. Es la página oficial de ChileAtiende.\n2. Toque "Solicitar certificación" y luego "Iniciar trámite" en la región donde vive.\n\nAvíseme cuando esté en esa página. https://www.chileatiende.gob.cl/fichas/83219-certificacion-de-discapacidad-de-la-compin', r: [['Ya estoy en la página', 'cred3']] },
+  cred3: { a: 'Muy bien. Ahora la página le pedirá sus datos y los informes que le entregó su equipo de salud. Vaya con calma. Si una pregunta no la entiende, escríbamela tal como aparece y se la explico.\n\nCuando la COMPIN apruebe, enviará su resolución al Registro Civil. La inscripción toma como máximo 25 días hábiles.\n\n¿Pudo enviar la solicitud?', r: [['Sí, la envié', 'credok']] },
+  cred4: { a: 'Bien. Entonces la COMPIN ya mandó su resolución al Registro Civil. Para revisar si le inscribieron, toque el botón de abajo y entre con su ClaveÚnica. Escriba su clave solo en esa página, nunca aquí.\n\n¿Qué ve en la pantalla? https://www.registrocivil.cl', r: [['Dice que estoy inscrita', 'credok']] },
+  credok: { a: '¡Muy bien hecho! Ya hizo la parte más difícil. La resolución le llega a su correo y la credencial, a la dirección que informó.\n\n¿Le ayudo con otro trámite?', r: [] },
+  lic1: { a: 'Le ayudo a revisarlo. ¿Usted está en Fonasa o en una isapre?', r: [['Fonasa', 'lic2'], ['Isapre', 'lic5']] },
+  lic2: { a: 'En Fonasa, el estado de la licencia lo informa la COMPIN. Necesita su RUT y el número de folio de la licencia, que aparece en el papel o en el correo que le llegó.\n\n1. Toque el botón verde de abajo.\n2. Escriba su RUT y el folio, y toque "Buscar". También puede entrar con su ClaveÚnica.\n\n¿Qué dice la pantalla? https://www.chileatiende.gob.cl/fichas/53052', r: [['Dice autorizada', 'lic3'], ['Dice rechazada', 'lic4']] },
+  lic3: { a: '¡Qué bueno! Su licencia está autorizada. En esa misma página aparece quién le paga y los pasos para cobrar.\n\n¿Le ayudo con algo más?', r: [] },
+  lic4: { a: 'Lamento eso. Usted puede apelar ante la Superintendencia de Seguridad Social (SUSESO), por internet con su ClaveÚnica y sin costo. Si quiere, lo hacemos juntos, paso a paso.\n\n¿Empezamos? https://www.suseso.cl', r: [] },
+  lic5: { a: 'En ese caso, el estado lo informa su isapre. Puede verlo en el sitio oficial de su isapre o llamando al número que aparece en su credencial.\n\n¿En qué isapre está?', r: [] },
+  afp1: { a: 'Claro, le ayudo. Primero veamos en qué AFP está.\n\n¿Tiene su ClaveÚnica a mano? Es la clave del Estado que se usa en ChileAtiende y el Registro Civil.', r: [['Sí, la tengo', 'afp2'], ['No la tengo', 'afp5']] },
+  afp2: { a: 'Muy bien.\n\n1. Toque el botón verde de abajo. Se abre la página oficial de la Superintendencia de Pensiones.\n2. Busque "Consulta de afiliación" y entre con su RUT y ClaveÚnica. Escriba su clave solo en esa página, nunca aquí.\n\n¿Qué ve ahora en la pantalla? https://www.spensiones.cl', r: [['Dice que estoy en AFP Habitat', 'afp3']] },
+  afp3: { a: 'Perfecto, ya sabe que está en AFP Habitat. Ahora puede ver su saldo en el sitio de su AFP, también con ClaveÚnica.\n\nToque el botón de abajo y busque "Ingresar" o "Sucursal virtual". ¿Pudo entrar? https://www.afphabitat.cl', r: [['Sí, veo mi saldo', 'afp4']] },
+  afp4: { a: '¡Muy bien hecho! Revisó su AFP usted mismo. Si algún dato no le cuadra, llame a su AFP al número que aparece en su sitio oficial.\n\n¿Necesita ayuda con otro trámite?', r: [] },
+  afp5: { a: 'No se preocupe, la puede pedir con su carnet en una oficina del Registro Civil o de ChileAtiende. Toque el botón de abajo para ver las opciones.\n\n¿Quiere que le explique cómo pedirla? https://claveunica.gob.cl', r: [] },
+  est1: { a: 'Hizo muy bien en preguntar antes de hacer algo. ¿Qué le dijeron o qué decía el mensaje?', r: [['Me llamaron del banco y me pidieron un código que me llegó por SMS', 'est2']] },
+  est2: { a: 'Eso es casi seguro una estafa. Su banco nunca le pide claves ni códigos por teléfono.\n\n1. No entregue ese código.\n2. Corte la llamada.\n3. Llame usted al número que aparece al reverso de su tarjeta.\n\nSi ya entregó el código, llame de inmediato a su banco para bloquear sus cuentas. ¿Ya cortó la llamada?', r: [['Sí, corté', 'est3']] },
+  est3: { a: 'Muy bien hecho. Usted se protegió. Si quiere, le ayudo a revisar si hay movimientos raros en su cuenta del banco.', r: [] },
+  nodemo: { a: 'En esta demostración están cargados los trámites del piloto: credencial de discapacidad, licencia médica y AFP. En la app, Guía Mayor le acompaña también con este trámite, paso a paso.', r: [] },
+};
+const SENSITIVE = {
+  card: 'Eso parece un número de tarjeta. No lo escriba aquí ni se lo dé a nadie: no lo necesitamos para ayudarle.',
+  password: 'Eso parece una clave. Sus claves son solo suyas: escríbalas únicamente en la página oficial, nunca en este chat.',
+};
+function luhn(d) { let s = 0; for (let i = 0; i < d.length; i++) { let n = +d[d.length - 1 - i]; if (i % 2) { n *= 2; if (n > 9) n -= 9; } s += n; } return s % 10 === 0; }
+function detectSensitive(v) {
+  for (const m of v.matchAll(/(?:\d[ -]?){13,19}/g)) { const d = m[0].replace(/\D/g, ''); if (d.length >= 13 && luhn(d)) return 'card'; }
+  if (/(clave|contrase[ñn]a|password|pin)\s*(es|:|=)\s*(?=\S*\d)\S{3,}/i.test(v)) return 'password';
+  return null;
+}
+
+const msgsEl = document.getElementById('msgs'), input = document.getElementById('msg'), warnEl = document.getElementById('warn');
+const repliesEl = document.getElementById('replies'), sendBtn = document.getElementById('send');
+let node = null, busy = false, runId = 0;
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function host(u) { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } }
+function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+function renderText(t, user) {
+  return esc(t).replace(/https?:\/\/[^\s)<>"]+/g, (u) => `<span class="${user ? '' : 'host'}">${host(u)}</span>`);
+}
+function bubble(role, text) {
+  const d = document.createElement('div');
+  d.className = 'b ' + (role === 'user' ? 'u' : 'a');
+  d.innerHTML = renderText(text, role === 'user');
+  msgsEl.appendChild(d);
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+  return d;
+}
+function finishBubble(d, text) {
+  const links = [...new Set(text.match(/https?:\/\/[^\s)<>"]+/g) || [])];
+  links.forEach((u) => { d.insertAdjacentHTML('beforeend', `<a class="lk" href="${u}" target="_blank" rel="noopener noreferrer">Abrir ${host(u)} ↗</a>`); });
+  d.insertAdjacentHTML('beforeend', '<br><button class="say" type="button">🔊 Escuchar</button>');
+  msgsEl.scrollTop = msgsEl.scrollHeight;
+}
+function showSuggestions() {
+  const w = document.createElement('div');
+  w.className = 'sugs';
+  w.innerHTML = SUGGESTIONS.map(([i, t]) => `<button class="sug" type="button" data-t="${t}"><span aria-hidden="true">${i}</span>${t}</button>`).join('')
+    + '<p class="privacy-line">Nunca le pediremos claves ni números de tarjeta. <button type="button" id="priv-link">Privacidad</button></p>';
+  msgsEl.appendChild(w);
+  w.querySelectorAll('.sug').forEach((b) => b.addEventListener('click', () => send(b.dataset.t)));
+  w.querySelector('#priv-link').addEventListener('click', () => document.getElementById('priv').classList.add('on'));
+}
+function setReplies(list) {
+  repliesEl.innerHTML = '';
+  if (!list.length) { repliesEl.innerHTML = '<span class="muted" style="font-size:16px">Fin del trámite. Elija otro a la izquierda o toque «Empezar de nuevo».</span>'; return; }
+  list.forEach(([t]) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'reply'; b.textContent = t;
+    b.addEventListener('click', () => typeAndSend(t));
+    repliesEl.appendChild(b);
+  });
+}
+function reset() {
+  runId++; busy = false; node = null;
+  msgsEl.innerHTML = '';
+  warnEl.hidden = true; input.value = '';
+  sendBtn.textContent = 'Enviar';
+  bubble('assistant', WELCOME);
+  showSuggestions();
+  repliesEl.innerHTML = '<span class="muted" style="font-size:16px">Elija un trámite a la izquierda o toque una opción en el celular.</span>';
+  document.getElementById('priv').classList.remove('on');
+}
+function pickNode(text) {
+  if (node) { const hit = NODES[node].r.find(([t]) => t.toLowerCase() === text.toLowerCase()); if (hit) return hit[1]; }
+  for (const f of Object.values(FLOWS)) if (f.re.test(text)) return f.start;
+  return 'nodemo';
+}
+async function send(text) {
+  const v = text.trim();
+  if (!v || busy) return;
+  const s = detectSensitive(v);
+  if (s) { warnEl.textContent = '🔒 ' + SENSITIVE[s]; warnEl.hidden = false; return; }
+  warnEl.hidden = true;
+  input.value = '';
+  msgsEl.querySelector('.sugs')?.remove();
+  bubble('user', v);
+  const next = pickNode(v);
+  node = next;
+  const full = NODES[next].a;
+  busy = true; sendBtn.textContent = '…'; setReplies([]); repliesEl.innerHTML = '';
+  const my = ++runId;
+  const d = bubble('assistant', '');
+  d.innerHTML = '<span class="typing">Escribiendo…</span>';
+  await wait(reduce ? 0 : 650);
+  if (my !== runId) return;
+  if (reduce) d.innerHTML = renderText(full);
+  else {
+    for (let i = 0; i <= full.length; i += 3) {
+      if (my !== runId) return;
+      d.innerHTML = renderText(full.slice(0, i));
+      msgsEl.scrollTop = msgsEl.scrollHeight;
+      await wait(14);
+    }
+    d.innerHTML = renderText(full);
+  }
+  finishBubble(d, full);
+  busy = false; sendBtn.textContent = 'Enviar';
+  setReplies(NODES[next].r);
+}
+const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+async function typeAndSend(t) {
+  if (busy) return;
+  busy = true;
+  const my = runId;
+  input.value = '';
+  for (let i = 1; i <= t.length; i++) { if (my !== runId) { busy = false; return; } input.value = t.slice(0, i); await wait(reduce ? 0 : 18); }
+  await wait(200);
+  busy = false;
+  if (my === runId) send(t);
+}
+document.getElementById('form').addEventListener('submit', (e) => { e.preventDefault(); send(input.value); });
+input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(input.value); } });
+input.addEventListener('input', () => { warnEl.hidden = true; });
+document.getElementById('restart').addEventListener('click', reset);
+document.getElementById('priv-back').addEventListener('click', () => document.getElementById('priv').classList.remove('on'));
+document.getElementById('show-priv').addEventListener('click', () => document.getElementById('priv').classList.add('on'));
+document.querySelectorAll('[data-flow]').forEach((b) => b.addEventListener('click', () => { reset(); typeAndSend(FLOWS[b.dataset.flow].text); }));
+document.getElementById('try-key').addEventListener('click', async () => {
+  document.getElementById('priv').classList.remove('on');
+  if (busy) return;
+  const t = 'mi clave es 4521';
+  for (let i = 1; i <= t.length; i++) { input.value = t.slice(0, i); await wait(reduce ? 0 : 40); }
+  await wait(250);
+  send(t);
+});
+const mic = document.getElementById('mic');
+mic.addEventListener('click', () => {
+  const on = mic.classList.toggle('on');
+  mic.textContent = on ? '⏹' : '🎤';
+  input.placeholder = on ? 'Le escucho…' : 'Escriba aquí su pregunta';
+});
+reset();
+
+// ---------- Inicio ----------
+function fromHash() { const h = location.hash.slice(1); const i = ids.indexOf(h); return i >= 0 ? i : 0; }
+window.addEventListener('hashchange', () => go(fromHash(), true));
+go(fromHash(), true);
+</script>
+</body>
+</html>

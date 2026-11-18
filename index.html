@@ -97,14 +97,116 @@ tr.us td { background: var(--brand-soft); font-weight: 700; }
 
 /* Portada */
 #s-portada { padding: 0; flex-direction: row; }
-#s-portada .left { flex: 1.25; padding: 150px 80px 80px 110px; display: flex; flex-direction: column; justify-content: center; }
-#s-portada .right { flex: 1; background: var(--brand); color: #fff; padding: 150px 80px 80px; display: flex; flex-direction: column; justify-content: center; gap: 26px; }
-#s-portada h1 { font-size: 120px; font-weight: 800; letter-spacing: -.035em; color: var(--brand); line-height: .95; }
-#s-portada .one { font-size: 34px; line-height: 1.3; margin-top: 30px; max-width: 760px; font-family: var(--display); font-weight: 500; }
-#s-portada .meta { margin-top: 46px; font-size: 19px; color: var(--ink-soft); line-height: 1.6; }
-#s-portada .right .k { font-family: var(--display); font-weight: 800; font-size: 76px; line-height: 1; }
-#s-portada .right p { font-size: 21px; line-height: 1.45; color: #d6ebe4; max-width: 470px; }
-#s-portada .right hr { border: 0; border-top: 1px solid rgba(255,255,255,.25); width: 100%; margin: 4px 0; }
+#s-portada .left { flex: 1.2; padding: 130px 60px 80px 110px; display: flex; flex-direction: column; justify-content: center; }
+#s-portada .right { flex: 1; display: grid; place-items: center; padding: 60px 70px 40px 0; }
+#s-portada .right .ill { width: 100%; max-width: 600px; height: auto; }
+#s-portada h1 { font-size: 128px; font-weight: 800; letter-spacing: -.035em; color: var(--brand); line-height: .95; }
+#s-portada .one { font-size: 36px; line-height: 1.28; margin-top: 30px; max-width: 760px; font-family: var(--display); font-weight: 500; color: var(--ink-soft); }
+#s-portada .one b { color: var(--ink); font-weight: 700; }
+#s-portada .meta { margin-top: 46px; font-size: 18px; color: var(--ink-soft); line-height: 1.6; }
+
+/* Títulos con énfasis: lo importante en negro y grande, el resto pequeño */
+h2.split { font-size: 58px; max-width: 1340px; }
+h2.split .em { color: var(--ink); }
+h2.split .sub { display: block; font-family: var(--body); font-weight: 400; font-size: 28px; letter-spacing: 0; color: var(--ink-soft); margin-top: 14px; line-height: 1.3; }
+.punch { font-size: 24px; line-height: 1.4; color: var(--ink-soft); margin-top: auto; padding-bottom: 40px; }
+.punch b { color: var(--ink); }
+.gap { display: grid; gap: 34px; align-content: start; }
+
+/* Problema */
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; align-content: center; margin-top: 30px; }
+.fig { padding: 0 34px; border-left: 3px solid var(--line); }
+.fig:first-child { padding-left: 0; border-left: 0; }
+.fig .big { white-space: nowrap; font-size: 118px; letter-spacing: -.03em; }
+.fig p { font-size: 30px; line-height: 1.3; margin-top: 14px; color: var(--ink); max-width: 360px; }
+.fig .src { display: block; margin-top: 10px; }
+
+/* Barras horizontales */
+.bars { display: grid; gap: 24px; }
+.bars .row { display: grid; grid-template-columns: 420px 1fr 140px; align-items: center; gap: 22px; }
+.bars .lb { font-size: 27px; color: var(--ink); }
+.bars .tr { height: 50px; background: #e3e9e5; border-radius: 6px; overflow: hidden; display: block; }
+.bars .tr i { display: block; height: 100%; border-radius: 0 4px 4px 0; }
+.bars b { font-family: var(--display); font-size: 46px; font-weight: 800; }
+.bars.small { gap: 12px; }
+.bars.small .row { grid-template-columns: 250px 1fr 110px; gap: 16px; }
+.bars.small .lb { font-size: 22px; }
+.bars.small .tr { height: 36px; }
+.bars.small b { font-size: 36px; }
+.takeaway { border-left: 6px solid var(--brand); padding: 4px 0 4px 26px; }
+.takeaway p { font-family: var(--display); font-size: 36px; font-weight: 500; color: var(--ink-soft); line-height: 1.2; }
+.takeaway p.em { font-weight: 800; font-size: 54px; color: var(--brand); }
+
+/* Solución */
+.withill { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; margin-top: 20px; }
+.diff { display: grid; gap: 28px; }
+.diff > div { display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
+.diff .dn { width: 64px; height: 64px; border-radius: 18px; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 30px; }
+.diff b { font-family: var(--display); font-size: 32px; font-weight: 700; display: block; line-height: 1.15; }
+.diff p { font-size: 22px; line-height: 1.4; color: var(--ink-soft); margin-top: 6px; }
+.illbox .ill { width: 100%; max-width: 480px; height: auto; display: block; margin: 0 auto; }
+
+/* Competencia */
+table.vs { font-size: 27px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+table.vs th { font-size: 20px; padding: 20px 22px; }
+table.vs td { padding: 24px 22px; }
+table.vs td.c { font-size: 36px; font-weight: 800; }
+table.vs tr.us td { font-size: 26px; color: var(--brand); }
+table.vs tr.us td.c { font-size: 38px; }
+table.vs tr.us td { font-size: 29px; }
+
+/* Valor */
+.actors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.actor { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 40px 36px; min-height: 330px; display: grid; gap: 10px; align-content: start; }
+.actor.pay { border: 2px solid var(--brand); }
+.actor .who { font-size: 24px; font-weight: 700; color: var(--ink-soft); }
+.actor .price { font-family: var(--display); font-size: 84px; font-weight: 800; color: var(--brand); line-height: 1; }
+.actor .price small { font-size: 26px; font-weight: 700; }
+.actor p { font-size: 26px; line-height: 1.35; margin-top: 8px; }
+.gtm { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; font-size: 23px; font-weight: 700; }
+.gtm .gl { color: var(--ink-soft); font-weight: 400; margin-right: 6px; }
+.gtm span:not(.gl) { background: var(--brand-soft); color: var(--brand); padding: 10px 16px; border-radius: 999px; }
+.gtm i { font-style: normal; color: var(--brand); }
+
+/* Tracción */
+#s-traccion .gap { grid-template-columns: 1fr 1fr; align-items: center; }
+.people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px 18px; max-width: 560px; }
+.pp { position: relative; }
+.pp svg { width: 100%; height: auto; fill: var(--pos); display: block; }
+.lbl2 { font-size: 19px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .05em; margin: 4px 0 12px; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+.chips span { background: var(--card); border: 1px solid var(--line); padding: 12px 20px; border-radius: 999px; font-size: 23px; font-weight: 700; }
+
+/* Roadmap compacto */
+.ms .ok { font-size: 22px; color: var(--brand); font-weight: 700; background: var(--brand-soft); border-radius: 12px; padding: 14px 16px; line-height: 1.3; }
+#s-roadmap .ms h3 { font-size: 34px; min-height: 84px; }
+#s-roadmap .ms .pin { width: 56px; height: 56px; font-size: 24px; }
+#s-roadmap .road::before { top: 26px; height: 6px; }
+#s-roadmap .ms .when { font-size: 21px; }
+
+/* Finanzas */
+.kcol { display: grid; gap: 16px; align-content: start; }
+.kpi.warn .v { color: var(--amber); }
+
+/* Inversión */
+.exit { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 24px 28px; }
+.exit p { font-size: 26px; line-height: 1.4; }
+
+.runway { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.runway div { border-left: 3px solid var(--line); padding-left: 20px; }
+.runway b { display: block; font-family: var(--display); font-size: 54px; font-weight: 800; color: var(--brand); line-height: 1.05; }
+.runway span { font-size: 22px; color: var(--ink-soft); }
+body.mobile .runway { grid-template-columns: 1fr; gap: 14px; }
+body.mobile .runway b { font-size: 32px; }
+body.mobile .runway span { font-size: 16px; }
+
+/* Cierre */
+.closing { flex: 1; display: grid; grid-template-columns: 1fr 1.25fr; gap: 40px; align-items: center; }
+.closing .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.closing .pair .ill { width: 100%; height: auto; }
+body.mobile .closing { grid-template-columns: 1fr; gap: 20px; }
+body.mobile .closing .pair { max-width: 320px; }
+.thanks { font-family: var(--display); font-size: 34px; font-weight: 700; color: var(--brand); margin-top: 40px; }
 
 /* Teléfono: réplica de la app real (colores, tamaños y textos de src/App.jsx) */
 .phone { width: 372px; height: 760px; border-radius: 52px; background: #111614; padding: 12px; box-shadow: 0 24px 50px rgba(0,0,0,.25); flex: none; }
@@ -187,10 +289,10 @@ tr.us td { background: var(--brand-soft); font-weight: 700; }
 
 /* Equipo */
 .team { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
-.member { background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; display: grid; gap: 12px; align-content: start; }
-.avatar { width: 64px; height: 64px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 24px; }
-.member .nm { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.15; }
-.member .rl { font-size: 17px; line-height: 1.4; color: var(--brand); font-weight: 700; border-radius: 6px; outline-offset: 2px; }
+.member { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 34px 26px; display: grid; gap: 12px; align-content: start; }
+.avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 24px; }
+.member .nm { font-family: var(--display); font-weight: 700; font-size: 27px; line-height: 1.15; }
+.member .rl { font-size: 21px; line-height: 1.4; color: var(--brand); font-weight: 700; border-radius: 6px; outline-offset: 2px; }
 .member .rl[data-empty="1"] { color: var(--amber); }
 .member .rl:focus { outline: 2px dashed var(--brand); }
 
@@ -199,8 +301,8 @@ tr.us td { background: var(--brand-soft); font-weight: 700; }
 .road::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; height: 4px; background: var(--brand-soft); }
 .ms { position: relative; display: grid; gap: 10px; align-content: start; }
 .ms .pin { width: 42px; height: 42px; border-radius: 50%; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; border: 5px solid var(--paper); position: relative; }
-.ms .when { font-weight: 700; color: var(--ink-soft); font-size: 15px; }
-.ms h3 { font-size: 24px; line-height: 1.2; }
+.ms .when { font-weight: 700; color: var(--ink-soft); font-size: 18px; }
+.ms h3 { font-size: 28px; line-height: 1.2; }
 .ms .card { padding: 16px 18px; }
 .ms .card p { font-size: 18px; line-height: 1.45; }
 .ms .card p + p { margin-top: 8px; }
@@ -210,9 +312,9 @@ tr.us td { background: var(--brand-soft); font-weight: 700; }
 /* Finanzas */
 .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px; }
-.kpi .v { font-family: var(--display); font-weight: 800; font-size: 40px; color: var(--brand); line-height: 1.05; }
-.kpi .l { font-size: 15.5px; color: var(--ink-soft); margin-top: 4px; }
-.fin { display: grid; grid-template-columns: 1.35fr 1fr; gap: 22px; margin-top: 18px; }
+.kpi .v { font-family: var(--display); font-weight: 800; font-size: 48px; color: var(--brand); line-height: 1.05; }
+.kpi .l { font-size: 18px; color: var(--ink-soft); margin-top: 4px; }
+.fin { display: grid; grid-template-columns: 1.7fr 1fr; gap: 22px; margin-top: 26px; }
 #chart { position: relative; }
 #chart svg { display: block; }
 .legend { display: flex; gap: 22px; font-size: 15px; color: var(--ink-soft); margin: 2px 0 6px; }
@@ -224,8 +326,8 @@ tr.us td { background: var(--brand-soft); font-weight: 700; }
 .neg { color: var(--neg); font-weight: 700; }
 
 /* Uso de fondos */
-.alloc { display: flex; height: 82px; border-radius: 14px; overflow: hidden; gap: 2px; background: var(--paper); }
-.alloc div { display: flex; align-items: center; padding: 0 16px; color: #fff; font-weight: 700; font-size: 17px; line-height: 1.2; }
+.alloc { display: flex; height: 110px; border-radius: 14px; overflow: hidden; gap: 2px; background: var(--paper); }
+.alloc div { display: flex; align-items: center; padding: 0 18px; color: #fff; font-weight: 700; font-size: 21px; line-height: 1.2; }
 
 /* Preguntas */
 details { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 13px 18px; }
@@ -278,9 +380,48 @@ body.mobile #s-portada .left { padding: 36px 20px 28px; flex: none; }
 body.mobile #s-portada h1 { font-size: 58px; margin-top: 14px !important; }
 body.mobile #s-portada .one { font-size: 22px; margin-top: 18px; }
 body.mobile #s-portada .meta { font-size: 15px; margin-top: 22px; }
-body.mobile #s-portada .right { padding: 28px 20px 110px; gap: 16px; flex: none; }
-body.mobile #s-portada .right .k { font-size: 48px; }
-body.mobile #s-portada .right p { font-size: 17px; }
+body.mobile #s-portada .right { padding: 0 30px 110px; flex: none; }
+body.mobile h2.split { font-size: 28px; }
+body.mobile h2.split .sub { font-size: 18px; margin-top: 8px; }
+body.mobile .trio { grid-template-columns: 1fr; gap: 22px; margin-top: 26px; }
+body.mobile .fig { padding: 0 0 0 16px; border-left: 3px solid var(--line); }
+body.mobile .fig:first-child { padding-left: 16px; border-left: 3px solid var(--line); }
+body.mobile .fig .big { font-size: 60px; }
+body.mobile .fig p { font-size: 19px; margin-top: 6px; }
+body.mobile .punch { font-size: 18px; margin-top: 24px; padding-bottom: 0; }
+body.mobile .bars .row, body.mobile .bars.small .row { grid-template-columns: 1fr auto; gap: 6px 12px; }
+body.mobile .bars .lb { grid-column: 1 / -1; font-size: 16px; }
+body.mobile .bars .tr { height: 22px; }
+body.mobile .bars b { font-size: 24px; }
+body.mobile .takeaway p { font-size: 22px; }
+body.mobile .takeaway p.em { font-size: 32px; }
+body.mobile .withill { grid-template-columns: 1fr; gap: 24px; }
+body.mobile .withill .illbox { order: -1; max-width: 280px; justify-self: center; }
+body.mobile .diff { gap: 18px; }
+body.mobile .diff > div { grid-template-columns: 44px 1fr; gap: 14px; }
+body.mobile .diff .dn { width: 44px; height: 44px; font-size: 20px; border-radius: 12px; }
+body.mobile .diff b { font-size: 21px; }
+body.mobile .diff p { font-size: 16.5px; }
+body.mobile table.vs { font-size: 15px; min-width: 0; }
+body.mobile table.vs th { font-size: 12.5px; padding: 10px 8px; }
+body.mobile table.vs td { padding: 10px 8px; }
+body.mobile table.vs td.c, body.mobile table.vs tr.us td.c { font-size: 20px; }
+body.mobile table.vs tr.us td { font-size: 16px; }
+body.mobile .actors { grid-template-columns: 1fr; gap: 12px; }
+body.mobile .actor { padding: 18px; min-height: 0; }
+body.mobile .actor .price { font-size: 40px; }
+body.mobile .actor p { font-size: 17px; }
+body.mobile .gtm { font-size: 15px; gap: 8px; }
+body.mobile #s-traccion .gap { grid-template-columns: 1fr; }
+body.mobile .people { gap: 8px 12px; max-width: 300px; }
+body.mobile .chips span { font-size: 15px; }
+body.mobile .ms h3 { font-size: 20px; }
+body.mobile .exit { grid-template-columns: 1fr; padding: 18px; }
+body.mobile .exit p { font-size: 18px; }
+body.mobile .kcol { grid-template-columns: 1fr 1fr; }
+body.mobile .kpi.warn { grid-column: 1 / -1; }
+body.mobile .thanks { font-size: 24px; margin-top: 20px; }
+body.mobile [style*="font-size:60px"] { font-size: 30px !important; }
 body.mobile .flow { grid-template-columns: 1fr; gap: 6px; }
 body.mobile .flow .arrow { transform: rotate(90deg); font-size: 24px; }
 body.mobile .demo { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 14px; }
@@ -333,112 +474,130 @@ body.mobile #mnav {
 <div id="viewport"><div id="stage">
 <nav id="rail" aria-label="Secciones de la rúbrica"></nav>
 
-<!-- 0 · PORTADA -->
-<section class="slide" id="s-portada" data-rail="" data-t="30">
+<!-- 0 · PORTADA Y CONCEPTO -->
+<section class="slide" id="s-portada" data-rail="0" data-t="20">
   <div class="left">
-    <div class="kicker">Presentación de inversión · Fase capitales privados</div>
+    <div class="kicker">Presentación de inversión · Solemne 3</div>
     <h1 style="margin-top:22px">Guía Mayor</h1>
-    <p class="one">Acompaña a las personas mayores a hacer sus trámites por internet, paso a paso y sin depender de otra persona.</p>
-    <p class="meta">Felipe Ochoa · Antonia Valdebenito · Jorge Pinto · Benjamín Candia · John Torres<br>Ingeniería en Computación e Informática · Universidad Andrés Bello · Solemne 3 · Noviembre 2026</p>
+    <p class="one">Acompaña a las personas mayores a hacer sus trámites por internet, <b>paso a paso y sin depender de nadie.</b></p>
+    <p class="meta">Felipe Ochoa · Antonia Valdebenito · Jorge Pinto · Benjamín Candia · John Torres<br>Ingeniería en Computación e Informática · Universidad Andrés Bello · Noviembre 2026</p>
   </div>
-  <div class="right">
-    <div class="k num">20 de 20</div>
-    <p>adultos mayores completaron su trámite sin ayuda en el piloto de octubre y noviembre de 2026.</p>
-    <hr>
-    <div class="k num">$55 M</div>
-    <p>es lo que buscamos para llevar Guía Mayor a producción y a sus primeros municipios e instituciones.</p>
-  </div>
+  <div class="right"><svg class="ill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" role="img" aria-label="Ilustración: una abuela sonríe mientras usa Guía Mayor en su celular">
+  <circle cx="270" cy="300" r="230" fill="#e0eee8"/>
+  <!-- burbujas del chat -->
+  <g>
+    <rect x="300" y="70" width="190" height="64" rx="22" fill="#fff" stroke="#d5ddd8"/>
+    <rect x="322" y="90" width="120" height="9" rx="4.5" fill="#cfd8d3"/><rect x="322" y="108" width="84" height="9" rx="4.5" fill="#cfd8d3"/>
+    <rect x="330" y="150" width="170" height="54" rx="20" fill="#0f5c4d"/>
+    <rect x="350" y="170" width="96" height="9" rx="4.5" fill="#9fd8c8"/>
+    <circle cx="470" cy="177" r="13" fill="#fff"/><path d="M463 177 l5 5 l9 -10" fill="none" stroke="#0f5c4d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- cuerpo -->
+  <path d="M120 560 C120 430 170 370 260 370 C350 370 400 430 400 560 Z" fill="#0f5c4d"/>
+  <path d="M232 372 L260 450 L288 372 Z" fill="#f3e3d3"/>
+  <path d="M226 378 L260 470 L246 560 L196 560 L214 420 Z" fill="#0b4439"/>
+  <path d="M294 378 L260 470 L274 560 L324 560 L306 420 Z" fill="#0b4439"/>
+  <!-- cuello y cabeza -->
+  <rect x="242" y="320" width="36" height="58" rx="14" fill="#e9b996"/>
+  <ellipse cx="260" cy="262" rx="72" ry="80" fill="#f0c4a2"/>
+  <!-- pelo -->
+  <path d="M186 262 C178 190 220 166 262 166 C306 166 344 192 334 262 C326 222 300 204 262 204 C222 204 196 224 186 262 Z" fill="#e7e9eb"/>
+  <circle cx="262" cy="160" r="34" fill="#dfe2e5"/>
+  <ellipse cx="190" cy="268" rx="12" ry="20" fill="#e7e9eb"/><ellipse cx="332" cy="268" rx="12" ry="20" fill="#e7e9eb"/>
+  <!-- lentes y cara -->
+  <circle cx="234" cy="266" r="20" fill="#fff" fill-opacity=".35" stroke="#5a4636" stroke-width="4"/>
+  <circle cx="288" cy="266" r="20" fill="#fff" fill-opacity=".35" stroke="#5a4636" stroke-width="4"/>
+  <path d="M254 264 h14" stroke="#5a4636" stroke-width="4"/>
+  <circle cx="236" cy="268" r="4" fill="#3d2f25"/><circle cx="286" cy="268" r="4" fill="#3d2f25"/>
+  <path d="M238 304 Q261 324 284 304" fill="none" stroke="#a5523a" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="214" cy="296" r="9" fill="#f2a08a" fill-opacity=".5"/><circle cx="308" cy="296" r="9" fill="#f2a08a" fill-opacity=".5"/>
+  <!-- manos y celular -->
+  <rect x="226" y="396" width="86" height="150" rx="16" fill="#16201c" transform="rotate(-8 269 471)"/>
+  <rect x="234" y="406" width="70" height="128" rx="10" fill="#fbf8f1" transform="rotate(-8 269 471)"/>
+  <g transform="rotate(-8 269 471)"><rect x="242" y="420" width="44" height="10" rx="5" fill="#0f5c4d"/><rect x="242" y="438" width="54" height="22" rx="7" fill="#fff" stroke="#d5ddd8"/><rect x="252" y="468" width="44" height="18" rx="7" fill="#0f5c4d"/><rect x="242" y="494" width="54" height="22" rx="7" fill="#fff" stroke="#d5ddd8"/></g>
+  <ellipse cx="236" cy="500" rx="26" ry="20" fill="#f0c4a2"/>
+  <ellipse cx="306" cy="490" rx="24" ry="19" fill="#f0c4a2"/>
+</svg>
+</div>
 </section>
 
-<!-- 1 · CONCEPTO -->
-<section class="slide" id="s-concepto" data-rail="0" data-t="35">
-  <div class="kicker">Concepto <span class="pts">4 pts</span></div>
-  <h2>Un acompañante digital que guía cada trámite, un paso a la vez</h2>
-  <div class="content grid" style="grid-template-columns: 1.3fr 1fr 1fr; align-content:start">
-    <div class="card accent-left" style="grid-row: span 2">
-      <h3>En una frase</h3>
-      <p style="font-size:27px; line-height:1.4; font-family:var(--display); font-weight:500">Guía Mayor es un chat con letra grande y voz que acompaña a las personas mayores a hacer cualquier trámite por internet, paso a paso, sin cuentas ni contraseñas.</p>
+<!-- 1 · PROBLEMA -->
+<section class="slide" id="s-problema" data-rail="1" data-t="30">
+  <div class="kicker">Problema</div>
+  <h2 class="split"><span class="em">Los trámites pasaron a internet.</span> <span class="sub">La mayoría de las personas mayores no puede hacerlos sola.</span></h2>
+  <div class="content trio">
+    <div class="fig"><div class="big num">19,8%</div><p>de Chile tiene 60 años o más</p><span class="src">Censo 2024</span></div>
+    <div class="fig"><div class="big amber num">36%</div><p>puede hacer un trámite digital sola</p><span class="src">Subtel y Senama, 2025</span></div>
+    <div class="fig"><div class="big amber num">4 de 10</div><p>ha sido víctima de una estafa digital</p><span class="src">Subtel y Senama, 2023</span></div>
+  </div>
+  <p class="punch">Hoy dependen de un hijo o nieto para sacar una hora, revisar su AFP o pedir un certificado.</p>
+  <div class="foot"><span>Fuentes: ine.gob.cl · subtel.gob.cl · senama.gob.cl</span><span class="pg"></span></div>
+</section>
+
+<!-- 2 · PROBLEMA EN DATOS -->
+<section class="slide" id="s-brecha" data-rail="1" data-t="30">
+  <div class="kicker">Problema · Datos</div>
+  <h2 class="split"><span class="em">Tienen el celular.</span> <span class="sub">Les falta saber usarlo para un trámite.</span></h2>
+  <div class="content gap">
+    <div class="bars num" role="img" aria-label="Personas de 60 años o más: 86,6% usa smartphone, 20,5% usó un computador la última semana, 36% puede hacer un trámite digital sola, 23% hace trámites por internet">
+      <div class="row"><span class="lb">Usa smartphone</span><span class="tr"><i style="width:86.6%; background:var(--pos)"></i></span><b>86,6%</b></div>
+      <div class="row"><span class="lb">Usó un computador esta semana</span><span class="tr"><i style="width:20.5%; background:#8a958f"></i></span><b>20,5%</b></div>
+      <div class="row"><span class="lb">Hace un trámite digital sola</span><span class="tr"><i style="width:36%; background:var(--neg)"></i></span><b>36%</b></div>
+      <div class="row"><span class="lb">Hace trámites por internet</span><span class="tr"><i style="width:23%; background:var(--neg)"></i></span><b>23%</b></div>
     </div>
-    <div class="card"><h3>Propósito</h3><p>Que una persona mayor pueda hacer sus trámites sola, con confianza y sin exponerse a estafas.</p></div>
-    <div class="card"><h3>Para quién</h3><p><b>Usa:</b> la persona mayor, gratis.<br><b>Paga:</b> municipios e instituciones que atienden a personas mayores.</p></div>
-    <div class="card" style="grid-column: span 2"><h3>Qué la hace distinta</h3><p>No es un manual ni un video: acompaña en el momento del trámite, responde con las palabras de la persona y la lleva al sitio oficial correcto.</p></div>
+    <div class="takeaway"><p>La brecha no es de equipos.</p><p class="em">Es de habilidades.</p></div>
+  </div>
+  <div class="foot"><span>Personas de 60+ · Subtel 2025 · Subtel y Senama 2025 · Calidad de Vida en la Vejez UC 2022</span><span class="pg"></span></div>
+</section>
+
+<!-- 3 · SOLUCIÓN -->
+<section class="slide" id="s-solucion" data-rail="2" data-t="30">
+  <div class="kicker">Solución</div>
+  <h2 class="split"><span class="em">Un chat en el celular que acompaña cada trámite.</span> <span class="sub">Paso a paso, hasta el sitio oficial.</span></h2>
+  <div class="content withill">
+    <div class="diff">
+      <div><span class="dn">1</span><div><b>Acompaña en el momento</b><p>No es un manual: responde lo que la persona pregunta, cuando lo necesita.</p></div></div>
+      <div><span class="dn">2</span><div><b>Hecha para personas mayores</b><p>Sin cuentas ni contraseñas. Letra grande, voz y trato de usted.</p></div></div>
+      <div><span class="dn">3</span><div><b>Protege de estafas</b><p>Bloquea claves y tarjetas, y avisa ante llamadas sospechosas.</p></div></div>
+    </div>
+    <div class="illbox"><svg class="ill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" role="img" aria-label="Ilustración: un abuelo termina su trámite en el celular y aparece una marca de listo">
+  <circle cx="250" cy="300" r="230" fill="#fdf1dc"/>
+  <circle cx="420" cy="120" r="56" fill="#16876f"/><path d="M394 120 l18 18 l32 -36" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- cuerpo -->
+  <path d="M100 560 C100 430 150 372 240 372 C330 372 380 430 380 560 Z" fill="#b45309"/>
+  <path d="M214 374 L240 440 L266 374 Z" fill="#fff"/>
+  <rect x="150" y="430" width="30" height="130" fill="#9a4708"/><rect x="300" y="430" width="30" height="130" fill="#9a4708"/>
+  <rect x="222" y="322" width="36" height="56" rx="14" fill="#c98e68"/>
+  <ellipse cx="240" cy="262" rx="72" ry="80" fill="#d9a07a"/>
+  <!-- pelo y orejas -->
+  <path d="M168 250 C164 214 176 196 192 190 C186 214 188 232 194 248 Z" fill="#c9cdd1"/>
+  <path d="M312 250 C316 214 304 196 288 190 C294 214 292 232 286 248 Z" fill="#c9cdd1"/>
+  <ellipse cx="168" cy="268" rx="13" ry="20" fill="#d9a07a"/><ellipse cx="312" cy="268" rx="13" ry="20" fill="#d9a07a"/>
+  <!-- cejas, lentes, bigote -->
+  <path d="M196 236 q18 -10 34 0 M250 236 q18 -10 34 0" fill="none" stroke="#9aa0a5" stroke-width="6" stroke-linecap="round"/>
+  <rect x="194" y="248" width="40" height="30" rx="10" fill="#fff" fill-opacity=".35" stroke="#2c3a34" stroke-width="4"/>
+  <rect x="246" y="248" width="40" height="30" rx="10" fill="#fff" fill-opacity=".35" stroke="#2c3a34" stroke-width="4"/>
+  <path d="M234 262 h12" stroke="#2c3a34" stroke-width="4"/>
+  <circle cx="214" cy="264" r="4" fill="#2b211a"/><circle cx="266" cy="264" r="4" fill="#2b211a"/>
+  <path d="M206 300 Q240 284 274 300 Q258 312 240 304 Q222 312 206 300 Z" fill="#c9cdd1"/>
+  <path d="M222 316 Q240 328 258 316" fill="none" stroke="#8a3f2a" stroke-width="5" stroke-linecap="round"/>
+  <!-- celular -->
+  <g transform="rotate(10 250 470)">
+    <rect x="208" y="392" width="86" height="150" rx="16" fill="#16201c"/>
+    <rect x="216" y="402" width="70" height="128" rx="10" fill="#fbf8f1"/>
+    <rect x="224" y="414" width="44" height="10" rx="5" fill="#0f5c4d"/>
+    <rect x="224" y="432" width="54" height="30" rx="7" fill="#fff" stroke="#d5ddd8"/>
+    <rect x="224" y="472" width="54" height="20" rx="8" fill="#0f5c4d"/>
+  </g>
+  <ellipse cx="212" cy="494" rx="26" ry="20" fill="#d9a07a"/><ellipse cx="292" cy="506" rx="24" ry="19" fill="#d9a07a"/>
+</svg>
+</div>
   </div>
   <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
 </section>
 
-<!-- 2 · PROBLEMA -->
-<section class="slide" id="s-problema" data-rail="1" data-t="60">
-  <div class="kicker">Problema <span class="pts">7 pts</span></div>
-  <h2>Los trámites pasaron a internet y la mayoría de las personas mayores no puede hacerlos sola</h2>
-  <div class="content grid" style="grid-template-columns: repeat(3, 1fr); align-content:start">
-    <div class="card stat"><div class="big amber num">36%</div><p>de las personas mayores sabe hacer un trámite o transacción digital de forma autónoma.</p><p class="src">Subtel, convenio Segegob–Subtel–Senama, 2025</p></div>
-    <div class="card stat"><div class="big num">19,8%</div><p>de la población tiene 60 años o más: 3.665.028 personas. Serían el 26,4% en 2035.</p><p class="src">INE y Senama, Censo 2024 (publicado el 29-09-2026)</p></div>
-    <div class="card stat"><div class="big amber num">4 de 10</div><p>personas mayores han sido víctimas de algún fraude o estafa digital.</p><p class="src">Radiografía Digital de Personas Mayores 2023 (Subtel y Senama)</p></div>
-    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: repeat(3,1fr); gap: 26px">
-      <div><h3>Quién lo sufre</h3><p>La persona mayor, que depende de un hijo o nieto para sacar una hora, revisar su AFP o pedir un certificado.</p></div>
-      <div><h3>Qué le cuesta</h3><p>Horas de fila, permisos en el trabajo de la familia y el riesgo de entregar claves a quien no corresponde.</p></div>
-      <div><h3>Por qué ahora</h3><p>El Estado digitaliza sus trámites y la banca deja los canales presenciales. Y la población envejece: hoy hay 112 personas de 60 años o más por cada 100 menores de 15.</p></div>
-    </div>
-  </div>
-  <div class="foot"><span>Fuentes: subtel.gob.cl · ine.gob.cl · senama.gob.cl</span><span class="pg"></span></div>
-</section>
-
-<!-- 2b · PROBLEMA EN DATOS -->
-<section class="slide" id="s-brecha" data-rail="1" data-t="55">
-  <div class="kicker">Problema · Datos <span class="pts">7 pts</span></div>
-  <h2 style="font-size:44px">Casi todas las personas mayores tienen celular; pocas saben usarlo para un trámite</h2>
-  <div class="content grid" style="grid-template-columns: repeat(3, 1fr); align-content:start; margin-top:22px; gap:16px">
-    <div class="card" style="padding:18px 22px">
-      <span class="tag">Cuántos son</span>
-      <div class="data"><b class="num">19,8%</b><p>de la población tiene 60 años o más (3.665.028 personas).</p></div>
-      <div class="data"><b class="num">112</b><p>personas de 60 o más por cada 100 menores de 15 años.</p></div>
-      <div class="data"><b class="num">16,2%</b><p>de las personas mayores tiene 80 años o más (593.010).</p></div>
-      <p class="src">INE y Senama, Censo 2024 · Observatorio del Envejecimiento UC, 2025</p>
-    </div>
-    <div class="card" style="padding:18px 22px">
-      <span class="tag">Con qué se conectan</span>
-      <div class="data"><b class="num">86,6%</b><p>de las personas de 60 o más usa smartphone.</p></div>
-      <div class="data"><b class="num">20,5%</b><p>usó un computador la última semana, frente al 49,6% de la población total.</p></div>
-      <div class="data"><b class="num">21,2%</b><p>de los hogares solo de personas mayores tiene notebook; 13,1%, computador de escritorio.</p></div>
-      <p class="src">Subtel, Duodécima Encuesta de Acceso y Uso de Internet, 2025</p>
-    </div>
-    <div class="card" style="border-color: var(--amber); padding:18px 22px">
-      <span class="tag amber">Qué saben hacer</span>
-      <div class="data"><b class="num amber">36%</b><p>sabe hacer un trámite digital de forma autónoma.</p></div>
-      <div class="data"><b class="num amber">23%</b><p>hace trámites por internet. Entre los de 80 años o más, 5% o menos.</p></div>
-      <div class="data"><b class="num amber">21%</b><p>califica sus habilidades de internet con más de 6, en una escala de 1 a 7.</p></div>
-      <p class="src">Subtel y Senama, 2025 · Encuesta Calidad de Vida en la Vejez UC–Caja Los Andes, 2022</p>
-    </div>
-    <div class="card accent-left" style="grid-column: span 3; padding:14px 22px">
-      <p style="font-size:19px; line-height:1.4"><b>La brecha no es de equipos, es de habilidades.</b> El celular ya está en sus manos y el computador casi no se usa. Por eso Guía Mayor es un chat en el celular: llega a donde ya están y acompaña el paso que no saben dar solos.</p>
-    </div>
-  </div>
-  <div class="foot"><span>Fuentes: ine.gob.cl · subtel.gob.cl · encuestacalidaddevidaenlavejez.uc.cl · observatorioenvejecimiento.uc.cl</span><span class="pg"></span></div>
-</section>
-
-<!-- 3 · SOLUCIÓN -->
-<section class="slide" id="s-solucion" data-rail="2" data-t="60">
-  <div class="kicker">Solución <span class="pts">9 pts</span></div>
-  <h2>La persona escribe o dicta lo que necesita, y Guía Mayor la lleva paso a paso hasta el sitio oficial</h2>
-  <div class="content" style="display:grid; gap:22px; align-content:start">
-    <div class="flow">
-      <div class="card"><span class="tag">1 · Pregunta</span><h3>Con sus palabras</h3><p>Escribe o dicta con el micrófono: «quiero revisar mi AFP». No crea cuenta ni contraseña.</p></div>
-      <div class="arrow">→</div>
-      <div class="card"><span class="tag">2 · Guía</span><h3>Un paso a la vez</h3><p>Un asistente de IA (Claude) responde en simple, trata de «usted», explica qué tocar y pregunta qué ve antes de seguir. Confirma datos en sitios oficiales.</p></div>
-      <div class="arrow">→</div>
-      <div class="card"><span class="tag">3 · Hace el trámite</span><h3>En el sitio oficial</h3><p>Un botón grande abre la página correcta. La persona escribe su clave solo ahí.</p></div>
-    </div>
-    <div class="grid" style="grid-template-columns: 1fr 1fr 1fr">
-      <div class="card"><h3>Qué es</h3><ul><li>Aplicación web: funciona en el celular, sin instalar nada</li><li>Letra grande, voz para dictar y escuchar</li><li>Trámites públicos y privados: ClaveÚnica, salud, AFP, bancos, cuentas</li></ul></div>
-      <div class="card"><h3>Qué no es</h3><ul><li>No hace el trámite por la persona ni entra a sus cuentas</li><li>No pide ni guarda claves</li><li>No reemplaza a ChileAtiende ni la atención presencial</li></ul></div>
-      <div class="card" style="border-color: var(--brand)"><h3>Diferenciación</h3><ul><li>Acompaña en el momento, no antes ni después</li><li>Bloquea claves y tarjetas antes de enviarlas</li><li>Detecta estafas y dice qué hacer</li><li>Conversación solo en el navegador</li></ul></div>
-    </div>
-  </div>
-  <div class="foot"><span>Código: github.com/Fochoa24/chatbot_ayuda_mayor</span><span class="pg"></span></div>
-</section>
-
 <!-- 4 · DEMO -->
-<section class="slide" id="s-demo" data-rail="2" data-t="120">
+<section class="slide" id="s-demo" data-rail="2" data-t="45">
   <div class="kicker">Solución · Demo de la app <span class="pts">toque los botones o escriba en el celular</span></div>
   <div class="demo">
     <div class="panel">
@@ -491,242 +650,214 @@ body.mobile #mnav {
   <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
 </section>
 
-<!-- 5 · MODELO DE NEGOCIO -->
-<section class="slide" id="s-modelo" data-rail="3" data-t="55">
-  <div class="kicker">Modelo de negocio <span class="pts">7 pts</span></div>
-  <h2>Gratis para la persona mayor. Pagan los municipios e instituciones que la atienden</h2>
-  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
-    <div class="card"><span class="tag">B2G</span><h3 style="margin-top:12px">Licencia municipal</h3><div class="big num" style="font-size:46px">$6 M<span style="font-size:22px"> /año</span></div><p style="margin-top:10px">Por comuna. Incluye la app para sus vecinos, puesta en marcha y reporte de uso. Cabe en Compra Ágil.</p></div>
-    <div class="card"><span class="tag">B2B</span><h3 style="margin-top:12px">Convenio institucional</h3><div class="big num" style="font-size:46px">$12 M<span style="font-size:22px"> /año</span></div><p style="margin-top:10px">Cajas de compensación, AFP, clínicas o bancos. Versión con sus trámites, su marca y reporte anónimo. Cada consulta resuelta es una persona menos en sucursal.</p></div>
-    <div class="card"><span class="tag">Servicio</span><h3 style="margin-top:12px">Talleres de inclusión digital</h3><div class="big num" style="font-size:46px">$1,2 M<span style="font-size:22px"> /taller</span></div><p style="margin-top:10px">Talleres presenciales con la app como herramienta, para clubes, cajas y centros de salud.</p></div>
-    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: 1.1fr 1fr 1fr; gap: 28px">
-      <div><h3>Costos clave</h3><p>Costo directo del 22% de los ingresos: API de IA, hosting y materiales de talleres. Fijos: equipo, oficina y marketing.</p></div>
-      <div><h3>Margen por licencia municipal</h3><p class="num">$6 M − 22% de costo directo = <b>$4,7 M al año</b> de contribución por comuna.</p></div>
-      <div><h3>Costo de adquisición estimado</h3><p class="num">≈ $3,5 M por cliente en 2028 (ejecutivo + demos + contenido, entre 5 clientes nuevos). Se recupera en menos de un año.</p></div>
-    </div>
+<!-- 5 · MERCADO -->
+<section class="slide" id="s-mercado" data-rail="3" data-t="25">
+  <div class="kicker">Mercado</div>
+  <h2 class="split"><span class="em">$1.074 M al año alcanzables.</span> <span class="sub">Pagan municipios e instituciones; la persona mayor usa gratis.</span></h2>
+  <div class="content funnel">
+    <div class="tier"><span class="lab">TAM</span><div><div class="bar" style="width:100%"></div><p class="desc">345 municipios × $6 M + 28 instituciones (cajas, AFP y bancos) × $12 M</p></div><span class="val num">$2.406 M</span></div>
+    <div class="tier sam"><span class="lab">SAM</span><div><div class="bar" style="width:45%"></div><p class="desc">123 comunas de RM, Valparaíso y Biobío + las 28 instituciones</p></div><span class="val num">$1.074 M</span></div>
+    <div class="tier som"><span class="lab">SOM</span><div><div class="bar" style="width:10.4%"></div><p class="desc">Meta 2031: 18 comunas y 9 instituciones (23% del SAM)</p></div><span class="val num">$250 M</span></div>
   </div>
-  <div class="foot"><span>Supuestos del flujo de caja del equipo (Flujo_de_caja_Guia_Mayor_v2.xlsx)</span><span class="pg"></span></div>
+  <div class="foot"><span>Montos anuales · supuestos del equipo con precios de 2027</span><span class="pg"></span></div>
 </section>
 
-<!-- 6 · MERCADO -->
-<section class="slide" id="s-mercado" data-rail="4" data-t="50">
-  <div class="kicker">Mercado <span class="pts">7 pts</span></div>
-  <h2>Quien compra es el municipio o la institución; el mercado se mide en licencias</h2>
-  <div class="content" style="display:grid; grid-template-columns: 1.55fr 1fr; gap: 40px">
-    <div class="funnel">
-      <div class="tier"><span class="lab">TAM</span><div><div class="bar" style="width:100%"></div><p class="desc">345 municipalidades × $6 M + 28 instituciones (4 cajas, 7 AFP, 17 bancos) × $12 M</p></div><span class="val num">$2.406 M<small>al año</small></span></div>
-      <div class="tier sam"><span class="lab">SAM</span><div><div class="bar" style="width:45%"></div><p class="desc">123 comunas de RM, Valparaíso y Biobío × $6 M + las 28 instituciones</p></div><span class="val num">$1.074 M<small>al año</small></span></div>
-      <div class="tier som"><span class="lab">SOM</span><div><div class="bar" style="width:10.4%"></div><p class="desc">Meta del flujo de caja para 2031</p></div><span class="val num">$250 M<small>al año en 2031</small></span></div>
-      <p style="font-size:18px; line-height:1.5; margin-top:10px"><b>SOM 2031:</b> 18 comunas (15% del SAM), 9 instituciones y 28 talleres. Es el 23% del SAM en cinco años.</p>
-    </div>
-    <div class="grid" style="align-content:start">
-      <div class="card"><h3>Supuestos explícitos</h3><ul><li>Un comprador por comuna: el municipio, con su programa de personas mayores.</li><li>Instituciones: solo cajas, AFP y bancos; no se cuentan clínicas.</li><li>Precios de 2027 sin reajuste.</li></ul></div>
-      <div class="card"><h3>Usuarios detrás</h3><p class="num">3.665.028 personas de 60 años o más (Censo 2024). Las 4 cajas de compensación tienen más de 1,4 millones de pensionados afiliados.</p><p class="src" style="margin-top:8px">INE 2026 · Cajas de Chile, boletín enero 2024</p></div>
-    </div>
+<!-- 6 · COMPETENCIA -->
+<section class="slide" id="s-competencia" data-rail="4" data-t="30">
+  <div class="kicker">Por qué somos mejores</div>
+  <h2 class="split"><span class="em">Somos la única opción que hace las tres cosas.</span> <span class="sub">Acompaña en el momento, está hecha para personas mayores y protege de estafas.</span></h2>
+  <div class="content">
+    <table class="vs">
+      <thead><tr><th></th><th class="c">Acompaña en el momento</th><th class="c">Hecha para mayores</th><th class="c">Protege de estafas</th></tr></thead>
+      <tbody>
+        <tr><td>Un hijo o nieto</td><td class="c yes">✓</td><td class="c yes">✓</td><td class="c part">~</td></tr>
+        <tr><td>Asistente virtual de ChileAtiende</td><td class="c part">~</td><td class="c no">✗</td><td class="c no">✗</td></tr>
+        <tr><td>Manuales y talleres (Senama, 60+ Digital)</td><td class="c no">✗</td><td class="c yes">✓</td><td class="c part">~</td></tr>
+        <tr><td>Chatbots generales</td><td class="c yes">✓</td><td class="c no">✗</td><td class="c no">✗</td></tr>
+        <tr class="us"><td>Guía Mayor</td><td class="c">✓</td><td class="c">✓</td><td class="c">✓</td></tr>
+      </tbody>
+    </table>
   </div>
-  <div class="foot"><span>Las cifras de 17 bancos y del SAM regional son supuestos del equipo</span><span class="pg"></span></div>
+  <div class="foot"><span>✓ sí · ~ en parte · ✗ no</span><span class="pg"></span></div>
 </section>
 
-<!-- 7 · MARKETING -->
-<section class="slide" id="s-marketing" data-rail="5" data-t="45">
-  <div class="kicker">Marketing <span class="pts">6 pts</span></div>
-  <h2>Entramos por los programas que ya reúnen a las personas mayores</h2>
-  <div class="content" style="display:grid; gap: 22px; align-content:start">
-    <div class="steps">
-      <div class="step"><div class="t">1 · Demostración</div><p>Demo gratis en clubes de adulto mayor y talleres municipales. La persona hace un trámite real con la app.</p><div class="m">Métrica: demos al mes</div></div>
-      <div class="step"><div class="t">2 · Piloto</div><p>Convenio de colaboración de 3 meses con el municipio. Medimos trámites completados sin ayuda.</p><div class="m">Métrica: % sin ayuda ≥ 80%</div></div>
-      <div class="step"><div class="t">3 · Licencia</div><p>Con los resultados, licencia anual por Compra Ágil. Talleres como servicio adicional.</p><div class="m">Métrica: conversión piloto → licencia</div></div>
-      <div class="step"><div class="t">4 · Institución</div><p>Con casos municipales, convenio con cajas de compensación y AFP para sus pensionados.</p><div class="m">Métrica: convenios firmados</div></div>
+<!-- 7 · VALOR (MODELO DE NEGOCIO Y MARKETING) -->
+<section class="slide" id="s-valor" data-rail="5 6" data-t="35">
+  <div class="kicker">Cómo generamos valor</div>
+  <h2 class="split"><span class="em">Quien ahorra con Guía Mayor, paga.</span> <span class="sub">La persona mayor la usa gratis.</span></h2>
+  <div class="content gap">
+    <div class="actors">
+      <div class="actor"><span class="who">Persona mayor</span><span class="price">Gratis</span><p>Hace sus trámites sola y segura.</p></div>
+      <div class="actor pay"><span class="who">Municipio</span><span class="price num">$6 M<small>/año</small></span><p>Un programa de inclusión digital que se puede medir.</p></div>
+      <div class="actor pay"><span class="who">Caja, AFP o banco</span><span class="price num">$12 M<small>/año</small></span><p>Menos filas en sucursal y menos llamadas.</p></div>
     </div>
-    <div class="grid" style="grid-template-columns: repeat(3,1fr)">
-      <div class="card"><h3>Mensaje al municipio</h3><p>«Sus vecinos mayores hacen sus trámites sin filas y sin depender de nadie. Usted recibe datos para medir su programa de inclusión digital.»</p></div>
-      <div class="card"><h3>Mensaje a la institución</h3><p>«Sus pensionados resuelven en línea lo que hoy hacen en sucursal o por teléfono, con protección contra estafas.»</p></div>
-      <div class="card"><h3>Activación y costo</h3><p>Activación = la persona completa su primer trámite. En el piloto: 20 de 20. Costo de adquisición ≈ $3,5 M por cliente; marketing de $2,4 M a $5,6 M al año.</p></div>
-    </div>
+    <div class="gtm"><span class="gl">Cómo llegamos</span><span>Demo en clubes</span><i>→</i><span>Piloto de 3 meses</span><i>→</i><span>Licencia por Compra Ágil</span><i>→</i><span>Convenio institucional</span></div>
   </div>
-  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+  <div class="foot"><span>Además: talleres de inclusión digital a $1,2 M · margen de 78% por licencia</span><span class="pg"></span></div>
 </section>
 
 <!-- 8 · TRACCIÓN -->
-<section class="slide" id="s-traccion" data-rail="6" data-t="60">
-  <div class="kicker">Tracción <span class="pts">10 pts</span></div>
-  <h2>Veinte personas mayores reales hicieron sus trámites sin ayuda</h2>
-  <div class="content" style="display:grid; grid-template-columns: 1.15fr 1fr; gap: 26px">
-    <div class="grid" style="grid-template-columns: 1fr 1fr; align-content:start">
-      <div class="card stat"><div class="big num">20</div><p>adultos mayores probaron la app en trámites reales.</p></div>
-      <div class="card stat"><div class="big num">100%</div><p>completó su trámite sin ayuda de otra persona.</p></div>
-      <div class="card stat"><div class="big num">3</div><p>trámites distintos: credencial de discapacidad, licencias médicas y revisión de AFP.</p></div>
-      <div class="card stat"><div class="big num" style="font-size:44px; line-height:64px">Oct–nov 2026</div><p>período del piloto, con la versión rehecha sin cuentas.</p></div>
-    </div>
-    <div class="grid" style="align-content:start">
-      <div class="card" style="padding:18px 24px">
-        <h3>De la simulación al piloto real</h3>
-        <svg viewBox="0 0 560 150" width="100%" style="height:118px" preserveAspectRatio="xMinYMid meet" role="img" aria-label="Completaron sin ayuda: 60% en la simulación del DemoDay, 100% en el piloto">
-          <text x="0" y="30" font-size="17" fill="#4b5952">DemoDay (5 perfiles simulados)</text>
-          <rect x="0" y="40" width="300" height="30" rx="4" fill="#d4622a"/><text x="310" y="62" font-size="20" font-weight="700" fill="#16201c">60%</text>
-          <text x="0" y="104" font-size="17" fill="#4b5952">Piloto con 20 personas reales</text>
-          <rect x="0" y="114" width="500" height="30" rx="4" fill="#16876f"/><text x="510" y="136" font-size="20" font-weight="700" fill="#16201c">100%</text>
-        </svg>
+<section class="slide" id="s-traccion" data-rail="7" data-t="30">
+  <div class="kicker">Tracción</div>
+  <h2 class="split"><span class="em">20 de 20 lo lograron solos.</span> <span class="sub">Piloto con personas mayores reales, octubre y noviembre de 2026.</span></h2>
+  <div class="content gap">
+    <div class="people" role="img" aria-label="20 personas, todas completaron su trámite"><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span></div>
+    <div class="trside">
+      <p class="lbl2">Trámites del piloto</p>
+      <div class="chips"><span>Credencial de discapacidad</span><span>Licencias médicas</span><span>Revisar la AFP</span></div>
+      <p class="lbl2">Completaron sin ayuda</p>
+      <div class="bars num small">
+        <div class="row"><span class="lb">DemoDay (simulación)</span><span class="tr"><i style="width:60%; background:var(--neg)"></i></span><b>60%</b></div>
+        <div class="row"><span class="lb">Piloto real</span><span class="tr"><i style="width:100%; background:var(--pos)"></i></span><b>100%</b></div>
       </div>
-      <div class="card" style="padding:18px 24px"><h3>Qué cambió</h3><p>Quitamos el login con Google, pasamos a un chat con letra grande y voz, y a un paso por mensaje. Las barreras del DemoDay (confirmaciones, legibilidad, precisión táctil) no se repitieron en el piloto.</p></div>
-      <div class="card" style="padding:18px 24px"><h3>Lo que falta medir</h3><p>Retorno a 30 días y trámites por persona. Lo mediremos en el primer piloto municipal.</p></div>
     </div>
   </div>
   <div class="foot"><span>Datos del piloto del equipo · simulación del DemoDay (Solemne 2)</span><span class="pg"></span></div>
 </section>
 
 <!-- 9 · EQUIPO -->
-<section class="slide" id="s-equipo" data-rail="7" data-t="40">
-  <div class="kicker">Equipo <span class="pts">8 pts</span></div>
-  <h2>Cinco integrantes que construyeron el producto y lo probaron con personas mayores</h2>
-  <div class="content" style="display:grid; gap: 22px; align-content:start">
+<section class="slide" id="s-equipo" data-rail="8" data-t="15">
+  <div class="kicker">Equipo</div>
+  <h2 class="split"><span class="em">Construimos la app y la probamos con 20 personas.</span></h2>
+  <div class="content" style="display:grid; gap: 40px; align-content:center">
     <div class="team" id="team"></div>
-    <div class="grid" style="grid-template-columns: 1fr 1fr 1fr">
-      <div class="card"><h3>Experiencia relevante</h3><p>Construimos y rehicimos la app (React, IA con Claude), la llevamos a una versión sin cuentas y corrimos el piloto con 20 personas mayores.</p></div>
-      <div class="card"><h3>Brechas</h3><p><b>Ventas al Estado</b> (compra pública), <b>legal</b> (datos personales) y <b>gerontología</b> (diseño para personas mayores).</p></div>
-      <div class="card"><h3>Plan para cubrirlas</h3><p>Ejecutivo comercial desde 2028, asesoría legal mensual desde 2027 (en el flujo) y un asesor en gerontología vía alianza con un programa universitario.</p></div>
-    </div>
-  </div>
-  <div class="foot"><span>Haga clic en un rol para editarlo</span><span class="pg"></span></div>
-</section>
-
-<!-- 10 · COMPETENCIA -->
-<section class="slide" id="s-competencia" data-rail="8" data-t="45">
-  <div class="kicker">Competencia <span class="pts">6 pts</span></div>
-  <h2>Hay manuales, talleres y chatbots, pero ninguno acompaña a la persona mayor en el momento del trámite</h2>
-  <div class="content" style="display:grid; grid-template-columns: 1.6fr 1fr; gap: 28px">
-    <div class="card" style="padding:10px 14px">
-      <table>
-        <thead><tr><th>Alternativa</th><th class="c">Acompaña en el momento</th><th class="c">Diseñada para mayores</th><th class="c">Públicos y privados</th><th class="c">Contra estafas</th></tr></thead>
-        <tbody>
-          <tr><td>Un hijo o nieto <span class="muted">(sustituto)</span></td><td class="c yes">Sí</td><td class="c yes">Sí</td><td class="c yes">Sí</td><td class="c part">Depende</td></tr>
-          <tr><td>Asistente virtual de ChileAtiende</td><td class="c part">Orienta</td><td class="c no">No</td><td class="c no">Solo Estado</td><td class="c no">No</td></tr>
-          <tr><td>Manual y talleres de Senama</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c part">Algunos</td><td class="c part">Algunos</td></tr>
-          <tr><td>Programa 60+ Digital (UC y Coopeuch)</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c part">Algunos</td><td class="c part">Algunos</td></tr>
-          <tr><td>Chatbots generales (ChatGPT y otros)</td><td class="c yes">Sí</td><td class="c no">No</td><td class="c yes">Sí</td><td class="c no">No</td></tr>
-          <tr class="us"><td>Guía Mayor</td><td class="c">Sí</td><td class="c">Sí</td><td class="c">Sí</td><td class="c">Sí</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="grid" style="align-content:start">
-      <div class="card">
-        <h3>Posicionamiento</h3>
-        <svg viewBox="0 0 400 300" width="100%" role="img" aria-label="Mapa: eje horizontal de general a diseñado para mayores, eje vertical de informa a acompaña. Guía Mayor arriba a la derecha.">
-          <line x1="40" y1="260" x2="390" y2="260" stroke="#d5ddd8" stroke-width="2"/><line x1="40" y1="10" x2="40" y2="260" stroke="#d5ddd8" stroke-width="2"/>
-          <text x="390" y="284" font-size="13" text-anchor="end" fill="#4b5952">Diseñado para mayores →</text>
-          <text x="46" y="284" font-size="13" fill="#4b5952">General</text>
-          <text x="30" y="20" font-size="13" text-anchor="end" fill="#4b5952" transform="rotate(-90 30 20)">Acompaña →</text>
-          <circle cx="110" cy="70" r="8" fill="#7fa79a"/><text x="122" y="75" font-size="14" fill="#16201c">Chatbots generales</text>
-          <circle cx="110" cy="160" r="8" fill="#7fa79a"/><text x="122" y="165" font-size="14" fill="#16201c">ChileAtiende</text>
-          <circle cx="300" cy="225" r="8" fill="#7fa79a"/><text x="292" y="215" font-size="14" text-anchor="end" fill="#16201c">Senama · 60+ Digital</text>
-          <circle cx="335" cy="55" r="11" fill="#0f5c4d" stroke="#fff" stroke-width="2"/><text x="322" y="38" font-size="16" font-weight="700" text-anchor="end" fill="#0f5c4d">Guía Mayor</text>
-        </svg>
-      </div>
-      <p class="src">Solo 7 de 334 municipios tenían un chatbot operativo en 2025 (Universidad de Valparaíso).</p>
-    </div>
-  </div>
-  <div class="foot"><span>Fuentes: chileatiende.gob.cl · senama.gob.cl · uc.cl · repositorio UV</span><span class="pg"></span></div>
-</section>
-
-<!-- 11 · ROADMAP -->
-<section class="slide" id="s-roadmap" data-rail="9" data-t="45">
-  <div class="kicker">Roadmap <span class="pts">6 pts</span></div>
-  <h2>18 meses para pasar del piloto a clientes que pagan</h2>
-  <div class="content road">
-    <div class="ms"><span class="pin">1</span><span class="when">Ene – mar 2027</span><h3>Producción y cumplimiento legal</h3>
-      <div class="card"><p><span class="lbl">Incluye:</span> privacidad revisada por abogado (Ley 21.719), límites de uso y de gasto, set de evaluación.</p><p><span class="lbl">Depende de:</span> cierre de la ronda.</p><p class="risk"><span class="lbl">Riesgo:</span> costo de la IA por conversación.</p><p><span class="lbl">Éxito:</span> costo por conversación medido y límite de gasto mensual activo.</p></div></div>
-    <div class="ms"><span class="pin">2</span><span class="when">Abr – jun 2027</span><h3>Primer piloto municipal</h3>
-      <div class="card"><p><span class="lbl">Incluye:</span> convenio con un municipio y talleres con su programa de personas mayores.</p><p><span class="lbl">Depende de:</span> hito 1.</p><p class="risk"><span class="lbl">Riesgo:</span> la compra pública es lenta; partimos con convenio de colaboración.</p><p><span class="lbl">Éxito:</span> 100 usuarios y 80% de trámites sin ayuda.</p></div></div>
-    <div class="ms"><span class="pin">3</span><span class="when">Jul – dic 2027</span><h3>Dos municipios pagando</h3>
-      <div class="card"><p><span class="lbl">Incluye:</span> licencias por Compra Ágil y 4 talleres vendidos.</p><p><span class="lbl">Depende de:</span> resultados del hito 2.</p><p class="risk"><span class="lbl">Riesgo:</span> el piloto no convierte; ajustamos precio o alcance.</p><p><span class="lbl">Éxito:</span> $16,8 M de ingresos en 2027.</p></div></div>
-    <div class="ms"><span class="pin">4</span><span class="when">Ene – jun 2028</span><h3>Versión institucional</h3>
-      <div class="card"><p><span class="lbl">Incluye:</span> marca de la institución, sus trámites y reporte anónimo. Primer convenio con una caja o AFP.</p><p><span class="lbl">Depende de:</span> casos municipales.</p><p class="risk"><span class="lbl">Riesgo:</span> ciclos de venta largos en grandes instituciones.</p><p><span class="lbl">Éxito:</span> 2 convenios firmados en 2028.</p></div></div>
+    <p class="punch" style="margin-top:6px"><b>Brechas:</b> ventas al Estado y legal. <b>Plan:</b> ejecutivo comercial desde 2028 y asesoría legal desde 2027.</p>
   </div>
   <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
 </section>
 
-<!-- 12 · FINANZAS -->
-<section class="slide" id="s-finanzas" data-rail="10" data-t="70">
-  <div class="kicker">Finanzas <span class="pts">10 pts</span></div>
-  <h2>Pierde caja en 2027 y 2028, gana desde 2029 y recupera la inversión en 3,8 años</h2>
-  <div class="content" style="margin-top:22px">
-    <div class="kpis">
-      <div class="kpi"><div class="v num">$23,7 M</div><div class="l">Inversión inicial (2026)</div></div>
-      <div class="kpi"><div class="v num">$28,9 M</div><div class="l">VAN a una tasa de 15%</div></div>
-      <div class="kpi"><div class="v num">30,3%</div><div class="l">TIR</div></div>
-      <div class="kpi"><div class="v num">−$2,1 M</div><div class="l">Quema mensual en 2027 (EBITDA)</div></div>
+<!-- 10 · ROADMAP -->
+<section class="slide" id="s-roadmap" data-rail="9" data-t="20">
+  <div class="kicker">Roadmap</div>
+  <h2 class="split"><span class="em">18 meses para tener clientes que pagan.</span></h2>
+  <div class="content road" style="margin-top:60px">
+    <div class="ms"><span class="pin">1</span><span class="when">Ene – mar 2027</span><h3>Producción y ley de datos</h3><p class="ok">Éxito: costo por conversación medido</p></div>
+    <div class="ms"><span class="pin">2</span><span class="when">Abr – jun 2027</span><h3>Piloto con un municipio</h3><p class="ok">Éxito: 100 usuarios, 80% sin ayuda</p></div>
+    <div class="ms"><span class="pin">3</span><span class="when">Jul – dic 2027</span><h3>Dos municipios pagando</h3><p class="ok">Éxito: $16,8 M de ingresos</p></div>
+    <div class="ms"><span class="pin">4</span><span class="when">Ene – jun 2028</span><h3>Primera caja o AFP</h3><p class="ok">Éxito: 2 convenios firmados</p></div>
+  </div>
+  <p class="punch">Riesgo principal: la compra pública es lenta. Empezamos con un convenio de colaboración.</p>
+  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+</section>
+
+<!-- 11 · FINANZAS -->
+<section class="slide" id="s-finanzas" data-rail="10" data-t="35">
+  <div class="kicker">Finanzas</div>
+  <h2 class="split"><span class="em">Recuperamos la inversión en 3,8 años.</span> <span class="sub">VAN de $28,9 M y TIR de 30,3%, con una tasa de 15%.</span></h2>
+  <div class="content fin">
+    <div class="card" style="padding:16px 20px">
+      <div class="legend"><span><i style="background:var(--pos)"></i>Flujo positivo</span><span><i style="background:var(--neg)"></i>Flujo negativo</span><span><i class="line"></i>Acumulado</span><span style="margin-left:auto">Millones de CLP</span></div>
+      <div id="chart"><div id="tip"></div></div>
     </div>
-    <div class="fin">
-      <div class="card" style="padding:16px 20px">
-        <h3 style="font-size:20px">Flujo de caja anual y acumulado (millones de CLP)</h3>
-        <div class="legend"><span><i style="background:var(--pos)"></i>Flujo positivo</span><span><i style="background:var(--neg)"></i>Flujo negativo</span><span><i class="line"></i>Acumulado</span></div>
-        <div id="chart"><div id="tip"></div></div>
-      </div>
-      <div class="grid" style="align-content:start; gap:16px">
-        <div class="card" style="padding:14px 18px">
-          <h3 style="font-size:20px">Escenarios de volumen (tasa 15%)</h3>
-          <table class="sc num"><thead><tr><th>Volúmenes</th><th class="r">VAN</th><th class="r">TIR</th></tr></thead>
-            <tbody><tr><td>Pesimista (−30%)</td><td class="r neg">−$38,2 M</td><td class="r neg">−7,8%</td></tr>
-            <tr><td>Bajo (−15%)</td><td class="r neg">−$3,2 M</td><td class="r">13,2%</td></tr>
-            <tr><td><b>Base</b></td><td class="r"><b>$28,9 M</b></td><td class="r"><b>30,3%</b></td></tr>
-            <tr><td>Optimista (+20%)</td><td class="r">$70,9 M</td><td class="r">50,0%</td></tr></tbody></table>
-        </div>
-        <div class="card" style="padding:14px 18px"><p style="font-size:17px; line-height:1.45">El VAN sigue positivo mientras la demanda no caiga más de 13%. Con tasa de 20% es $17,1 M; con 25%, $7,7 M. Por eso el roadmap valida la demanda antes de crecer.</p></div>
-      </div>
+    <div class="kcol">
+      <div class="kpi"><div class="v num">$23,7 M</div><div class="l">Inversión inicial</div></div>
+      <div class="kpi"><div class="v num">2029</div><div class="l">Primer año con caja positiva</div></div>
+      <div class="kpi warn"><div class="v num">−13%</div><div class="l">Caída de demanda que aguanta con VAN positivo</div></div>
     </div>
   </div>
   <div class="foot"><span>Flujo_de_caja_Guia_Mayor_v2.xlsx · impuesto 27% con arrastre de pérdidas · sin valor terminal</span><span class="pg"></span></div>
 </section>
 
-<!-- 13 · EXIT -->
-<section class="slide" id="s-exit" data-rail="11" data-t="40">
-  <div class="kicker">Estrategia de exit <span class="pts">5 pts</span></div>
-  <h2>Una salida por venta a quien ya atiende a millones de personas mayores</h2>
-  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
-    <div class="card accent-left"><span class="tag">Opción principal</span><h3 style="margin-top:12px">Caja de compensación o AFP</h3><p>Compra un canal digital probado para sus pensionados. Las 4 cajas suman más de 1,4 millones de pensionados afiliados.</p></div>
-    <div class="card"><span class="tag">Opción 2</span><h3 style="margin-top:12px">Empresa de software para municipios</h3><p>Suma Guía Mayor a su catálogo y la vende a las comunas que ya son sus clientes.</p></div>
-    <div class="card"><span class="tag">Opción 3</span><h3 style="margin-top:12px">Banco o aseguradora</h3><p>Necesita atender a clientes mayores en línea y protegerlos de estafas.</p></div>
-    <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: 1fr 1fr 1fr; gap:28px; align-items:center">
-      <div><h3>Cuándo</h3><p>2031–2032, con 18 comunas y 9 instituciones como clientes recurrentes.</p></div>
-      <div><h3>Cuánto</h3><p class="num">2 a 3 veces los ingresos de 2031 ($249,6 M): <b>entre $500 M y $750 M</b>.</p></div>
-      <div><h3>Por qué la comprarían</h3><p>Contratos con municipios, datos anónimos de uso y un producto que las personas mayores ya saben usar.</p></div>
-    </div>
-  </div>
-  <div class="foot"><span>El múltiplo de 2–3× ingresos es un supuesto del equipo para software pequeño en Chile</span><span class="pg"></span></div>
-</section>
-
-<!-- 14 · USO DE FONDOS -->
-<section class="slide" id="s-fondos" data-rail="12" data-t="40">
-  <div class="kicker">Uso de fondos <span class="pts">5 pts</span></div>
-  <h2>Buscamos $55 M para llegar a EBITDA positivo en 2029</h2>
-  <div class="content" style="display:grid; gap: 24px; align-content:start">
+<!-- 12 · INVERSIÓN: USO DE FONDOS Y EXIT -->
+<section class="slide" id="s-fondos" data-rail="11 12" data-t="30">
+  <div class="kicker">La inversión</div>
+  <h2 class="split"><span class="em">Buscamos $55 M.</span> <span class="sub">Nos llevan hasta la caja positiva en 2029.</span></h2>
+  <div class="content" style="display:grid; gap: 26px; align-content:start">
     <div class="alloc num">
       <div style="flex:17.7; background:var(--brand)">$17,7 M · Producto y lanzamiento</div>
       <div style="flex:6; background:var(--pos)">$6 M · Capital de trabajo</div>
-      <div style="flex:28.9; background:#2f6f8f">$28,9 M · Déficit operativo 2027–2028</div>
+      <div style="flex:28.9; background:#2f6f8f">$28,9 M · Operación 2027–2028</div>
       <div style="flex:2.4; background:#8a958f">$2,4 M</div>
     </div>
-    <div class="grid" style="grid-template-columns: repeat(4,1fr)">
-      <div class="card"><h3>Producto y lanzamiento</h3><p class="num">Desarrollo para producción $9 M · equipos $3,6 M · piloto $2,5 M · legal $2 M · constitución y marca $0,6 M.</p><p style="margin-top:8px"><span class="tag">Hito 1</span></p></div>
-      <div class="card"><h3>Capital de trabajo</h3><p>Dos meses de gastos fijos mientras llegan los primeros pagos municipales. Se recupera en 2031.</p><p style="margin-top:8px"><span class="tag">Hitos 2 y 3</span></p></div>
-      <div class="card"><h3>Déficit operativo</h3><p class="num">EBITDA de −$25,4 M en 2027 y −$3,5 M en 2028: equipo, ventas y talleres hasta tener clientes.</p><p style="margin-top:8px"><span class="tag">Hitos 2 a 4</span></p></div>
-      <div class="card"><h3>Reserva</h3><p>Margen ante atrasos en compras públicas.</p></div>
+    <div class="runway num">
+      <div><b>$52,6 M</b><span>mayor necesidad de caja (2028)</span></div>
+      <div><b>4 hitos</b><span>del roadmap financiados</span></div>
+      <div><b>2029</b><span>primer año con caja positiva</span></div>
     </div>
-    <p style="font-size:20px; line-height:1.5"><b>Impacto en runway:</b> la mayor necesidad de caja acumulada es de $52,6 M en 2028. Con $55 M cubrimos hasta 2029, cuando el EBITDA pasa a $22,3 M positivo.</p>
+    <div class="exit">
+      <span class="tag">Salida</span>
+      <p>Venta a una <b>caja de compensación o AFP</b> en 2031–2032, a 2–3 veces los ingresos: <b class="num">$500 M a $750 M</b>.</p>
+    </div>
   </div>
-  <div class="foot"><span>Montos del flujo de caja (hojas Inversión y Flujo)</span><span class="pg"></span></div>
+  <div class="foot"><span>Reserva de $2,4 M para atrasos de compras públicas · múltiplo de salida: supuesto del equipo</span><span class="pg"></span></div>
 </section>
 
-<!-- 15 · CIERRE -->
-<section class="slide" id="s-cierre" data-rail="" data-t="20">
-  <div class="kicker">Cierre</div>
-  <h2 style="font-size:66px; max-width:1300px">Ya probamos que las personas mayores pueden hacer sus trámites solas. Con $55 M lo llevamos a sus comunas.</h2>
-  <div class="content grid" style="grid-template-columns: repeat(3,1fr); align-content:start">
-    <div class="card stat"><div class="big num">20 de 20</div><p>completaron su trámite sin ayuda.</p></div>
-    <div class="card stat"><div class="big num">30,3%</div><p>de TIR con un VAN de $28,9 M a 15%.</p></div>
-    <div class="card stat"><div class="big num">18 meses</div><p>para tener municipios e instituciones pagando.</p></div>
+<!-- 13 · CIERRE -->
+<section class="slide" id="s-cierre" data-rail="" data-t="10">
+  <div class="closing">
+    <div class="pair"><svg class="ill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" role="img" aria-label="Ilustración: una abuela sonríe mientras usa Guía Mayor en su celular">
+  <circle cx="270" cy="300" r="230" fill="#e0eee8"/>
+  <!-- burbujas del chat -->
+  <g>
+    <rect x="300" y="70" width="190" height="64" rx="22" fill="#fff" stroke="#d5ddd8"/>
+    <rect x="322" y="90" width="120" height="9" rx="4.5" fill="#cfd8d3"/><rect x="322" y="108" width="84" height="9" rx="4.5" fill="#cfd8d3"/>
+    <rect x="330" y="150" width="170" height="54" rx="20" fill="#0f5c4d"/>
+    <rect x="350" y="170" width="96" height="9" rx="4.5" fill="#9fd8c8"/>
+    <circle cx="470" cy="177" r="13" fill="#fff"/><path d="M463 177 l5 5 l9 -10" fill="none" stroke="#0f5c4d" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- cuerpo -->
+  <path d="M120 560 C120 430 170 370 260 370 C350 370 400 430 400 560 Z" fill="#0f5c4d"/>
+  <path d="M232 372 L260 450 L288 372 Z" fill="#f3e3d3"/>
+  <path d="M226 378 L260 470 L246 560 L196 560 L214 420 Z" fill="#0b4439"/>
+  <path d="M294 378 L260 470 L274 560 L324 560 L306 420 Z" fill="#0b4439"/>
+  <!-- cuello y cabeza -->
+  <rect x="242" y="320" width="36" height="58" rx="14" fill="#e9b996"/>
+  <ellipse cx="260" cy="262" rx="72" ry="80" fill="#f0c4a2"/>
+  <!-- pelo -->
+  <path d="M186 262 C178 190 220 166 262 166 C306 166 344 192 334 262 C326 222 300 204 262 204 C222 204 196 224 186 262 Z" fill="#e7e9eb"/>
+  <circle cx="262" cy="160" r="34" fill="#dfe2e5"/>
+  <ellipse cx="190" cy="268" rx="12" ry="20" fill="#e7e9eb"/><ellipse cx="332" cy="268" rx="12" ry="20" fill="#e7e9eb"/>
+  <!-- lentes y cara -->
+  <circle cx="234" cy="266" r="20" fill="#fff" fill-opacity=".35" stroke="#5a4636" stroke-width="4"/>
+  <circle cx="288" cy="266" r="20" fill="#fff" fill-opacity=".35" stroke="#5a4636" stroke-width="4"/>
+  <path d="M254 264 h14" stroke="#5a4636" stroke-width="4"/>
+  <circle cx="236" cy="268" r="4" fill="#3d2f25"/><circle cx="286" cy="268" r="4" fill="#3d2f25"/>
+  <path d="M238 304 Q261 324 284 304" fill="none" stroke="#a5523a" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="214" cy="296" r="9" fill="#f2a08a" fill-opacity=".5"/><circle cx="308" cy="296" r="9" fill="#f2a08a" fill-opacity=".5"/>
+  <!-- manos y celular -->
+  <rect x="226" y="396" width="86" height="150" rx="16" fill="#16201c" transform="rotate(-8 269 471)"/>
+  <rect x="234" y="406" width="70" height="128" rx="10" fill="#fbf8f1" transform="rotate(-8 269 471)"/>
+  <g transform="rotate(-8 269 471)"><rect x="242" y="420" width="44" height="10" rx="5" fill="#0f5c4d"/><rect x="242" y="438" width="54" height="22" rx="7" fill="#fff" stroke="#d5ddd8"/><rect x="252" y="468" width="44" height="18" rx="7" fill="#0f5c4d"/><rect x="242" y="494" width="54" height="22" rx="7" fill="#fff" stroke="#d5ddd8"/></g>
+  <ellipse cx="236" cy="500" rx="26" ry="20" fill="#f0c4a2"/>
+  <ellipse cx="306" cy="490" rx="24" ry="19" fill="#f0c4a2"/>
+</svg>
+<svg class="ill" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" role="img" aria-label="Ilustración: un abuelo termina su trámite en el celular y aparece una marca de listo">
+  <circle cx="250" cy="300" r="230" fill="#fdf1dc"/>
+  <circle cx="420" cy="120" r="56" fill="#16876f"/><path d="M394 120 l18 18 l32 -36" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- cuerpo -->
+  <path d="M100 560 C100 430 150 372 240 372 C330 372 380 430 380 560 Z" fill="#b45309"/>
+  <path d="M214 374 L240 440 L266 374 Z" fill="#fff"/>
+  <rect x="150" y="430" width="30" height="130" fill="#9a4708"/><rect x="300" y="430" width="30" height="130" fill="#9a4708"/>
+  <rect x="222" y="322" width="36" height="56" rx="14" fill="#c98e68"/>
+  <ellipse cx="240" cy="262" rx="72" ry="80" fill="#d9a07a"/>
+  <!-- pelo y orejas -->
+  <path d="M168 250 C164 214 176 196 192 190 C186 214 188 232 194 248 Z" fill="#c9cdd1"/>
+  <path d="M312 250 C316 214 304 196 288 190 C294 214 292 232 286 248 Z" fill="#c9cdd1"/>
+  <ellipse cx="168" cy="268" rx="13" ry="20" fill="#d9a07a"/><ellipse cx="312" cy="268" rx="13" ry="20" fill="#d9a07a"/>
+  <!-- cejas, lentes, bigote -->
+  <path d="M196 236 q18 -10 34 0 M250 236 q18 -10 34 0" fill="none" stroke="#9aa0a5" stroke-width="6" stroke-linecap="round"/>
+  <rect x="194" y="248" width="40" height="30" rx="10" fill="#fff" fill-opacity=".35" stroke="#2c3a34" stroke-width="4"/>
+  <rect x="246" y="248" width="40" height="30" rx="10" fill="#fff" fill-opacity=".35" stroke="#2c3a34" stroke-width="4"/>
+  <path d="M234 262 h12" stroke="#2c3a34" stroke-width="4"/>
+  <circle cx="214" cy="264" r="4" fill="#2b211a"/><circle cx="266" cy="264" r="4" fill="#2b211a"/>
+  <path d="M206 300 Q240 284 274 300 Q258 312 240 304 Q222 312 206 300 Z" fill="#c9cdd1"/>
+  <path d="M222 316 Q240 328 258 316" fill="none" stroke="#8a3f2a" stroke-width="5" stroke-linecap="round"/>
+  <!-- celular -->
+  <g transform="rotate(10 250 470)">
+    <rect x="208" y="392" width="86" height="150" rx="16" fill="#16201c"/>
+    <rect x="216" y="402" width="70" height="128" rx="10" fill="#fbf8f1"/>
+    <rect x="224" y="414" width="44" height="10" rx="5" fill="#0f5c4d"/>
+    <rect x="224" y="432" width="54" height="30" rx="7" fill="#fff" stroke="#d5ddd8"/>
+    <rect x="224" y="472" width="54" height="20" rx="8" fill="#0f5c4d"/>
+  </g>
+  <ellipse cx="212" cy="494" rx="26" ry="20" fill="#d9a07a"/><ellipse cx="292" cy="506" rx="24" ry="19" fill="#d9a07a"/>
+</svg>
+</div>
+    <div>
+      <h2 class="split" style="font-size:60px"><span class="em">20 de 20 lo lograron solos.</span> <span class="sub">Con $55 M llevamos Guía Mayor a sus comunas.</span></h2>
+      <p class="thanks">Gracias. ¿Preguntas?</p>
+    </div>
   </div>
-  <p style="font-size:30px; font-family:var(--display); font-weight:700; color:var(--brand)">Gracias. ¿Preguntas?</p>
   <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
 </section>
 
@@ -778,28 +909,25 @@ const TEAM = [
   { name: 'Benjamín Candia', role: 'Colaborador' },
   { name: 'John Torres', role: 'Colaborador' },
 ];
-const RAIL = ['Concepto', 'Problema', 'Solución', 'Modelo de negocio', 'Mercado', 'Marketing', 'Tracción', 'Equipo', 'Competencia', 'Roadmap', 'Finanzas', 'Estrategia de exit', 'Uso de fondos'];
+const RAIL = ['Concepto', 'Problema', 'Solución', 'Mercado', 'Competencia', 'Modelo de negocio', 'Marketing', 'Tracción', 'Equipo', 'Roadmap', 'Finanzas', 'Estrategia de exit', 'Uso de fondos'];
 // Flujo de caja v2 (millones de CLP): 2026 = inversión.
 const FLOW = { years: ['2026', '2027', '2028', '2029', '2030', '2031'], flow: [-23.7, -25.36, -3.49, 22.29, 38.18, 82.09], ing: [0, 16.8, 66.0, 115.2, 170.4, 249.6] };
 
 const NOTES = {
-  portada: 'Presentarse en 15 segundos. <b>Gancho:</b> «Veinte de veinte personas mayores hicieron su trámite sin ayuda. Venimos a pedir $55 millones para llevarlo a sus comunas».',
-  concepto: 'Leer la frase de Guía Mayor y separar <b>quién usa</b> (la persona mayor, gratis) de <b>quién paga</b> (municipio o institución). No más de 35 segundos.',
-  problema: 'Empezar por el 36%. Dar un ejemplo concreto: «mi abuela necesita sacar la credencial de discapacidad y depende de que alguien le saque un día libre». Cerrar con el por qué ahora: el Estado y la banca ya están en línea.',
-  brecha: 'Contar la historia en tres pasos: <b>son muchos</b> (19,8% de la población), <b>ya tienen celular</b> (86,6% usa smartphone, pero solo 20,5% usa computador) y <b>no saben hacer trámites</b> (36% autónomo; 23% hace trámites por internet). Cerrar: «el problema no es el equipo, es la habilidad».',
-  solucion: 'Explicar los 3 pasos en el diagrama. Remarcar lo que <b>no</b> hace: no pide claves ni hace el trámite por la persona. Pasar a la demo.',
-  demo: 'Mostrar en este orden: <b>1) AFP</b> completo (3 respuestas), <b>2) Escribir una clave</b> para mostrar el bloqueo, <b>3) Llamada sospechosa</b>. Si sobra tiempo, licencia médica. Aclarar que la demo usa respuestas guionadas; la app real responde con IA.',
-  modelo: 'Tres ingresos. Decir explícitamente que <b>no cobramos a la familia</b> porque la app no tiene cuentas. Mencionar margen por licencia ($4,7 M) y costo de adquisición (~$3,5 M).',
-  mercado: 'TAM, SAM y SOM en licencias, no en personas. Aclarar los supuestos: un comprador por comuna; instituciones = cajas, AFP y bancos.',
-  marketing: 'El embudo: demostración → piloto → licencia → institución. La métrica de activación es completar el primer trámite.',
-  traccion: 'Es la diapositiva con más puntaje. Dar los 4 números con su período. Contrastar 60% de la simulación con 100% real: <b>iteramos y funcionó</b>. Reconocer que falta medir retorno a 30 días.',
-  equipo: 'Cada integrante dice su nombre y rol en una frase. Nombrar las brechas antes de que pregunten.',
-  competencia: 'El sustituto principal es un familiar. Contra ChileAtiende: ellos orientan sobre el Estado; nosotros acompañamos a la persona mayor en trámites públicos y privados.',
-  roadmap: 'Cuatro hitos con dependencia, riesgo y criterio de éxito. El riesgo principal es la compra pública: partimos con convenio de colaboración.',
-  finanzas: 'VAN $28,9 M y TIR 30,3% a 15%. Pasar el mouse por las barras. <b>Adelantarse:</b> el escenario pesimista es negativo; la variable crítica es la demanda y por eso la validamos primero.',
-  exit: 'Opción principal: una caja de compensación o AFP. Valor de $500 a $750 M con 2–3× ingresos de 2031.',
-  fondos: '$55 M en cuatro partidas, conectadas a los hitos del roadmap. Alcanzan hasta EBITDA positivo en 2029.',
-  cierre: 'Repetir la petición: $55 M. Agradecer y abrir preguntas.',
+  portada: '<b>Felipe (20 s):</b> «Guía Mayor acompaña a las personas mayores a hacer sus trámites por internet, paso a paso y sin depender de nadie». Presentar al equipo en una frase.',
+  problema: '<b>30 s.</b> Leer solo los tres números. Ejemplo: «una abuela que necesita la credencial de discapacidad depende de que un hijo pida el día libre».',
+  brecha: '<b>30 s.</b> «Casi 9 de cada 10 usa smartphone, pero solo 1 de cada 5 usa computador y apenas un tercio hace un trámite sola. La brecha no es el equipo: es la habilidad.» Por eso la solución vive en el celular.',
+  solucion: '<b>30 s.</b> Una frase por diferencia, siempre contra la alternativa: un manual no responde, un chatbot general no está hecho para mayores ni los protege.',
+  demo: '<b>45 s.</b> Solo dos cosas: <b>Revisar la AFP</b> (dos respuestas) y <b>Escribir una clave</b>. Decir que la demo usa respuestas guionadas; la app real responde con IA.',
+  mercado: '<b>25 s.</b> Medimos el mercado en licencias, porque pagan municipios e instituciones. Decir el SAM y la meta 2031.',
+  competencia: '<b>30 s.</b> El principal competidor es un familiar: acompaña, pero no siempre está y no siempre detecta una estafa. Somos la única fila con tres ✓.',
+  valor: '<b>35 s.</b> «Quien ahorra, paga»: el municipio gana un programa medible y la institución atiende menos en sucursal. Cerrar con el camino de venta: demo, piloto, licencia, convenio.',
+  traccion: '<b>30 s.</b> «Veinte de veinte, en tres trámites reales.» En la simulación del DemoDay era 60%: iteramos y funcionó. Reconocer que falta medir el retorno a 30 días.',
+  equipo: '<b>15 s.</b> Nombres y roles. Nombrar las brechas antes de que pregunten.',
+  roadmap: '<b>20 s.</b> Cuatro hitos con su criterio de éxito. El riesgo es la compra pública.',
+  finanzas: '<b>35 s.</b> VAN $28,9 M, TIR 30,3%, recuperación en 3,8 años. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo; por eso validamos con un municipio antes de crecer.',
+  fondos: '<b>30 s.</b> $55 M en cuatro partes, hasta la caja positiva en 2029. Salida: venta a una caja de compensación o AFP.',
+  cierre: '<b>10 s.</b> Repetir la petición y abrir preguntas.',
   preguntas: 'Abrir solo la pregunta que haga la comisión.',
 };
 
@@ -824,7 +952,7 @@ RAIL.forEach((name, i) => {
   b.className = 'chev';
   b.type = 'button';
   b.textContent = name;
-  b.addEventListener('click', () => go(slides.findIndex((s) => s.dataset.rail === String(i))));
+  b.addEventListener('click', () => go(slides.findIndex((s) => s.dataset.rail.split(' ').includes(String(i)))));
   rail.appendChild(b);
 });
 
@@ -836,10 +964,11 @@ function go(i, fromHash) {
   cur = i;
   slides[cur].classList.add('on');
   const r = slides[cur].dataset.rail;
-  const ri = r === '' ? (cur === 0 ? -1 : RAIL.length) : Number(r);
+  const on = r === '' ? [] : r.split(' ').map(Number);
+  const first = on.length ? Math.min(...on) : (cur === 0 ? -1 : RAIL.length);
   [...rail.children].forEach((c, k) => {
-    c.classList.toggle('on', k === ri);
-    c.classList.toggle('done', k < ri);
+    c.classList.toggle('on', on.includes(k));
+    c.classList.toggle('done', k < first && !on.includes(k));
   });
   rail.style.visibility = cur === 0 ? 'hidden' : 'visible';
   document.getElementById('notes').innerHTML = `<b>${slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || ''}</b> · ${NOTES[ids[cur]] || ''}`;

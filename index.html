@@ -32,11 +32,12 @@ body { background: #dfe6e2; color: var(--ink); font-family: var(--body); overflo
 button { font: inherit; color: inherit; cursor: pointer; }
 :focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; border-radius: 8px; }
 
-#viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+#viewport { position: fixed; inset: 0; overflow: hidden; }
 #stage {
-  width: 1600px; height: 900px; position: relative; background: var(--paper);
-  transform-origin: center center; box-shadow: 0 20px 60px rgba(22, 32, 28, .18); overflow: hidden;
+  width: 1600px; height: 900px; position: absolute; left: 50%; top: 50%; background: var(--paper);
+  transform-origin: center center; transform: translate(-50%, -50%); box-shadow: 0 20px 60px rgba(22, 32, 28, .18); overflow: hidden;
 }
+#mnav { display: none; }
 
 /* Riel de la rúbrica */
 #rail { position: absolute; top: 26px; left: 56px; right: 56px; display: flex; gap: 3px; z-index: 5; }
@@ -237,6 +238,83 @@ details p { font-size: 17px; line-height: 1.5; margin-top: 8px; color: var(--ink
 #help.on { display: grid; }
 #help .box { background: #fff; border-radius: 18px; padding: 26px 30px; font-size: 17px; line-height: 1.8; min-width: 420px; }
 #help kbd { background: var(--brand-soft); color: var(--brand); border-radius: 6px; padding: 2px 8px; font-weight: 700; font-family: var(--body); }
+
+
+/* Celular y tablet vertical: el contenido se reorganiza en una columna con scroll */
+body.mobile { overflow: hidden; }
+body.mobile #viewport { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+body.mobile #stage { position: static; width: 100%; height: auto; min-height: 100%; transform: none !important; box-shadow: none; overflow: visible; }
+body.mobile #rail, body.mobile #b-full, body.mobile #b-time, body.mobile #clock, body.mobile #b-help { display: none; }
+body.mobile .slide { position: static; padding: 22px 18px 110px; }
+body.mobile .slide.on { animation: none; }
+body.mobile .kicker { font-size: 13px; flex-wrap: wrap; gap: 8px; }
+body.mobile .kicker .pts { font-size: 13px; }
+body.mobile h2 { font-size: 27px; line-height: 1.15; margin-top: 8px; }
+body.mobile h3 { font-size: 19px; }
+body.mobile .content { margin-top: 18px !important; flex: none; }
+body.mobile .grid { gap: 14px; }
+body.mobile .card { padding: 18px; border-radius: 16px; }
+body.mobile .card p, body.mobile .card li { font-size: 16.5px; }
+body.mobile .big { font-size: 44px; }
+body.mobile .stat p { font-size: 16.5px; }
+body.mobile [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+body.mobile [style*="grid-column"] { grid-column: auto !important; }
+body.mobile [style*="grid-row"] { grid-row: auto !important; }
+body.mobile [style*="font-size:66px"] { font-size: 30px !important; }
+body.mobile [style*="font-size:27px"] { font-size: 20px !important; }
+body.mobile .foot { position: static; margin-top: 22px; flex-direction: column; gap: 4px; font-size: 12.5px; }
+body.mobile #s-portada { flex-direction: column; padding: 0; }
+body.mobile #s-portada .left { padding: 36px 20px 28px; flex: none; }
+body.mobile #s-portada h1 { font-size: 58px; margin-top: 14px !important; }
+body.mobile #s-portada .one { font-size: 22px; margin-top: 18px; }
+body.mobile #s-portada .meta { font-size: 15px; margin-top: 22px; }
+body.mobile #s-portada .right { padding: 28px 20px 110px; gap: 16px; flex: none; }
+body.mobile #s-portada .right .k { font-size: 48px; }
+body.mobile #s-portada .right p { font-size: 17px; }
+body.mobile .flow { grid-template-columns: 1fr; gap: 6px; }
+body.mobile .flow .arrow { transform: rotate(90deg); font-size: 24px; }
+body.mobile .demo { grid-template-columns: minmax(0, 1fr); gap: 22px; margin-top: 14px; }
+body.mobile .demo > .panel:last-child { order: -1; }
+body.mobile .demo .phone { order: -2; justify-self: center; width: min(372px, calc(100vw - 36px)); height: 640px; padding: 9px; border-radius: 44px; }
+body.mobile .demo .screen { border-radius: 36px; }
+body.mobile .ctl { font-size: 16px; padding: 11px 14px; }
+body.mobile .funnel { gap: 18px; }
+body.mobile .tier { grid-template-columns: 64px 1fr; gap: 6px 12px; }
+body.mobile .tier .lab { font-size: 24px; }
+body.mobile .tier .val { grid-column: 2; text-align: left; font-size: 24px; }
+body.mobile .tier .desc { font-size: 15px; }
+body.mobile .steps { grid-template-columns: 1fr; }
+body.mobile .step { border-radius: 0 !important; border-left: 1px solid var(--line) !important; }
+body.mobile .step + .step { border-top: 0; }
+body.mobile .step:first-child { border-radius: 16px 16px 0 0 !important; }
+body.mobile .step:last-child { border-radius: 0 0 16px 16px !important; }
+body.mobile .team { grid-template-columns: 1fr 1fr; gap: 12px; }
+body.mobile .member { padding: 16px; }
+body.mobile .member .nm { font-size: 18px; }
+body.mobile .avatar { width: 48px; height: 48px; font-size: 18px; }
+body.mobile .road { grid-template-columns: 1fr; }
+body.mobile .road::before { display: none; }
+body.mobile .ms .card p { font-size: 16px; }
+body.mobile .kpis { grid-template-columns: 1fr 1fr; gap: 12px; }
+body.mobile .kpi .v { font-size: 28px; }
+body.mobile .fin { grid-template-columns: 1fr; }
+body.mobile .card:has(> table) { overflow-x: auto; }
+body.mobile table { font-size: 15px; min-width: 560px; }
+body.mobile .sc { min-width: 0; }
+body.mobile .alloc { flex-direction: column; height: auto; }
+body.mobile .alloc div { flex: none !important; min-height: 46px; padding: 10px 14px; font-size: 15px; }
+body.mobile summary { font-size: 17px; }
+body.mobile #hud { right: 10px; bottom: 74px; }
+body.mobile #notes { bottom: 120px; font-size: 15px; }
+body.mobile #mnav {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px;
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+  background: rgba(243, 246, 243, .96); border-top: 1px solid var(--line); backdrop-filter: blur(6px);
+}
+#mnav button { height: 46px; border-radius: 12px; border: 0; background: var(--brand); color: #fff; font-weight: 700; font-size: 16px; padding: 0 16px; }
+#mnav button:disabled { opacity: .35; }
+#mnav span { text-align: center; font-size: 14px; color: var(--ink-soft); line-height: 1.25; }
+#mnav b { display: block; color: var(--ink); font-size: 15px; }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 </style>
@@ -630,6 +708,7 @@ details p { font-size: 17px; line-height: 1.5; margin-top: 8px; color: var(--ink
 </section>
 </div></div>
 
+<nav id="mnav" aria-label="Navegación de diapositivas"><button type="button" id="m-prev" aria-label="Diapositiva anterior">‹ Anterior</button><span id="m-pos"></span><button type="button" id="m-next" aria-label="Diapositiva siguiente">Siguiente ›</button></nav>
 <div id="hud">
   <span id="clock" title="Tiempo transcurrido / tiempo sugerido hasta esta diapositiva">00:00</span>
   <button id="b-time" type="button">Iniciar cronómetro</button>
@@ -687,8 +766,10 @@ const ids = slides.map((s) => s.id.replace('s-', ''));
 let cur = 0;
 
 function fit() {
-  const s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
-  stage.style.transform = `scale(${s})`;
+  const w = window.innerWidth, h = window.innerHeight;
+  const mobile = w < 900 || h > w * 1.1;
+  document.body.classList.toggle('mobile', mobile);
+  if (!mobile) stage.style.transform = `translate(-50%, -50%) scale(${Math.min(w / 1600, h / 900)})`;
 }
 window.addEventListener('resize', fit);
 fit();
@@ -720,6 +801,11 @@ function go(i, fromHash) {
   document.getElementById('notes').innerHTML = `<b>${slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || ''}</b> · ${NOTES[ids[cur]] || ''}`;
   if (!fromHash) { try { history.replaceState(null, '', '#' + ids[cur]); } catch (e) { /* sin historial */ } }
   if (ids[cur] === 'finanzas') drawChart();
+  const kick = slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || 'Guía Mayor';
+  document.getElementById('m-pos').innerHTML = `<b>${kick.split('·')[0].trim()}</b>${cur + 1} de ${slides.length}`;
+  document.getElementById('m-prev').disabled = cur === 0;
+  document.getElementById('m-next').disabled = cur === slides.length - 1;
+  document.getElementById('viewport').scrollTop = 0;
   tick();
 }
 
@@ -737,6 +823,21 @@ document.addEventListener('keydown', (e) => {
   else if (k === '?') document.getElementById('help').classList.toggle('on');
   else if (k === 'Escape') document.getElementById('help').classList.remove('on');
 });
+
+document.getElementById('m-prev').onclick = () => go(cur - 1);
+document.getElementById('m-next').onclick = () => go(cur + 1);
+// Deslizar con el dedo (fuera del celular de la demo)
+let tx = null, ty = null;
+document.addEventListener('touchstart', (e) => {
+  if (e.target.closest('.phone, table, #chart, #mnav')) { tx = null; return; }
+  tx = e.touches[0].clientX; ty = e.touches[0].clientY;
+}, { passive: true });
+document.addEventListener('touchend', (e) => {
+  if (tx === null) return;
+  const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+  if (Math.abs(dx) > 70 && Math.abs(dx) > Math.abs(dy) * 1.5) go(cur + (dx < 0 ? 1 : -1));
+  tx = null;
+}, { passive: true });
 
 function toggleNotes() { document.getElementById('notes').classList.toggle('on'); }
 function full() {
@@ -988,10 +1089,12 @@ input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey)
 input.addEventListener('input', () => { warnEl.hidden = true; });
 document.getElementById('restart').addEventListener('click', reset);
 document.getElementById('priv-back').addEventListener('click', () => document.getElementById('priv').classList.remove('on'));
-document.getElementById('show-priv').addEventListener('click', () => document.getElementById('priv').classList.add('on'));
-document.querySelectorAll('[data-flow]').forEach((b) => b.addEventListener('click', () => { reset(); typeAndSend(FLOWS[b.dataset.flow].text); }));
+document.getElementById('show-priv').addEventListener('click', () => { document.getElementById('priv').classList.add('on'); showPhone(); });
+function showPhone() { if (document.body.classList.contains('mobile')) document.querySelector('.phone').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' }); }
+document.querySelectorAll('[data-flow]').forEach((b) => b.addEventListener('click', () => { reset(); showPhone(); typeAndSend(FLOWS[b.dataset.flow].text); }));
 document.getElementById('try-key').addEventListener('click', async () => {
   document.getElementById('priv').classList.remove('on');
+  showPhone();
   if (busy) return;
   const t = 'mi clave es 4521';
   for (let i = 1; i <= t.length; i++) { input.value = t.slice(0, i); await wait(reduce ? 0 : 40); }

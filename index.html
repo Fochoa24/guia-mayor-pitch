@@ -730,10 +730,10 @@ body.mobile #mnav {
 // ---------- Datos editables ----------
 const TEAM = [
   { name: 'Felipe Ochoa', role: 'Jefe de proyecto' },
-  { name: 'Antonia Valdebenito', role: '' },
-  { name: 'Jorge Pinto', role: '' },
-  { name: 'Benjamín Candia', role: '' },
-  { name: 'John Torres', role: '' },
+  { name: 'Antonia Valdebenito', role: 'Colaborador' },
+  { name: 'Jorge Pinto', role: 'Colaborador' },
+  { name: 'Benjamín Candia', role: 'Colaborador' },
+  { name: 'John Torres', role: 'Colaborador' },
 ];
 const RAIL = ['Concepto', 'Problema', 'Solución', 'Modelo de negocio', 'Mercado', 'Marketing', 'Tracción', 'Equipo', 'Competencia', 'Roadmap', 'Finanzas', 'Estrategia de exit', 'Uso de fondos'];
 // Flujo de caja v2 (millones de CLP): 2026 = inversión.
@@ -876,7 +876,7 @@ function loadRoles() { try { return JSON.parse(localStorage.getItem('gm-roles') 
 const savedRoles = loadRoles();
 TEAM.forEach((m, i) => {
   const ini = m.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
-  const role = savedRoles[i] ?? m.role;
+  const role = savedRoles[i] || m.role;
   const d = document.createElement('div');
   d.className = 'member';
   d.innerHTML = `<div class="avatar">${ini}</div><div class="nm">${m.name}</div><div class="rl" contenteditable="true" spellcheck="false" data-i="${i}"></div>`;

@@ -78,6 +78,12 @@ p { margin: 0; }
 .big { font-family: var(--display); font-weight: 800; font-size: 64px; line-height: 1; color: var(--brand); letter-spacing: -.02em; }
 .big.amber { color: var(--amber); }
 .stat p { font-size: 19px; line-height: 1.45; margin-top: 10px; }
+.data { display: grid; grid-template-columns: 112px 1fr; gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); }
+.data b { font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1; color: var(--brand); letter-spacing: -.01em; }
+.data b.amber { color: var(--amber); }
+.data p { font-size: 16.5px; line-height: 1.38; }
+.card .tag + .data { margin-top: 8px; }
+.card .data + .src { margin-top: 12px; }
 .accent-left { border-left: 6px solid var(--brand); }
 .muted { color: var(--ink-soft); }
 table { border-collapse: collapse; width: 100%; font-size: 18px; }
@@ -256,6 +262,10 @@ body.mobile .grid { gap: 14px; }
 body.mobile .card { padding: 18px; border-radius: 16px; }
 body.mobile .card p, body.mobile .card li { font-size: 16.5px; }
 body.mobile .big { font-size: 44px; }
+body.mobile .data { grid-template-columns: 92px 1fr; }
+body.mobile [style*="font-size:44px"] { font-size: 27px !important; }
+body.mobile .data b { font-size: 30px; }
+body.mobile .data p { font-size: 15.5px; }
 body.mobile .stat p { font-size: 16.5px; }
 body.mobile [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
 body.mobile [style*="grid-column"] { grid-column: auto !important; }
@@ -362,15 +372,48 @@ body.mobile #mnav {
   <h2>Los trámites pasaron a internet y la mayoría de las personas mayores no puede hacerlos sola</h2>
   <div class="content grid" style="grid-template-columns: repeat(3, 1fr); align-content:start">
     <div class="card stat"><div class="big amber num">36%</div><p>de las personas mayores sabe hacer un trámite o transacción digital de forma autónoma.</p><p class="src">Subtel, convenio Segegob–Subtel–Senama, 2025</p></div>
-    <div class="card stat"><div class="big num">3,67 M</div><p>personas de 60 años o más viven en Chile: el 19,8% de la población. Serían el 26,4% en 2035.</p><p class="src">INE y Senama, Censo 2024 (publicado el 29-09-2026)</p></div>
+    <div class="card stat"><div class="big num">19,8%</div><p>de la población tiene 60 años o más: 3.665.028 personas. Serían el 26,4% en 2035.</p><p class="src">INE y Senama, Censo 2024 (publicado el 29-09-2026)</p></div>
     <div class="card stat"><div class="big amber num">4 de 10</div><p>personas mayores han sido víctimas de algún fraude o estafa digital.</p><p class="src">Radiografía Digital de Personas Mayores 2023 (Subtel y Senama)</p></div>
     <div class="card" style="grid-column: span 3; display:grid; grid-template-columns: repeat(3,1fr); gap: 26px">
       <div><h3>Quién lo sufre</h3><p>La persona mayor, que depende de un hijo o nieto para sacar una hora, revisar su AFP o pedir un certificado.</p></div>
       <div><h3>Qué le cuesta</h3><p>Horas de fila, permisos en el trabajo de la familia y el riesgo de entregar claves a quien no corresponde.</p></div>
-      <div><h3>Por qué ahora</h3><p>El Estado digitaliza sus trámites y la banca deja los canales presenciales. Solo el 82,9% de los hogares de personas mayores tiene internet, frente al 96,5% del total.</p></div>
+      <div><h3>Por qué ahora</h3><p>El Estado digitaliza sus trámites y la banca deja los canales presenciales. Y la población envejece: hoy hay 112 personas de 60 años o más por cada 100 menores de 15.</p></div>
     </div>
   </div>
   <div class="foot"><span>Fuentes: subtel.gob.cl · ine.gob.cl · senama.gob.cl</span><span class="pg"></span></div>
+</section>
+
+<!-- 2b · PROBLEMA EN DATOS -->
+<section class="slide" id="s-brecha" data-rail="1" data-t="55">
+  <div class="kicker">Problema · Datos <span class="pts">7 pts</span></div>
+  <h2 style="font-size:44px">Casi todas las personas mayores tienen celular; pocas saben usarlo para un trámite</h2>
+  <div class="content grid" style="grid-template-columns: repeat(3, 1fr); align-content:start; margin-top:22px; gap:16px">
+    <div class="card" style="padding:18px 22px">
+      <span class="tag">Cuántos son</span>
+      <div class="data"><b class="num">19,8%</b><p>de la población tiene 60 años o más (3.665.028 personas).</p></div>
+      <div class="data"><b class="num">112</b><p>personas de 60 o más por cada 100 menores de 15 años.</p></div>
+      <div class="data"><b class="num">16,2%</b><p>de las personas mayores tiene 80 años o más (593.010).</p></div>
+      <p class="src">INE y Senama, Censo 2024 · Observatorio del Envejecimiento UC, 2025</p>
+    </div>
+    <div class="card" style="padding:18px 22px">
+      <span class="tag">Con qué se conectan</span>
+      <div class="data"><b class="num">86,6%</b><p>de las personas de 60 o más usa smartphone.</p></div>
+      <div class="data"><b class="num">20,5%</b><p>usó un computador la última semana, frente al 49,6% de la población total.</p></div>
+      <div class="data"><b class="num">21,2%</b><p>de los hogares solo de personas mayores tiene notebook; 13,1%, computador de escritorio.</p></div>
+      <p class="src">Subtel, Duodécima Encuesta de Acceso y Uso de Internet, 2025</p>
+    </div>
+    <div class="card" style="border-color: var(--amber); padding:18px 22px">
+      <span class="tag amber">Qué saben hacer</span>
+      <div class="data"><b class="num amber">36%</b><p>sabe hacer un trámite digital de forma autónoma.</p></div>
+      <div class="data"><b class="num amber">23%</b><p>hace trámites por internet. Entre los de 80 años o más, 5% o menos.</p></div>
+      <div class="data"><b class="num amber">21%</b><p>califica sus habilidades de internet con más de 6, en una escala de 1 a 7.</p></div>
+      <p class="src">Subtel y Senama, 2025 · Encuesta Calidad de Vida en la Vejez UC–Caja Los Andes, 2022</p>
+    </div>
+    <div class="card accent-left" style="grid-column: span 3; padding:14px 22px">
+      <p style="font-size:19px; line-height:1.4"><b>La brecha no es de equipos, es de habilidades.</b> El celular ya está en sus manos y el computador casi no se usa. Por eso Guía Mayor es un chat en el celular: llega a donde ya están y acompaña el paso que no saben dar solos.</p>
+    </div>
+  </div>
+  <div class="foot"><span>Fuentes: ine.gob.cl · subtel.gob.cl · encuestacalidaddevidaenlavejez.uc.cl · observatorioenvejecimiento.uc.cl</span><span class="pg"></span></div>
 </section>
 
 <!-- 3 · SOLUCIÓN -->
@@ -743,6 +786,7 @@ const NOTES = {
   portada: 'Presentarse en 15 segundos. <b>Gancho:</b> «Veinte de veinte personas mayores hicieron su trámite sin ayuda. Venimos a pedir $55 millones para llevarlo a sus comunas».',
   concepto: 'Leer la frase de Guía Mayor y separar <b>quién usa</b> (la persona mayor, gratis) de <b>quién paga</b> (municipio o institución). No más de 35 segundos.',
   problema: 'Empezar por el 36%. Dar un ejemplo concreto: «mi abuela necesita sacar la credencial de discapacidad y depende de que alguien le saque un día libre». Cerrar con el por qué ahora: el Estado y la banca ya están en línea.',
+  brecha: 'Contar la historia en tres pasos: <b>son muchos</b> (19,8% de la población), <b>ya tienen celular</b> (86,6% usa smartphone, pero solo 20,5% usa computador) y <b>no saben hacer trámites</b> (36% autónomo; 23% hace trámites por internet). Cerrar: «el problema no es el equipo, es la habilidad».',
   solucion: 'Explicar los 3 pasos en el diagrama. Remarcar lo que <b>no</b> hace: no pide claves ni hace el trámite por la persona. Pasar a la demo.',
   demo: 'Mostrar en este orden: <b>1) AFP</b> completo (3 respuestas), <b>2) Escribir una clave</b> para mostrar el bloqueo, <b>3) Llamada sospechosa</b>. Si sobra tiempo, licencia médica. Aclarar que la demo usa respuestas guionadas; la app real responde con IA.',
   modelo: 'Tres ingresos. Decir explícitamente que <b>no cobramos a la familia</b> porque la app no tiene cuentas. Mencionar margen por licencia ($4,7 M) y costo de adquisición (~$3,5 M).',

@@ -604,6 +604,7 @@ body.mobile .withill { grid-template-columns: 1fr; gap: 24px; }
 body.mobile .withill .illbox { order: -1; max-width: 280px; justify-self: center; }
 body.mobile .diff { gap: 18px; }
 body.mobile .diff > div { grid-template-columns: 44px 1fr; gap: 14px; }
+body.mobile .diff > div.isnot { grid-template-columns: 1fr; gap: 6px; padding-top: 14px; }
 body.mobile .diff .dn { width: 44px; height: 44px; font-size: 20px; border-radius: 12px; }
 body.mobile .diff b { font-size: 21px; }
 body.mobile .diff p { font-size: 16.5px; }
@@ -681,6 +682,15 @@ body.mobile #mnav {
 @keyframes litUp { 0% { fill: #cfd8d3; transform: scale(1); } 55% { fill: var(--pos); transform: scale(1.12); } 100% { fill: var(--pos); transform: scale(1); } }
 .slide.on .pp svg { transform-origin: 50% 100%; animation: litUp .45s ease-out both; animation-delay: calc(.35s + var(--k, 0) * .1s); }
 @media (prefers-reduced-motion: reduce) { .slide.on .pp svg { animation: none; } }
+
+/* ---- Ajustes móviles de cifras animadas ---- */
+.nw { white-space: nowrap; }
+body .runway b span.ct, body.mobile .runway b span.ct { font: inherit; color: inherit; }
+.kpi.sc2 p b { white-space: nowrap; }
+body.mobile #s-finanzas .kpi .v { font-size: 28px; }
+body.mobile #s-finanzas .kpi .v small { font-size: 16px; }
+body.mobile .kpi.sc2 { grid-column: 1 / -1; }
+body.mobile .kpi.sc2 p b { font-size: 24px; }
 /* ---- Barras que crecen al entrar ---- */
 @keyframes growW { from { width: 0; } }
 @keyframes growY { from { transform: scaleY(0); } }
@@ -935,7 +945,7 @@ body.mobile #mnav {
 <!-- 8 · TRACCIÓN -->
 <section class="slide" id="s-traccion" data-rail="7" data-t="30">
   <div class="kicker">Tracción</div>
-  <h2 class="split"><span class="em"><span class="ct" data-delay="400" data-dur="2000" data-lin="1">20</span> de 20 lo lograron solos.</span> <span class="sub">Piloto con personas mayores reales, octubre y noviembre de 2026.</span></h2>
+  <h2 class="split"><span class="em"><span class="nw"><span class="ct" data-delay="400" data-dur="2000" data-lin="1">20</span> de 20</span> lo lograron solos.</span> <span class="sub">Piloto con personas mayores reales, octubre y noviembre de 2026.</span></h2>
   <div class="content gap">
     <div class="people" role="img" aria-label="20 personas, todas completaron su trámite"><span class="pp" style="--k:0"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:1"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:2"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:3"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:4"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:5"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:6"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:7"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:8"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:9"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:10"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:11"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:12"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:13"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:14"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:15"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:16"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:17"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:18"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span><span class="pp" style="--k:19"><svg viewBox="0 0 40 52" aria-hidden="true"><circle cx="20" cy="12" r="10"/><path d="M2 52 C2 30 10 24 20 24 C30 24 38 30 38 52 Z"/></svg></span></div>
     <div class="trside">
@@ -980,7 +990,7 @@ body.mobile #mnav {
 <!-- 11 · FINANZAS -->
 <section class="slide" id="s-finanzas" data-rail="10" data-t="35">
   <div class="kicker">Finanzas</div>
-  <h2 class="split"><span class="em">Recuperamos la inversión en <span class="ct">3,8</span> años.</span> <span class="sub">VAN de $<span class="ct">28,9</span> M y TIR de <span class="ct">30,3</span>%, con una tasa de 15%.</span></h2>
+  <h2 class="split"><span class="em">Recuperamos la inversión en <span class="nw"><span class="ct">3,8</span> años.</span></span> <span class="sub">VAN de <span class="nw">$<span class="ct">28,9</span> M</span> y TIR de <span class="nw"><span class="ct">30,3</span>%</span>, con una tasa de 15%.</span></h2>
   <div class="content fin">
     <div class="card" style="padding:16px 20px">
       <div class="legend"><span><i style="background:var(--pos)"></i>Flujo positivo</span><span><i style="background:var(--neg)"></i>Flujo negativo</span><span><i class="line"></i>Acumulado</span><span style="margin-left:auto">Millones de CLP</span></div>
@@ -988,7 +998,7 @@ body.mobile #mnav {
     </div>
     <div class="kcol">
       <div class="kpi"><div class="v num ct">$23,7 M</div><div class="l">Inversión inicial (2026)</div></div>
-      <div class="kpi"><div class="v num">−$<span class="ct">2,1</span> M<small>/mes</small></div><div class="l">Quema en 2027 · caja positiva en 2029</div></div>
+      <div class="kpi"><div class="v num"><span class="nw">−$<span class="ct">2,1</span> M</span><small>/mes</small></div><div class="l">Quema en 2027 · caja positiva en 2029</div></div>
       <div class="kpi warn"><div class="v num ct">−13%</div><div class="l">Caída de demanda que aguanta con VAN positivo</div></div>
       <div class="kpi sc2 num"><div class="l">Escenarios de demanda (VAN)</div><p><span>−30%</span><b class="neg ct">−$38 M</b><span>+20%</span><b class="ct">$71 M</b></p></div>
     </div>
@@ -999,7 +1009,7 @@ body.mobile #mnav {
 <!-- 12 · INVERSIÓN: USO DE FONDOS Y EXIT -->
 <section class="slide" id="s-fondos" data-rail="11 12" data-t="30">
   <div class="kicker">La inversión</div>
-  <h2 class="split"><span class="em">Buscamos $<span class="ct">55</span> M.</span> <span class="sub">Nos llevan hasta la caja positiva en 2029.</span></h2>
+  <h2 class="split"><span class="em">Buscamos <span class="nw">$<span class="ct">55</span> M.</span></span> <span class="sub">Nos llevan hasta la caja positiva en 2029.</span></h2>
   <div class="content" style="display:grid; gap: 26px; align-content:start">
     <div class="alloc num">
       <div style="flex:17.7; background:var(--brand)"><span class="ct">$17,7 M · Producto y lanzamiento</span></div>

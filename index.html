@@ -648,6 +648,7 @@ body.mobile .step:last-child { border-radius: 0 0 16px 16px !important; }
 body.mobile .team { grid-template-columns: 1fr 1fr; gap: 12px; }
 body.mobile .member { padding: 16px; }
 body.mobile .member .nm { font-size: 18px; }
+body.mobile .member .rl { font-size: 16px; line-height: 1.3; }
 body.mobile .avatar { width: 48px; height: 48px; font-size: 18px; }
 body.mobile .road { grid-template-columns: 1fr; }
 body.mobile .road::before { display: none; }
@@ -1167,34 +1168,40 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 <script>
 // ---------- Datos editables ----------
 const TEAM = [
-  { name: 'Felipe Ochoa', role: 'Jefe de proyecto' },
-  { name: 'Antonia Valdebenito', role: 'Colaborador' },
-  { name: 'Jorge Pinto', role: 'Colaborador' },
-  { name: 'Benjamín Candia', role: 'Colaborador' },
-  { name: 'John Torres', role: 'Colaborador' },
+  { name: 'Felipe Ochoa', role: 'Jefe de proyecto y producto' },
+  { name: 'Antonia Valdebenito', role: 'Experiencia de usuario y piloto' },
+  { name: 'Jorge Pinto', role: 'Desarrollo e IA' },
+  { name: 'Benjamín Candia', role: 'Finanzas y alianzas' },
+  { name: 'John Torres', role: 'Seguridad y datos' },
 ];
 const RAIL = ['Concepto', 'Problema', 'Solución', 'Mercado', 'Competencia', 'Modelo de negocio', 'Marketing', 'Tracción', 'Equipo', 'Roadmap', 'Finanzas', 'Estrategia de exit', 'Uso de fondos'];
 // Flujo de caja v2 (millones de CLP): 2026 = inversión.
 const FLOW = { years: ['2026', '2027', '2028', '2029', '2030', '2031'], flow: [-23.7, -25.36, -3.49, 22.29, 38.18, 82.09], ing: [0, 16.8, 66.0, 115.2, 170.4, 249.6] };
 
+const PRESENTA = {
+  portada: 'Felipe', problema: 'Felipe', brecha: 'Felipe', solucion: 'Felipe', demo: 'Felipe',
+  mercado: 'Antonia', competencia: 'Antonia', valor: 'Antonia', marketing: 'Antonia', traccion: 'Antonia',
+  equipo: 'Benjamín', roadmap: 'Benjamín', finanzas: 'Benjamín', fondos: 'Benjamín',
+  cierre: 'Felipe', preguntas: 'Los tres',
+};
 const NOTES = {
   portada: '<b>20 s.</b> Primera frase: «Guía Mayor ayuda a las personas mayores a hacer sus trámites por internet, desde el celular y sin depender de nadie». Después la frase memorable: «es el nieto paciente que siempre contesta».',
   problema: '<b>30 s.</b> Abrir con una historia real del piloto, por ejemplo una señora que sacó su credencial sin pedirle el día libre a su hija. Luego los tres números (<b>1, 2 y 3</b> se responden en la solución) y cerrar con la Ley 21.180: desde fines de 2027 lo digital es la regla.',
   brecha: '<b>30 s.</b> Terminar con el «por qué ahora». «Casi 9 de cada 10 usa smartphone, pero solo 1 de cada 5 usa computador y apenas un tercio hace un trámite sola. La brecha no es el equipo: es la habilidad.» Por eso la solución vive en el celular.',
   solucion: '<b>30 s.</b> Las tres diferencias responden a los tres problemas, con el mismo número. Decir en una frase qué es y qué no es.',
-  demo: '<b>35 s.</b> La animación parte sola y se repite. Los números bajo el celular saltan a cada paso; clic en el celular pausa o sigue; mover el mouse inclina el celular. Narrar: 1) elige su trámite, 2) le pregunta lo justo, 3) la lleva al sitio oficial, 4) si escribe su clave, la app no la envía, 5) trámite listo.',
-  mercado: '<b>25 s.</b> Medimos el mercado en licencias, porque pagan municipios e instituciones. Decir el SAM y la meta 2031.',
+  demo: '<b>35 s.</b> La animación parte sola y se repite. Los números bajo el celular saltan a cada paso; clic en el celular pausa o sigue; mover el mouse inclina el celular. Narrar: 1) elige su trámite, 2) le pregunta lo justo, 3) la lleva al sitio oficial, 4) si escribe su clave, la app no la envía, 5) trámite listo. <b>Relevo:</b> «Antonia les cuenta quién paga y por qué somos mejores.»',
+  mercado: '<b>25 s.</b> Antonia (experiencia de usuario y piloto) toma la palabra. Medimos el mercado en licencias, porque pagan municipios e instituciones. Decir el SAM y la meta 2031.',
   competencia: '<b>30 s.</b> El principal competidor es un familiar: acompaña, pero no siempre está y no siempre detecta una estafa. Somos la única fila con tres ✓.',
   valor: '<b>25 s.</b> «Quien ahorra, paga». Decir los tres números de abajo: 22% de costo directo, $4,7 M de margen por comuna y menos de un año para recuperar lo que cuesta conseguir un cliente.',
   marketing: '<b>25 s.</b> Cuatro pasos, de izquierda a derecha, con su métrica. Leer el mensaje al municipio en voz alta. Cerrar con la activación: 20 de 20.',
-  traccion: '<b>30 s.</b> «Veinte de veinte, en tres trámites reales.» En la simulación del DemoDay era 60%: iteramos y funcionó. Reconocer que falta medir el retorno a 30 días.',
-  equipo: '<b>15 s.</b> Nombres y roles. Nombrar las brechas antes de que pregunten.',
+  traccion: '<b>30 s.</b> «Veinte de veinte, en tres trámites reales.» En la simulación del DemoDay era 60%: iteramos y funcionó. Reconocer que falta medir el retorno a 30 días. <b>Relevo:</b> «Benjamín les muestra el equipo y los números.»',
+  equipo: '<b>15 s.</b> Benjamín (finanzas y alianzas) toma la palabra. Un nombre y su rol por persona: Felipe lidera el proyecto y el producto, Antonia la experiencia de usuario y el piloto, Jorge el desarrollo y la IA, Benjamín las finanzas y las alianzas, John la seguridad y los datos. Nombrar las brechas antes de que pregunten.',
   roadmap: '<b>20 s.</b> Cuatro hitos con su criterio de éxito. El riesgo es la compra pública.',
   finanzas: '<b>35 s.</b> VAN $28,9 M, TIR 30,3%, recuperación en 3,8 años. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo; por eso validamos con un municipio antes de crecer.',
-  fondos: '<b>30 s.</b> $55 M en cuatro partes, hasta la caja positiva en 2029. Salida: venta a una caja de compensación o AFP.',
+  fondos: '<b>30 s.</b> $55 M en cuatro partes, hasta la caja positiva en 2029. Salida: venta a una caja de compensación o AFP. <b>Relevo:</b> «Felipe cierra.»',
   cierre: '<b>15 s.</b> Leer las cuatro ideas en voz alta, pedir los $55 M y abrir preguntas.',
   fuentes: 'Diapositiva de respaldo. Mostrarla solo si la comisión pregunta de dónde sale un dato.',
-  preguntas: 'Abrir solo la pregunta que haga la comisión.',
+  preguntas: 'Abrir solo la pregunta que haga la comisión. <b>Quién responde:</b> datos personales, errores de la IA y tiempo del equipo, Felipe · veinte personas y por qué no cobrarle a la familia, Antonia · pago del municipio, costo por conversación y VAN pesimista, Benjamín.',
 };
 
 // ---------- Navegación ----------
@@ -1292,7 +1299,7 @@ function go(i, fromHash) {
     c.classList.toggle('done', k < first && !on.includes(k));
   });
   rail.style.visibility = cur === 0 ? 'hidden' : 'visible';
-  document.getElementById('notes').innerHTML = `<b>${slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || ''}</b> · ${NOTES[ids[cur]] || ''}`;
+  document.getElementById('notes').innerHTML = `<b>${slides[cur].querySelector('.kicker')?.firstChild?.textContent.trim() || ''}</b>${PRESENTA[ids[cur]] ? ` · <b>Presenta: ${PRESENTA[ids[cur]]}</b>` : ''} · ${NOTES[ids[cur]] || ''}`;
   if (!fromHash) { try { history.replaceState(null, '', '#' + ids[cur]); } catch (e) { /* sin historial */ } }
   if (ids[cur] === 'finanzas') drawChart();
   if (typeof syncVideo === 'function') syncVideo();
@@ -1368,7 +1375,7 @@ document.getElementById('b-time').onclick = toggleTimer;
 
 // ---------- Equipo ----------
 const teamEl = document.getElementById('team');
-function loadRoles() { try { return JSON.parse(localStorage.getItem('gm-roles') || '{}'); } catch (e) { return {}; } }
+function loadRoles() { try { return JSON.parse(localStorage.getItem('gm-roles-v2') || '{}'); } catch (e) { return {}; } }
 const savedRoles = loadRoles();
 TEAM.forEach((m, i) => {
   const ini = m.name.split(' ').map((w) => w[0]).join('').slice(0, 2);
@@ -1383,7 +1390,7 @@ TEAM.forEach((m, i) => {
   rl.addEventListener('blur', () => {
     const v = rl.textContent.trim();
     savedRoles[i] = v;
-    try { localStorage.setItem('gm-roles', JSON.stringify(savedRoles)); } catch (e) { /* sin almacenamiento */ }
+    try { localStorage.setItem('gm-roles-v2', JSON.stringify(savedRoles)); } catch (e) { /* sin almacenamiento */ }
     paint(v);
   });
   rl.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); rl.blur(); } });

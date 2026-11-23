@@ -692,6 +692,85 @@ body.mobile #s-finanzas .kpi .v { font-size: 28px; }
 body.mobile #s-finanzas .kpi .v small { font-size: 16px; }
 body.mobile .kpi.sc2 { grid-column: 1 / -1; }
 body.mobile .kpi.sc2 p b { font-size: 24px; }
+
+/* ---- Marketing: primer cliente (Ñuñoa) ---- */
+.gtm2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; align-content: start; flex: none; }
+.gcard { display: grid; gap: 12px; align-content: start; padding: 22px 26px; }
+.gcard .tag { justify-self: start; font-size: 16px; }
+.gbig { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+.gbig > b { font-family: var(--display); font-weight: 800; font-size: 56px; color: var(--brand); line-height: 1; }
+.gbig > span { font-size: 21px; color: var(--ink-soft); }
+.gbig > span b { color: var(--ink); }
+.hbars { display: grid; gap: 10px; }
+.hb { display: grid; grid-template-columns: 90px 1fr 76px; gap: 14px; align-items: center; }
+.hb .hl { font-size: 19px; font-weight: 700; }
+.hb .ht { height: 26px; background: #e6ece8; border-radius: 8px; overflow: hidden; }
+.hb .ht i { display: block; height: 100%; background: var(--brand); border-radius: 8px; }
+.hb.gray .ht i { background: #9aa6a0; }
+.hb > b { font-family: var(--display); font-size: 28px; font-weight: 800; text-align: right; }
+.gnote { font-size: 19px; line-height: 1.4; color: var(--ink-soft); }
+.gnote b { color: var(--ink); }
+.gsrc { font-style: normal; font-size: 14px; color: var(--ink-soft); }
+.cap { display: grid; gap: 8px; margin-top: 8px; }
+.capt { position: relative; height: 64px; background: repeating-linear-gradient(135deg, #f3e7d6 0 10px, #f8efe2 10px 20px); border: 2px dashed var(--amber); border-radius: 14px; overflow: hidden; }
+.capt i { display: flex; align-items: center; height: 100%; background: var(--brand); border-radius: 12px 0 0 12px; padding-left: 18px; white-space: nowrap; }
+.capt i > span { color: #fff; font-size: 22px; font-weight: 700; font-style: normal; }
+.capt i > span b { font-family: var(--display); font-size: 26px; }
+.capl { display: flex; justify-content: space-between; font-size: 17px; color: var(--ink-soft); }
+.capl b { color: var(--amber); }
+.path4 { list-style: none; counter-reset: p4; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: auto 0 40px; padding: 0; }
+.path4 li { counter-increment: p4; position: relative; align-content: start; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px 18px 14px 64px; display: grid; gap: 6px; }
+.path4 li::before { content: counter(p4); position: absolute; left: 16px; top: 16px; width: 36px; height: 36px; border-radius: 10px; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 18px; }
+.path4 li + li::after { content: "→"; position: absolute; left: -12px; top: 50%; transform: translate(-50%, -50%); color: var(--brand); font-weight: 700; font-size: 22px; }
+.path4 b { font-family: var(--display); font-size: 21px; line-height: 1.15; }
+.path4 li > span { justify-self: start; font-size: 15px; font-weight: 700; color: var(--amber); background: var(--amber-soft); border-radius: 8px; padding: 3px 9px; }
+/* ---- Roadmap: de dónde sale el dinero ---- */
+.ms .fund { justify-self: start; font-size: 18px; font-weight: 700; color: #2f6f8f; background: #e3eef3; border-radius: 10px; padding: 6px 12px; }
+/* ---- Fondos: etapas ---- */
+.stages { display: grid; gap: 14px; margin-top: 22px; align-content: start; }
+.stg { display: grid; grid-template-columns: 250px 1fr; grid-template-rows: auto auto; column-gap: 24px; row-gap: 8px; align-items: center; }
+.stg .sh { grid-row: 1 / span 2; display: flex; gap: 14px; align-items: center; }
+.sno { width: 52px; height: 52px; border-radius: 14px; background: var(--brand); color: #fff; display: grid; place-items: center; font-family: var(--display); font-weight: 800; font-size: 24px; flex: none; }
+.sno.s2 { background: #2f6f8f; }
+.sw b { display: block; font-family: var(--display); font-size: 32px; line-height: 1.05; }
+.sw span { font-size: 17px; color: var(--ink-soft); }
+.sbar { display: flex; height: 58px; border-radius: 14px; overflow: hidden; gap: 2px; }
+.sbar > div { display: flex; align-items: center; padding: 0 14px; color: #fff; font-weight: 700; font-size: 18px; white-space: nowrap; overflow: hidden; }
+.stg .who { font-size: 19px; color: var(--ink-soft); }
+.stg .who b { color: var(--ink); }
+.stg .who .plus { color: var(--brand); font-weight: 800; margin: 0 4px; }
+.gatebar { margin-left: 274px; border-left: 3px dashed var(--amber); padding: 4px 0 4px 16px; font-size: 18px; color: var(--ink-soft); }
+.gatebar b { color: var(--amber); }
+.whyvc { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; margin-top: 8px; }
+.whyvc > span:not(.tag) { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font-size: 18px; }
+.whyvc .tag { font-size: 16px; }
+.exit.slim { padding: 14px 22px; }
+.exit.slim p { font-size: 21px; }
+.slide.on .hb .ht i, .slide.on .capt i, .slide.on .sbar { animation: growW 1.1s cubic-bezier(.22,.9,.3,1) both; }
+.slide.on .hb.gray .ht i { animation-delay: .2s; }
+.slide.on .stg:nth-of-type(3) .sbar { animation-delay: .5s; }
+@media (prefers-reduced-motion: reduce) { .slide.on .hb .ht i, .slide.on .capt i, .slide.on .sbar { animation: none; } }
+body.mobile .gtm2 { grid-template-columns: 1fr; margin-top: 14px; gap: 12px; }
+body.mobile .gcard { padding: 16px; gap: 10px; }
+body.mobile .gbig > b { font-size: 40px; }
+body.mobile .gbig > span, body.mobile .gnote { font-size: 15px; }
+body.mobile .hb { grid-template-columns: 62px 1fr 54px; gap: 8px; }
+body.mobile .hb .hl { font-size: 15px; } body.mobile .hb > b { font-size: 20px; }
+body.mobile .capt { height: 48px; } body.mobile .capt i > span { font-size: 15px; } body.mobile .capt i > span b { font-size: 18px; }
+body.mobile .capl { font-size: 13px; }
+body.mobile .path4 { grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
+body.mobile .path4 li { padding: 12px 12px 10px 56px; }
+body.mobile .path4 li + li::after { display: none; }
+body.mobile .path4 b { font-size: 17px; }
+body.mobile .ms .fund { font-size: 14px; }
+body.mobile .stg { grid-template-columns: 1fr; }
+body.mobile .stg .sh { grid-row: auto; }
+body.mobile .sbar { width: 100% !important; height: auto; flex-direction: column; border-radius: 10px; }
+body.mobile .sbar > div { padding: 8px 12px; font-size: 14px; white-space: normal; flex: none !important; }
+body.mobile .sw b { font-size: 24px; } body.mobile .stg .who { font-size: 15px; }
+body.mobile .gatebar { margin-left: 0; font-size: 15px; }
+body.mobile .whyvc > span:not(.tag) { font-size: 14px; border-radius: 12px; }
+body.mobile .exit.slim p { font-size: 15px; }
 /* ---- Barras que crecen al entrar ---- */
 @keyframes growW { from { width: 0; } }
 @keyframes growY { from { transform: scaleY(0); } }
@@ -892,7 +971,7 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 </section>
 
 <!-- 6 · COMPETENCIA -->
-<section class="slide" id="s-competencia" data-rail="4" data-t="30">
+<section class="slide" id="s-competencia" data-rail="4" data-t="25">
   <div class="kicker">Por qué somos mejores</div>
   <h2 class="split"><span class="em">Somos los únicos que hacemos las tres cosas.</span> <span class="sub">Acompaña en el momento, está hecha para personas mayores y protege de estafas.</span></h2>
   <div class="content">
@@ -930,17 +1009,38 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 </section>
 
 <!-- 7b · MARKETING -->
-<section class="slide" id="s-marketing" data-rail="6" data-t="25">
+<section class="slide" id="s-marketing" data-rail="6" data-t="30">
   <div class="kicker">Cómo llegamos a los clientes</div>
-  <h2 class="split"><span class="em">Entramos por donde ya están las personas mayores.</span> <span class="sub">Mensaje al municipio: «sus vecinos hacen trámites sin filas y sin depender de nadie».</span></h2>
-  <div class="content funnel4">
-    <div class="st"><span class="sn2">1</span><b>Demo en clubes y talleres</b><span class="mt">Demos al mes</span></div>
-    <div class="st"><span class="sn2">2</span><b>Piloto de 3 meses con el municipio</b><span class="mt"><span class="ct">80%</span> sin ayuda</span></div>
-    <div class="st"><span class="sn2">3</span><b>Licencia por Compra Ágil</b><span class="mt">Piloto → licencia</span></div>
-    <div class="st"><span class="sn2">4</span><b>Convenio con caja o AFP</b><span class="mt">Convenios firmados</span></div>
+  <h2 class="split"><span class="em">Primer cliente: Ñuñoa, por Compra Ágil.</span> <span class="sub">Mensaje al municipio: «sus vecinos hacen trámites sin filas y sin depender de nadie».</span></h2>
+  <div class="content gtm2">
+    <div class="card gcard">
+      <span class="tag">Por qué Ñuñoa</span>
+      <div class="gbig num"><b class="ct">35.780</b><span>personas de 65 años o más, el <b class="ct">14,8%</b> de la comuna</span></div>
+      <div class="hbars num">
+        <div class="hb"><span class="hl">Ñuñoa</span><span class="ht"><i style="width:100%"></i></span><b class="ct">114,9</b></div>
+        <div class="hb gray"><span class="hl">Chile</span><span class="ht"><i style="width:68.8%"></i></span><b class="ct">79</b></div>
+      </div>
+      <p class="gnote">Personas mayores por cada 100 menores de 15: tercera comuna más envejecida de la RM.</p>
+      <em class="gsrc">BCN, reporte comunal de Ñuñoa (Censo 2024)</em>
+    </div>
+    <div class="card gcard">
+      <span class="tag">Cómo nos compra</span>
+      <div class="cap num">
+        <div class="capt"><i style="width:82.8%"><span>Licencia anual <b class="ct">$6 M</b></span></i></div>
+        <div class="capl"><span>$0</span><span>Tope Compra Ágil: <b>100 UTM ≈ $7,2 M</b></span></div>
+      </div>
+      <p class="gnote"><b>Sin licitación:</b> el municipio pide 3 cotizaciones y emite la orden de compra.</p>
+      <p class="gnote">El primer llamado es solo para <b>empresas de menor tamaño</b>: competimos con pocos.</p>
+      <em class="gsrc">ChileCompra, Ley 21.634 · UTM de noviembre 2026: $72.440 (SII)</em>
+    </div>
   </div>
-  <p class="punch"><b>Activación:</b> la persona completa su primer trámite. En el piloto, 20 de 20 <small class="isrc">(piloto del equipo, oct–nov 2026)</small>.</p>
-  <div class="foot"><span>Debajo de cada paso: la métrica que medimos</span><span class="pg"></span></div>
+  <ol class="path4">
+    <li><b>Demo en clubes de Ñuñoa</b><span>demos al mes</span></li>
+    <li><b>Piloto pagado por Compra Ágil</b><span><span class="ct">80%</span> sin ayuda</span></li>
+    <li><b>Licencia anual</b><span>renovación</span></li>
+    <li><b>Convenio con caja o AFP</b><span>convenios firmados</span></li>
+  </ol>
+  <div class="foot"><span>Activación: la persona completa su primer trámite (20 de 20 en el piloto) · debajo de cada paso, la métrica que medimos</span><span class="pg"></span></div>
 </section>
 
 <!-- 8 · TRACCIÓN -->
@@ -975,23 +1075,23 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 </section>
 
 <!-- 10 · ROADMAP -->
-<section class="slide" id="s-roadmap" data-rail="9" data-t="20">
+<section class="slide" id="s-roadmap" data-rail="9" data-t="15">
   <div class="kicker">Roadmap</div>
-  <h2 class="split"><span class="em">18 meses para tener clientes que pagan.</span></h2>
+  <h2 class="split"><span class="em">El primer municipio paga en 6 meses.</span> <span class="sub">En 18 meses, también una caja o AFP.</span></h2>
   <div class="content road" style="margin-top:60px">
-    <div class="ms"><span class="pin">1</span><span class="when">Ene – mar 2027</span><h3>Producción y ley de datos</h3><p class="dep">Depende de: cerrar la ronda</p><p class="ok">Éxito: costo por conversación medido</p></div>
-    <div class="ms"><span class="pin">2</span><span class="when">Abr – jun 2027</span><h3>Piloto con un municipio</h3><p class="dep">Depende de: hito 1</p><p class="ok">Éxito: 100 usuarios, 80% sin ayuda</p></div>
-    <div class="ms"><span class="pin">3</span><span class="when">Jul – dic 2027</span><h3>Dos municipios pagando</h3><p class="dep">Depende de: resultados del piloto</p><p class="ok">Éxito: $16,8 M de ingresos</p></div>
-    <div class="ms"><span class="pin">4</span><span class="when">Ene – jun 2028</span><h3>Primera caja o AFP</h3><p class="dep">Depende de: casos municipales</p><p class="ok">Éxito: 2 convenios firmados</p></div>
+    <div class="ms"><span class="pin">1</span><span class="when">Ene – mar 2027</span><h3>Producción y ley de datos</h3><p class="fund">Corfo Semilla Inicia</p><p class="ok">Éxito: costo por conversación medido</p></div>
+    <div class="ms"><span class="pin">2</span><span class="when">Abr – jun 2027</span><h3>Piloto pagado en Ñuñoa</h3><p class="fund">Compra Ágil (100 UTM)</p><p class="ok">Éxito: 100 usuarios, 80% sin ayuda</p></div>
+    <div class="ms"><span class="pin">3</span><span class="when">Jul – dic 2027</span><h3>Dos municipios pagando</h3><p class="fund">Ronda con Platanus</p><p class="ok">Éxito: $16,8 M de ingresos</p></div>
+    <div class="ms"><span class="pin">4</span><span class="when">Ene – jun 2028</span><h3>Primera caja o AFP</h3><p class="fund">Convenio institucional</p><p class="ok">Éxito: 2 convenios firmados</p></div>
   </div>
-  <p class="punch">Riesgo principal: la compra pública es lenta. Empezamos con un convenio de colaboración.</p>
-  <div class="foot"><span>Guía Mayor · Solemne 3</span><span class="pg"></span></div>
+  <p class="punch">Riesgo principal: la compra pública es lenta. Por eso partimos con Compra Ágil, sin licitación.</p>
+  <div class="foot"><span>En verde claro: de dónde sale el dinero de cada hito · cada hito depende del anterior</span><span class="pg"></span></div>
 </section>
 
 <!-- 11 · FINANZAS -->
 <section class="slide" id="s-finanzas" data-rail="10" data-t="35">
   <div class="kicker">Finanzas</div>
-  <h2 class="split"><span class="em">Recuperamos la inversión en <span class="nw"><span class="ct">3,8</span> años.</span></span> <span class="sub">VAN de <span class="nw">$<span class="ct">28,9</span> M</span> y TIR de <span class="nw"><span class="ct">30,3</span>%</span>, con una tasa de 15%.</span></h2>
+  <h2 class="split"><span class="em">Recuperamos la inversión en <span class="nw"><span class="ct">3,8</span> años.</span></span> <span class="sub">Partimos con <span class="nw">$<span class="ct">23,7</span> M</span>. VAN de <span class="nw">$<span class="ct">28,9</span> M</span> y TIR de <span class="nw"><span class="ct">30,3</span>%</span>, con una tasa de 15%.</span></h2>
   <div class="content fin">
     <div class="card" style="padding:16px 20px">
       <div class="legend"><span><i style="background:var(--pos)"></i>Flujo positivo</span><span><i style="background:var(--neg)"></i>Flujo negativo</span><span><i class="line"></i>Acumulado</span><span style="margin-left:auto">Millones de CLP</span></div>
@@ -1008,28 +1108,30 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 </section>
 
 <!-- 12 · INVERSIÓN: USO DE FONDOS Y EXIT -->
-<section class="slide" id="s-fondos" data-rail="11 12" data-t="30">
+<section class="slide" id="s-fondos" data-rail="11 12" data-t="35">
   <div class="kicker">La inversión</div>
-  <h2 class="split"><span class="em">Buscamos <span class="nw">$<span class="ct">55</span> M.</span></span> <span class="sub">Nos llevan hasta la caja positiva en 2029.</span></h2>
-  <div class="content" style="display:grid; gap: 26px; align-content:start">
-    <div class="alloc num">
-      <div style="flex:17.7; background:var(--brand)"><span class="ct">$17,7 M · Producto y lanzamiento</span></div>
-      <div style="flex:6; background:var(--pos)"><span class="ct">$6 M · Capital de trabajo</span></div>
-      <div style="flex:28.9; background:#2f6f8f"><span class="ct">$28,9 M · Operación 2027–2028</span></div>
-      <div style="flex:2.4; background:#8a958f"><span class="ct">$2,4 M</span></div>
+  <h2 class="split"><span class="em">Partimos con <span class="nw">$<span class="ct">23,7</span> M.</span></span> <span class="sub">El resto llega con Ñuñoa ya pagando. Las ventas devuelven todo en 3,8 años.</span></h2>
+  <div class="content stages">
+    <div class="stg">
+      <div class="sh"><span class="sno">1</span><div class="sw"><b>Partir</b><span>dic 2026 – jun 2027</span></div></div>
+      <div class="sbar num" style="width:75.7%"><div style="flex:17.7; background:var(--brand)"><span class="ct">$17,7 M · Producto y lanzamiento</span></div><div style="flex:6; background:var(--pos)"><span class="ct">$6 M · Capital de trabajo</span></div></div>
+      <div class="who"><b>Corfo Semilla Inicia</b> $15 M (75%) <span class="plus">+</span> <b>equipo</b> $8,7 M</div>
     </div>
-    <div class="runway num">
-      <div><b class="ct">$52,6 M</b><span>mayor necesidad de caja (2028)</span></div>
-      <div><b><span class="ct">4</span> hitos</b><span>del roadmap financiados</span></div>
-      <div><b>2029</b><span>primer año con caja positiva</span></div>
+    <div class="gatebar"><span>Condición para la etapa 2: <b>Ñuñoa pagando</b></span></div>
+    <div class="stg">
+      <div class="sh"><span class="sno s2">2</span><div class="sw"><b>Crecer</b><span>jul 2027 – 2028</span></div></div>
+      <div class="sbar num" style="width:100%"><div style="flex:28.9; background:#2f6f8f"><span class="ct">$28,9 M · Operación 2027–2028</span></div><div style="flex:2.4; background:#8a958f"><span class="ct">$2,4 M</span></div></div>
+      <div class="who"><b>Platanus Ventures</b>, ronda pre-semilla</div>
     </div>
-    <div class="exit">
-      <span class="tag">Salida</span>
-      <div><p>Venta en 2031–2032 a 2–3 veces los ingresos: <b class="num ct">$500 M a $750 M</b>.</p>
-      <p class="buyers">Compradores: <b>cajas de compensación o AFP</b>, que quieren un canal digital con sus 1,4 millones de pensionados (Cajas de Chile, 2024) · <b>empresas de software municipal</b>, que lo suman a su catálogo · <b>bancos</b>, que necesitan proteger a sus clientes mayores.</p></div>
+    <div class="whyvc">
+      <span class="tag">Por qué Platanus</span>
+      <span>Invierte en pre-semilla con fundadores técnicos: somos 5 ingenieros.</span>
+      <span>US$200 mil por 7%, con 3 meses de mentoría.</span>
+      <span>Su red de inversionistas abre la ronda siguiente.</span>
     </div>
+    <div class="exit slim"><span class="tag">Salida</span><p>Venta en 2031–2032 a una caja, AFP, banco o software municipal: <b class="num ct">$500 M a $750 M</b> (2–3 veces los ingresos).</p></div>
   </div>
-  <div class="foot"><span>Fuente: modelo financiero del equipo · reserva de $2,4 M para atrasos de compras públicas · múltiplo de salida: supuesto del equipo</span><span class="pg"></span></div>
+  <div class="foot"><span>Fuentes: modelo financiero del equipo (total $55 M; reserva de $2,4 M por atrasos de compras públicas) · Corfo vía ChileAtiende · Platanus vía DF (2026)</span><span class="pg"></span></div>
 </section>
 
 <!-- 13 · CIERRE -->
@@ -1111,7 +1213,7 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
         <li><span><b>20 de 20</b> lo lograron con Guía Mayor.</span></li>
         <li><span>Pagan <b>quienes ahorran</b>: municipios e instituciones.</span></li>
       </ol>
-      <p class="ask">Buscamos <b>$55 M</b> para llevarlo a sus comunas.</p>
+      <p class="ask">Pedimos <b>$23,7 M</b> para partir y <b>una reunión con la Municipalidad de Ñuñoa</b>.</p>
       <p class="thanks">Gracias. ¿Preguntas?</p>
     </div>
   </div>
@@ -1122,7 +1224,7 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
 <section class="slide" id="s-fuentes" data-rail="" data-t="0">
   <div class="kicker">Fuentes</div>
   <h2 class="split" style="font-size:44px"><span class="em">De dónde sale cada número.</span></h2>
-  <ol class="refs"><li><span class="rn">[1]</span><span>INE y Senama (29-09-2026). <i>Envejecimiento y situación de las personas mayores en Chile según el Censo 2024</i>. 3.665.028 personas de 60+ (19,8%); 26,4% proyectado en 2035. <em>ine.gob.cl</em></span></li><li><span class="rn">[2]</span><span>Ley 21.180 de Transformación Digital del Estado (2019) y Ley 21.464 (2022), que fija el plazo final al 31-12-2027. Biblioteca del Congreso Nacional y Secretaría de Gobierno Digital. <em>bcn.cl/leychile · wikiguias.digital.gob.cl</em></span></li><li><span class="rn">[3]</span><span>Subtel (2025). Convenio Segegob–Subtel–Senama para la inclusión digital de personas mayores: solo 36% sabe hacer un trámite digital de forma autónoma. <em>subtel.gob.cl (reproducido en dplnews.com)</em></span></li><li><span class="rn">[4]</span><span>Observatorio del Envejecimiento UC–Confuturo (2024). <i>Población mayor: ¿hacia la superación de la brecha digital?</i>, con datos de la Encuesta Calidad de Vida en la Vejez 2022: 21% califica sus habilidades de internet sobre 6 (escala 1–7). <em>observatorioenvejecimiento.uc.cl</em></span></li><li><span class="rn">[5]</span><span>Fundación VTR (2023). <i>Radiografía Digital de Personas Mayores</i>, presentada con MTT, Subtel y Senama: 36% fue víctima de fraude o estafa digital. <em>portalinnova.cl</em></span></li><li><span class="rn">[6]</span><span>Subtel (nov. 2025). <i>Duodécima Encuesta sobre acceso, usos y usuarios de Internet en Chile</i>. Personas de 60+: 86,6% usa smartphone (total 95,7%); 20,5% usó computador la última semana (total 49,6%). <em>subtel.gob.cl</em></span></li><li><span class="rn">[7]</span><span>UC–Caja Los Andes (2023). <i>Sexta Encuesta Calidad de Vida en la Vejez 2022</i>, cap. 4: 23% hace trámites por internet; 5% o menos entre los de 80+. <em>encuestacalidaddevidaenlavejez.uc.cl</em></span></li><li><span class="rn">[8]</span><span>Municipalidades y comunas: 345 municipalidades (346 comunas); RM 52, Valparaíso 38 y Biobío 33 comunas. <em>uchile.cl · OCDE, perfiles regionales</em></span></li><li><span class="rn">[9]</span><span>Cajas de Chile A.G. (enero 2024). Boletín: 4 cajas de compensación; 1.420.413 pensionados afiliados. <em>cajasdechile.cl</em></span></li><li><span class="rn">[10]</span><span>AFP vigentes en 2026: Capital, Cuprum, Habitat, Modelo, PlanVital, Provida y Uno. <em>spensiones.cl (vía Meganoticias, nov. 2026)</em></span></li><li><span class="rn">[11]</span><span>CMF: 16 bancos operando en Chile a marzo de 2026. <em>cmfchile.cl (vía Rankia, 2026)</em></span></li><li><span class="rn">[12]</span><span>Guía Mayor: piloto con 20 personas mayores, octubre y noviembre de 2026 (credencial de discapacidad, licencias médicas y AFP). Simulación del DemoDay, Solemne 2. <em>Registro del equipo</em></span></li><li><span class="rn">[13]</span><span>Guía Mayor: modelo financiero <i>Flujo_de_caja_Guia_Mayor_v2.xlsx</i>. Precios, volúmenes, costos, VAN, TIR, escenarios y uso de fondos. <em>Archivo del equipo</em></span></li><li><span class="rn">[14]</span><span>Competencia: términos del asistente virtual de ChileAtiende; Manual de Uso Tecnológico de Senama; Programa 60+ Digital (UC, Coopeuch y Conecta Mayor). <em>chileatiende.gob.cl · senama.gob.cl · uc.cl</em></span></li></ol>
+  <ol class="refs"><li><span class="rn">[1]</span><span>INE y Senama (29-09-2026). <i>Envejecimiento y situación de las personas mayores en Chile según el Censo 2024</i>. 3.665.028 personas de 60+ (19,8%); 26,4% proyectado en 2035. <em>ine.gob.cl</em></span></li><li><span class="rn">[2]</span><span>Ley 21.180 de Transformación Digital del Estado (2019) y Ley 21.464 (2022), que fija el plazo final al 31-12-2027. Biblioteca del Congreso Nacional y Secretaría de Gobierno Digital. <em>bcn.cl/leychile · wikiguias.digital.gob.cl</em></span></li><li><span class="rn">[3]</span><span>Subtel (2025). Convenio Segegob–Subtel–Senama para la inclusión digital de personas mayores: solo 36% sabe hacer un trámite digital de forma autónoma. <em>subtel.gob.cl (reproducido en dplnews.com)</em></span></li><li><span class="rn">[4]</span><span>Observatorio del Envejecimiento UC–Confuturo (2024). <i>Población mayor: ¿hacia la superación de la brecha digital?</i>, con datos de la Encuesta Calidad de Vida en la Vejez 2022: 21% califica sus habilidades de internet sobre 6 (escala 1–7). <em>observatorioenvejecimiento.uc.cl</em></span></li><li><span class="rn">[5]</span><span>Fundación VTR (2023). <i>Radiografía Digital de Personas Mayores</i>, presentada con MTT, Subtel y Senama: 36% fue víctima de fraude o estafa digital. <em>portalinnova.cl</em></span></li><li><span class="rn">[6]</span><span>Subtel (nov. 2025). <i>Duodécima Encuesta sobre acceso, usos y usuarios de Internet en Chile</i>. Personas de 60+: 86,6% usa smartphone (total 95,7%); 20,5% usó computador la última semana (total 49,6%). <em>subtel.gob.cl</em></span></li><li><span class="rn">[7]</span><span>UC–Caja Los Andes (2023). <i>Sexta Encuesta Calidad de Vida en la Vejez 2022</i>, cap. 4: 23% hace trámites por internet; 5% o menos entre los de 80+. <em>encuestacalidaddevidaenlavejez.uc.cl</em></span></li><li><span class="rn">[8]</span><span>Municipalidades y comunas: 345 municipalidades (346 comunas); RM 52, Valparaíso 38 y Biobío 33 comunas. <em>uchile.cl · OCDE, perfiles regionales</em></span></li><li><span class="rn">[9]</span><span>Cajas de Chile A.G. (enero 2024). Boletín: 4 cajas de compensación; 1.420.413 pensionados afiliados. <em>cajasdechile.cl</em></span></li><li><span class="rn">[10]</span><span>AFP vigentes en 2026: Capital, Cuprum, Habitat, Modelo, PlanVital, Provida y Uno. <em>spensiones.cl (vía Meganoticias, nov. 2026)</em></span></li><li><span class="rn">[11]</span><span>CMF: 16 bancos operando en Chile a marzo de 2026. <em>cmfchile.cl (vía Rankia, 2026)</em></span></li><li><span class="rn">[12]</span><span>Guía Mayor: piloto con 20 personas mayores, octubre y noviembre de 2026 (credencial de discapacidad, licencias médicas y AFP). Simulación del DemoDay, Solemne 2. <em>Registro del equipo</em></span></li><li><span class="rn">[13]</span><span>Guía Mayor: modelo financiero <i>Flujo_de_caja_Guia_Mayor_v2.xlsx</i>. Precios, volúmenes, costos, VAN, TIR, escenarios y uso de fondos. <em>Archivo del equipo</em></span></li><li><span class="rn">[14]</span><span>Competencia: términos del asistente virtual de ChileAtiende; Manual de Uso Tecnológico de Senama; Programa 60+ Digital (UC, Coopeuch y Conecta Mayor). <em>chileatiende.gob.cl · senama.gob.cl · uc.cl</em></span></li><li><span class="rn">[15]</span><span>BCN, reporte comunal de Ñuñoa 2025 (Censo 2024): 241.467 habitantes; 35.780 de 65+ (14,8%); índice de adultos mayores 114,9 (Chile: 79). <em>bcn.cl/siit</em></span></li><li><span class="rn">[16]</span><span>ChileCompra: desde el 12-12-2024 la Compra Ágil sube de 30 a 100 UTM (Ley 21.634), con al menos 3 cotizaciones y prioridad a empresas de menor tamaño. UTM de noviembre 2026: $72.440. <em>chilecompra.cl · sii.cl</em></span></li><li><span class="rn">[17]</span><span>Corfo, Semilla Inicia: hasta 75% del proyecto con tope de $15 M (85% y $17 M si es liderada por mujeres), para emprendimientos sin ventas. <em>chileatiende.gob.cl</em></span></li><li><span class="rn">[18]</span><span>Platanus Ventures: US$200 mil por 7% (SAFE), 3 meses de programa y al menos un fundador técnico (convocatorias 2026). <em>df.cl · ecosistemastartup.com</em></span></li></ol>
   <div class="foot"><span>Detalle completo de cada fuente citada en la presentación</span><span class="pg"></span></div>
 </section>
 
@@ -1141,6 +1243,8 @@ body.mobile .kpi.sc2 p b { font-size: 24px; }
       <details><summary>¿Cuánto cuesta cada conversación?</summary><p>Lo medimos en el hito 1 con un límite de gasto mensual. El flujo reserva 22% de los ingresos para costos directos, que incluye la IA.</p></details>
       <details><summary>¿El VAN es negativo en el escenario pesimista?</summary><p>Sí: con 30% menos volumen el VAN es −$38,2 M. El proyecto se sostiene si la demanda no cae más de 13%; por eso validamos con un municipio antes de contratar más equipo.</p></details>
       <details><summary>¿Cuánto tiempo dedica el equipo?</summary><p>El flujo considera dos desarrolladores fundadores con sueldo desde 2027, ejecutivo comercial desde 2028 y soporte desde 2029.</p></details>
+      <details><summary>¿Por qué Platanus, si invierte más de lo que piden?</summary><p>Su monto es fijo: US$200 mil por 7%. Cubre la etapa 2 ($31,3 M) y nos deja adelantar el ejecutivo comercial. Lo elegimos por su foco en fundadores técnicos y su red para la ronda siguiente.</p></details>
+      <details><summary>¿Y si no ganan el Corfo?</summary><p>Plan B: Start-Up Chile Build, de Corfo, con $15 M sin ceder participación. Mientras tanto partimos con el capital de trabajo y la primera Compra Ágil en Ñuñoa.</p></details>
     </div>
   </div>
   <div class="foot"><span>Anexo</span><span class="pg"></span></div>
@@ -1191,17 +1295,17 @@ const NOTES = {
   solucion: '<b>30 s.</b> Las tres diferencias responden a los tres problemas, con el mismo número. Decir en una frase qué es y qué no es.',
   demo: '<b>35 s.</b> La animación parte sola y se repite. Los números bajo el celular saltan a cada paso; clic en el celular pausa o sigue; mover el mouse inclina el celular. Narrar: 1) elige su trámite, 2) le pregunta lo justo, 3) la lleva al sitio oficial, 4) si escribe su clave, la app no la envía, 5) trámite listo. <b>Relevo:</b> «Antonia les cuenta quién paga y por qué somos mejores.»',
   mercado: '<b>25 s.</b> Antonia (experiencia de usuario y piloto) toma la palabra. Medimos el mercado en licencias, porque pagan municipios e instituciones. Decir el SAM y la meta 2031.',
-  competencia: '<b>30 s.</b> El principal competidor es un familiar: acompaña, pero no siempre está y no siempre detecta una estafa. Somos la única fila con tres ✓.',
+  competencia: '<b>25 s.</b> El principal competidor es un familiar: acompaña, pero no siempre está y no siempre detecta una estafa. Somos la única fila con tres ✓.',
   valor: '<b>25 s.</b> «Quien ahorra, paga». Decir los tres números de abajo: 22% de costo directo, $4,7 M de margen por comuna y menos de un año para recuperar lo que cuesta conseguir un cliente.',
-  marketing: '<b>25 s.</b> Cuatro pasos, de izquierda a derecha, con su métrica. Leer el mensaje al municipio en voz alta. Cerrar con la activación: 20 de 20.',
+  marketing: '<b>30 s.</b> El primer cliente es Ñuñoa: tercera comuna más envejecida de la RM, con 35.780 personas de 65+. Nuestra licencia anual ($6 M) cabe bajo el tope de la Compra Ágil (100 UTM ≈ $7,2 M): el municipio compra sin licitación, con 3 cotizaciones. Luego, los cuatro pasos con su métrica.',
   traccion: '<b>30 s.</b> «Veinte de veinte, en tres trámites reales.» En la simulación del DemoDay era 60%: iteramos y funcionó. Reconocer que falta medir el retorno a 30 días. <b>Relevo:</b> «Benjamín les muestra el equipo y los números.»',
   equipo: '<b>15 s.</b> Benjamín (finanzas y alianzas) toma la palabra. Un nombre y su rol por persona: Felipe lidera el proyecto y el producto, Antonia la experiencia de usuario y el piloto, Jorge el desarrollo y la IA, Benjamín las finanzas y las alianzas, John la seguridad y los datos. Nombrar las brechas antes de que pregunten.',
-  roadmap: '<b>20 s.</b> Cuatro hitos con su criterio de éxito. El riesgo es la compra pública.',
-  finanzas: '<b>35 s.</b> VAN $28,9 M, TIR 30,3%, recuperación en 3,8 años. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo; por eso validamos con un municipio antes de crecer.',
-  fondos: '<b>30 s.</b> $55 M en cuatro partes, hasta la caja positiva en 2029. Salida: venta a una caja de compensación o AFP. <b>Relevo:</b> «Felipe cierra.»',
-  cierre: '<b>15 s.</b> Leer las cuatro ideas en voz alta, pedir los $55 M y abrir preguntas.',
+  roadmap: '<b>15 s.</b> Cuatro hitos; bajo cada uno, de dónde sale el dinero: Corfo, Compra Ágil en Ñuñoa, ronda con Platanus y convenio institucional. El riesgo es la compra pública lenta; por eso partimos con Compra Ágil.',
+  finanzas: '<b>35 s.</b> Partimos con $23,7 M y las ventas lo devuelven en 3,8 años. VAN $28,9 M, TIR 30,3%. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo; por eso validamos con Ñuñoa antes de crecer.',
+  fondos: '<b>35 s.</b> Dos etapas. Partir: $23,7 M con Corfo Semilla Inicia ($15 M) y el equipo ($8,7 M, de los cuales $6,1 M ya están puestos en notebooks y el piloto). Crecer: $31,3 M con Platanus, solo cuando Ñuñoa ya pague. Si Corfo no abre a tiempo: Start-Up Chile Build ($15 M sin ceder participación). Salida en 2031–2032. <b>Relevo:</b> «Felipe cierra.»',
+  cierre: '<b>15 s.</b> Leer las cuatro ideas y pedir: $23,7 M para partir y una reunión con la Municipalidad de Ñuñoa. Abrir preguntas.',
   fuentes: 'Diapositiva de respaldo. Mostrarla solo si la comisión pregunta de dónde sale un dato.',
-  preguntas: 'Abrir solo la pregunta que haga la comisión. <b>Quién responde:</b> datos personales, errores de la IA y tiempo del equipo, Felipe · veinte personas y por qué no cobrarle a la familia, Antonia · pago del municipio, costo por conversación y VAN pesimista, Benjamín.',
+  preguntas: 'Abrir solo la pregunta que haga la comisión. <b>Quién responde:</b> datos personales, errores de la IA y tiempo del equipo, Felipe · veinte personas y por qué no cobrarle a la familia, Antonia · pago del municipio, costo por conversación, VAN pesimista, Platanus y Corfo, Benjamín.',
 };
 
 // ---------- Navegación ----------

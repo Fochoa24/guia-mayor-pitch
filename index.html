@@ -774,6 +774,22 @@ body.mobile .sw b { font-size: 24px; } body.mobile .stg .who { font-size: 15px; 
 body.mobile .gatebar { margin-left: 0; font-size: 15px; }
 body.mobile .whyvc > span:not(.tag) { font-size: 14px; border-radius: 12px; }
 body.mobile .exit.slim p { font-size: 15px; }
+
+/* ---- Finanzas: costos mensuales ---- */
+.costm { display: grid; gap: 8px; }
+.costm .l b { color: var(--ink); }
+.cm { display: grid; grid-template-columns: 76px 1fr 44px; gap: 10px; align-items: center; }
+.cm .cl { font-size: 15px; font-weight: 700; }
+.cm > b { font-family: var(--display); font-size: 22px; font-weight: 800; text-align: right; }
+.cb2 { display: flex; height: 28px; gap: 2px; border-radius: 8px; overflow: hidden; }
+.cb2 i { display: flex; align-items: center; padding-left: 8px; color: #fff; font-style: normal; font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; }
+.ck { display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: 12.5px; color: var(--ink-soft); }
+.ck i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 5px; vertical-align: -1px; }
+.closs { font-size: 15px; color: var(--ink-soft); }
+.closs b { color: var(--neg); font-family: var(--display); font-size: 19px; }
+.slide.on .cb2 { animation: growW 1.1s cubic-bezier(.22,.9,.3,1) both; }
+.slide.on .cm + .cm .cb2 { animation-delay: .25s; }
+body.mobile .kpi.costm { grid-column: 1 / -1; }
 /* ---- Barras que crecen al entrar ---- */
 @keyframes growW { from { width: 0; } }
 @keyframes growY { from { transform: scaleY(0); } }
@@ -1091,7 +1107,7 @@ body.mobile .exit.slim p { font-size: 15px; }
 </section>
 
 <!-- 11 · FINANZAS -->
-<section class="slide" id="s-finanzas" data-rail="10" data-t="35">
+<section class="slide" id="s-finanzas" data-rail="10" data-t="45">
   <div class="kicker">Finanzas</div>
   <h2 class="split"><span class="em">Recuperamos la inversión en <span class="nw"><span class="ct">3,8</span> años.</span></span> <span class="sub">Partimos con <span class="nw">$<span class="ct">23,7</span> M</span>. VAN de <span class="nw">$<span class="ct">28,9</span> M</span> y TIR de <span class="nw"><span class="ct">30,3</span>%</span>, con una tasa de 15%.</span></h2>
   <div class="content fin">
@@ -1100,8 +1116,13 @@ body.mobile .exit.slim p { font-size: 15px; }
       <div id="chart"><div id="tip"></div></div>
     </div>
     <div class="kcol">
-      <div class="kpi"><div class="v num ct">$23,7 M</div><div class="l">Inversión inicial (2026)</div></div>
-      <div class="kpi"><div class="v num"><span class="nw">−$<span class="ct">2,1</span> M</span><small>/mes</small></div><div class="l">Quema en 2027 · caja positiva en 2029</div></div>
+      <div class="kpi costm">
+        <div class="l"><b>Cada mes en 2027</b> (millones de CLP)</div>
+        <div class="cm"><span class="cl">Costos</span><div class="cb2" style="width:100%"><i style="flex:2.4;background:var(--brand)" title="Sueldos: 2 fundadores">Sueldos 2,4</i><i style="flex:.6;background:#5b7f73">Fijos 0,6</i><i style="flex:.3;background:#2f6f8f">IA</i><i style="flex:.2;background:#9aa6a0"></i></div><b class="ct">3,5</b></div>
+        <div class="cm"><span class="cl">Ingresos</span><div class="cb2" style="width:40%"><i style="flex:1;background:var(--pos)"></i></div><b class="ct">1,4</b></div>
+        <div class="ck"><span><i style="background:var(--brand)"></i>Sueldos (2 fundadores)</span><span><i style="background:#5b7f73"></i>Oficina, contador, abogado</span><span><i style="background:#2f6f8f"></i>IA y hosting 0,3</span><span><i style="background:#9aa6a0"></i>Marketing 0,2</span></div>
+        <div class="closs">Perdemos <b class="nw">−$<span class="ct">2,1</span> M</b> al mes; caja positiva en 2029.</div>
+      </div>
       <div class="kpi warn"><div class="v num ct">−13%</div><div class="l">Caída de demanda que aguanta con VAN positivo</div></div>
       <div class="kpi sc2 num"><div class="l">Escenarios de demanda (VAN)</div><p><span>−30%</span><b class="neg ct">−$38 M</b><span>+20%</span><b class="ct">$71 M</b></p></div>
     </div>
@@ -1117,7 +1138,7 @@ body.mobile .exit.slim p { font-size: 15px; }
     <div class="stg">
       <div class="sh"><span class="sno">1</span><div class="sw"><b>Partir</b><span>dic 2026 – jun 2027</span></div></div>
       <div class="sbar num" style="width:75.7%"><div style="flex:17.7; background:var(--brand)"><span class="ct">$17,7 M · Producto y lanzamiento</span></div><div style="flex:6; background:var(--pos)"><span class="ct">$6 M · Capital de trabajo</span></div></div>
-      <div class="who"><b>Corfo Semilla Inicia</b> $15 M (75%) <span class="plus">+</span> <b>equipo</b> $8,7 M</div>
+      <div class="who"><b>Ya puestos</b> $6,1 M (piloto y notebooks) <span class="plus">+</span> <b>Corfo Semilla Inicia</b> $15 M <span class="plus">+</span> <b>faltan</b> $2,6 M</div>
     </div>
     <div class="gatebar"><span>Condición para la etapa 2: <b>Ñuñoa pagando</b></span></div>
     <div class="stg">
@@ -1284,8 +1305,8 @@ const NOTES = {
   traccion: '<b>30 s.</b> «Veinte de veinte, en tres trámites reales.» En la simulación del DemoDay era 60%: iteramos y funcionó. Reconocer que falta medir el retorno a 30 días. <b>Relevo:</b> «Benjamín les muestra el equipo y los números.»',
   equipo: '<b>15 s.</b> Benjamín (finanzas y alianzas) toma la palabra. Un nombre y su rol por persona: Felipe lidera el proyecto y el producto, Antonia la experiencia de usuario y el piloto, Jorge el desarrollo y la IA, Benjamín las finanzas y las alianzas, John la seguridad y los datos. Nombrar las brechas antes de que pregunten.',
   roadmap: '<b>15 s.</b> Cuatro hitos; bajo cada uno, de dónde sale el dinero: Corfo, Compra Ágil en Ñuñoa, ronda con Platanus y convenio institucional. El riesgo es la compra pública lenta; por eso partimos con Compra Ágil.',
-  finanzas: '<b>35 s.</b> Partimos con $23,7 M y las ventas lo devuelven en 3,8 años. VAN $28,9 M, TIR 30,3%. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo; por eso validamos con Ñuñoa antes de crecer.',
-  fondos: '<b>35 s.</b> Dos etapas. Partir: $23,7 M con Corfo Semilla Inicia ($15 M) y el equipo ($8,7 M, de los cuales $6,1 M ya están puestos en notebooks y el piloto). Crecer: $31,3 M con Platanus, solo cuando Ñuñoa ya pague. Si Corfo no abre a tiempo: Start-Up Chile Build ($15 M sin ceder participación). Salida en 2031–2032. <b>Relevo:</b> «Felipe cierra.»',
+  finanzas: '<b>45 s.</b> Partimos con $23,7 M y las ventas lo devuelven en 3,8 años. <b>Costos:</b> en 2027 gastamos $3,5 M al mes: $2,4 M son los sueldos de dos fundadores, $0,6 M oficina, contador y abogado, $0,3 M IA y hosting y $0,2 M marketing. Entran $1,4 M, así que perdemos $2,1 M al mes hasta 2029. VAN $28,9 M, TIR 30,3%. <b>Adelantarse:</b> si la demanda cae más de 13% el VAN es negativo.',
+  fondos: '<b>35 s.</b> De los $23,7 M, $6,1 M ya los pusimos (piloto y notebooks). Lo nuevo son $17,6 M, casi todo sueldos: dos personas tres meses dejando la app lista para un municipio. Corfo Semilla Inicia cubre $15 M; faltan $2,6 M. Semilla no entrega plata libre: paga contra el presupuesto que presentamos. Etapa 2 ($31,3 M) con Platanus solo con Ñuñoa pagando. <b>Relevo:</b> «Felipe cierra.»',
   cierre: '<b>15 s.</b> Leer las cuatro ideas y pedir: $23,7 M para partir y una reunión con la Municipalidad de Ñuñoa. Abrir preguntas.',
   fuentes: 'Diapositiva de respaldo. Mostrarla solo si la comisión pregunta de dónde sale un dato.',
   preguntas: 'Abrir solo la pregunta que haga la comisión. <b>Quién responde:</b> datos personales, errores de la IA y tiempo del equipo, Felipe · veinte personas y por qué no cobrarle a la familia, Antonia · pago del municipio, costo por conversación, VAN pesimista, Platanus y Corfo, Benjamín.',
